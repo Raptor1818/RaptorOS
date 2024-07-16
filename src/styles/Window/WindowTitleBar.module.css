@@ -1,0 +1,10 @@
+@tailwind components;
+@tailwind utilities;
+
+.titleBarContainer{
+  @apply w-full bg-green-500 p-1 flex flex-row justify-between items-center select-none ;
+}
+
+.closeButton{
+  @apply border cursor-pointer z-10 w-fit px-2 bg-red-500;
+}
