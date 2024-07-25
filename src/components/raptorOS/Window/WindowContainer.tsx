@@ -35,7 +35,7 @@ const WindowContainer = () => {
   };
 
   return (
-    <div>
+    <div className='z-10 absolute'>
       {windows.map(window => (
         <AppWindow
           key={window.id}

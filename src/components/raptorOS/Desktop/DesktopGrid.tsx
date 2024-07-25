@@ -4,7 +4,7 @@ interface Props {}
 
 const DesktopGrid = (props: Props) => {
   return (
-    <div className='bg-white w-screen h-screen'>
+    <div className='bg-white w-screen h-screen z-[0] fixed'>
     </div>
   )
 }

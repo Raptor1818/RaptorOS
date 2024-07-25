@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
 
 import css from '@/styles/Window/AppWindow.module.css'
+import useWindowDimensions from './useWindowDimensions';
 
 interface Props {
   id: string;
@@ -17,6 +18,7 @@ interface Props {
 const AppWindow = (props: Props) => {
   const { id, title, children, zIndex, onClose, onFocus } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const { height, width } = useWindowDimensions();
 
   const closeWindow = () => {
     if (containerRef.current) {
@@ -39,6 +41,12 @@ const AppWindow = (props: Props) => {
     <Draggable 
       handle="#handler"
       onMouseDown={onFocus}
+      defaultPosition={{x: width / 2.5, y: height / 3}}
+      bounds={{
+        top: 0,
+        bottom: height - 64
+      }}
+
     >
       <div
         id={id}
