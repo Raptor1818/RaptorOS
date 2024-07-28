@@ -8,7 +8,7 @@ const Desktop = (props: Props) => {
   return (
     <div>
       <DesktopGrid />
-      <div className={css.backgroundContainer}></div>
+      <div className={css.backgroundContainer} />
     </div>
   )
 }
