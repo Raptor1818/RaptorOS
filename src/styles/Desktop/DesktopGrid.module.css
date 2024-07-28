@@ -2,7 +2,7 @@
 @tailwind utilities;
 
 .desktopGridContainer{
-  @apply bg-transparent w-screen z-[0];
+  @apply bg-transparent w-screen;
   contain: strict;
 
   display: grid;

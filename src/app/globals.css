@@ -32,16 +32,3 @@ body {
   }
 }
 
-.truncate-multiline {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.parent:focus-within .truncate-multiline {
-  display: block;
-  -webkit-line-clamp: unset;
-  overflow: visible;
-  z-index: 10; /* Ensure it comes on top */
-}

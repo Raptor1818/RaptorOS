@@ -1,16 +1,16 @@
 import React from 'react'
-import PlaceholderDesktopIcon from '../dev/PlaceholderDesktopIcon'
 import css from '@/styles/Desktop/DesktopGrid.module.css'
+import DesktopItem from './DesktopItem'
 
 interface Props {}
 
 const DesktopGrid = (props: Props) => {
   return (
     <div className={css.desktopGridContainer}>
-      <PlaceholderDesktopIcon iconText='Testy' isShortcut={false} />
-      <PlaceholderDesktopIcon iconText='Ciao bel ciao bel ciao bel Ciao bel ciao bel ciao bel' isShortcut={true} />
-      <PlaceholderDesktopIcon iconText='My Computer' isShortcut={true} />
-      <PlaceholderDesktopIcon iconText='God of War' isShortcut={false} />
+      <DesktopItem itemText='ciac iaica icciaci ggg ggg g g' isShortcut={true} />
+      <DesktopItem itemText='ciaci aicaicc iaci g gg g g ' isShortcut={true} />
+      <DesktopItem itemText='ciacia icai cciaci gg g g  g g' isShortcut={true} />
+      <DesktopItem itemText='ciaci aicai cciaci ggggg gg g g ' isShortcut={true} />
     </div>
   )
 }
