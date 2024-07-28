@@ -1,0 +1,6 @@
+@tailwind components;
+@tailwind utilities;
+
+.backgroundContainer{
+  @apply bg-green-300 w-screen h-screen -z-50 absolute top-0 left-0;
+}

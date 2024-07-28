@@ -1,0 +1,18 @@
+@tailwind components;
+@tailwind utilities;
+
+.desktopGridContainer{
+  @apply bg-transparent w-screen z-[0];
+  contain: strict;
+
+  display: grid;
+  gap: 28px 1px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, 74px);
+  grid-template-rows: repeat(auto-fill, 70px);
+
+  height: calc(100vh - 48px);
+  overflow: hidden;
+  padding: 5px 0px;
+  place-content: flex-start;
+}
