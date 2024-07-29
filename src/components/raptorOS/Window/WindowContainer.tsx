@@ -49,7 +49,7 @@ const WindowContainer = () => {
         </AppWindow>
       ))}
       {/* Add a button or some UI to trigger addWindow */}
-      <button 
+      {/* <button 
         className='h-fit w-fit text-2xl bg-yellow-600'
         onClick={() => addWindow("bella roba", <DevContent /> )}> 
           CIAOCOAACICIAO
@@ -58,7 +58,7 @@ const WindowContainer = () => {
         className='h-fit w-fit text-2xl bg-yellow-200'
         onClick={() => addWindow("bella roba", <DevContent2 /> )}> 
           2ssssssss
-      </button>
+      </button> */}
     </div>
   );
 };

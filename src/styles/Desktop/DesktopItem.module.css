@@ -6,8 +6,8 @@
   @apply border border-transparent hover:border-red-500 w-[74px] h-fit flex flex-col place-items-center p-[1px] relative;
 }
 
-.itemImage {
-  @apply bg-blue-500 w-[48px] h-[48px] relative;
+.itemImageContainer {
+  @apply w-[48px] h-[48px] relative;
 }
 
 .itemText {
@@ -22,6 +22,10 @@
 
 .shortcutIcon {
   @apply select-none absolute bottom-0 left-0;
+}
+
+.itemImage{
+  -webkit-user-drag: none;
 }
 
 /* Custom styles */

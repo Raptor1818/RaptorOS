@@ -2,15 +2,18 @@ import React from 'react'
 import css from '@/styles/Desktop/DesktopGrid.module.css'
 import DesktopItem from './DesktopItem'
 
+const pcImg = '/img/icons/pc.webp'
+const unknownImg = '/img/icons/unknown.webp'
+const executableImg = '/img/icons/executable.webp'
+
 interface Props {}
 
 const DesktopGrid = (props: Props) => {
   return (
     <div className={css.desktopGridContainer}>
-      <DesktopItem itemText='ciac iaica icciaci ggg ggg g g' isShortcut={true} />
-      <DesktopItem itemText='ciaci aicaicc iaci g gg g g ' isShortcut={true} />
-      <DesktopItem itemText='ciacia icai cciaci gg g g  g g' isShortcut={true} />
-      <DesktopItem itemText='ciaci aicai cciaci ggggg gg g g ' isShortcut={true} />
+      <DesktopItem itemText='My Computer' isShortcut={false} itemImage={pcImg}/>
+      <DesktopItem itemText='idrk.jar' isShortcut={false} itemImage={unknownImg}/>
+      <DesktopItem itemText='Fake.exe' isShortcut={true} itemImage={executableImg}/>
     </div>
   )
 }
