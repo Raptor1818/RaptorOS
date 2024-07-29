@@ -24,9 +24,6 @@
   @apply select-none absolute bottom-0 left-0;
 }
 
-.itemImage{
-  -webkit-user-drag: none;
-}
 
 /* Custom styles */
 .truncate-multiline {
