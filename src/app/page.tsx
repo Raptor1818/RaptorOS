@@ -1,6 +1,6 @@
 'use client'
 
-import Desktop from "@/components/raptorOS/Desktop/Desktop";
+import DesktopContainer from "@/components/raptorOS/Desktop/DesktopContainer";
 import Taskbar from "@/components/raptorOS/Taskbar/Taskbar";
 import WindowContainer from "@/components/raptorOS/Window/WindowContainer";
 
@@ -9,7 +9,7 @@ export default function Home() {
     <main className="min-h-screen w-screen overflow-hidden">
       <Taskbar />
       <WindowContainer />
-      <Desktop />
+      <DesktopContainer />
     </main>
   );
 }

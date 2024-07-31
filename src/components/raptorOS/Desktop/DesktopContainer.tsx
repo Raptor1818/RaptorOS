@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import css from '@/styles/Desktop/DesktopGrid.module.css'
+import css from '@/styles/Desktop/DesktopContainer.module.css'
+
 import DesktopItem from './DesktopItem'
 
 import { v4 as uuidv4 } from 'uuid';
@@ -41,7 +42,7 @@ const DesktopContainer = (props: Props) => {
   }, [])
 
   return (
-    <div className={css.desktopGridContainer}>
+    <div className={css.desktopContainer}>
       {items.map(item => (
         <DesktopItem 
           key={item.id}
@@ -51,6 +52,7 @@ const DesktopContainer = (props: Props) => {
           isShortcut={item.isShortcut} 
         />
       ))}
+      <div className={css.backgroundContainer} />
     </div>
   )
 }

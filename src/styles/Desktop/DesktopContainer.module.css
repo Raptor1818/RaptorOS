@@ -1,8 +1,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.desktopGridContainer{
-  @apply bg-transparent w-screen;
+.desktopContainer{
+  @apply bg-transparent w-screen h-screen;
   contain: strict;
 
   display: grid;
@@ -11,8 +11,11 @@
   grid-template-columns: repeat(auto-fill, 74px);
   grid-template-rows: repeat(auto-fill, 70px);
 
-  height: calc(100vh - 48px);
   overflow: hidden;
   padding: 5px 0px;
   place-content: flex-start;
+}
+
+.backgroundContainer{
+  @apply bg-green-300 w-screen h-screen -z-50 absolute top-0 left-0;
 }
