@@ -4,14 +4,16 @@ import Image from 'next/image';
 import css from '@/styles/Desktop/DesktopItem.module.css';
 
 interface Props {
-  itemText: string;
-  itemImage: any;
+  id: string;
+  label: string;
+  image: any;
   isShortcut: boolean;
 }
 
 const DesktopItem = (props: Props) => {
   return (
     <div
+      id={props.id}
       className={`${css.itemContainer} parent`}
       tabIndex={0}
     >
@@ -26,7 +28,7 @@ const DesktopItem = (props: Props) => {
           />
           : <></>}
           <Image
-            src={props.itemImage}
+            src={props.image}
             width={48}
             height={48}
             alt=''
@@ -34,7 +36,7 @@ const DesktopItem = (props: Props) => {
           />
       </div>
       <p className={`${css.itemText} truncate-multiline`}>
-        {props.itemText}
+        {props.label}
       </p>
     </div>
   )
