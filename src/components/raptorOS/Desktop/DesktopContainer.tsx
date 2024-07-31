@@ -19,7 +19,7 @@ interface Item {
 }
 
 
-const DesktopGrid = (props: Props) => {
+const DesktopContainer = (props: Props) => {
   const defaultItems: Item[] = [
     {
       id: `${uuidv4().replace(/-/g, '').slice(0, 8)}`,
@@ -52,4 +52,4 @@ const DesktopGrid = (props: Props) => {
   )
 }
 
-export default DesktopGrid
+export default DesktopContainer
