@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import css from '@/styles/Desktop/DesktopGrid.module.css'
 import DesktopItem from './DesktopItem'
 
@@ -18,30 +18,33 @@ interface Item {
   icon: any; // Is supposed to be an image
 }
 
-
 const DesktopContainer = (props: Props) => {
-  const defaultItems: Item[] = [
-    {
-      id: `${uuidv4().replace(/-/g, '').slice(0, 8)}`,
-      label: 'testerino',
-      isShortcut: true,
-      icon: pcImg
-    },
-    {
-      id: uuidv4().replace(/-/g, '').slice(0, 8),
-      label: 'New folder',
-      isShortcut: false,
-      icon: folderImg
-    },
+  const [items, setItems] = useState<Item[]>([])
 
-  ]
+  useEffect(() => {
+    const defaultItems: Item[] = [
+      {
+        id: `${uuidv4().replace(/-/g, '').slice(0, 8)}`,
+        label: 'testerino',
+        isShortcut: true,
+        icon: pcImg
+      },
+      {
+        id: uuidv4().replace(/-/g, '').slice(0, 8),
+        label: 'New folder',
+        isShortcut: false,
+        icon: folderImg
+      },
+    ]
 
-  const [items, setItems] = useState<Item[]>(defaultItems)
+    setItems(defaultItems)
+  }, [])
 
   return (
     <div className={css.desktopGridContainer}>
       {items.map(item => (
         <DesktopItem 
+          key={item.id}
           id={item.id}
           label={item.label}
           image={item.icon}
