@@ -3,7 +3,10 @@
 
 /* Tailwind utility classes */
 .itemContainer {
-  @apply border border-transparent hover:border-red-500 w-[74px] h-fit flex flex-col place-items-center p-[1px] relative;
+  @apply border border-transparent w-[74px] h-fit flex flex-col place-items-center p-[1px] relative rounded
+  hover:bg-white hover:bg-opacity-35
+  focus:bg-white focus:bg-opacity-50
+  ;
 }
 
 .itemImageContainer {
