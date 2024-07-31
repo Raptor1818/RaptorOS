@@ -2,9 +2,9 @@ import React from 'react'
 import css from '@/styles/Desktop/DesktopGrid.module.css'
 import DesktopItem from './DesktopItem'
 
-const pcImg = '/img/icons/pc.webp'
-const unknownImg = '/img/icons/unknown.webp'
-const executableImg = '/img/icons/executable.webp'
+const pcImg = '/img/icons/Computer.ico'
+const unknownImg = '/img/icons/Blank.ico'
+const executableImg = '/img/icons/exe.ico'
 
 interface Props {}
 
