@@ -1,0 +1,9 @@
+@tailwind components;
+@tailwind utilities;
+
+.taskbarItemContainer {
+  @apply p-[6px] rounded bg-transparent transition 
+  hover:bg-white hover:bg-opacity-30 
+  active:bg-opacity-20;
+}
+

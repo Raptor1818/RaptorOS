@@ -1,0 +1,10 @@
+@tailwind components;
+@tailwind utilities;
+
+.taskbar{
+  @apply h-[48px] w-screen flex flex-row justify-between items-center bg-black bg-opacity-25 bottom-0 fixed p-1 select-none z-[999] backdrop-blur-xl;
+}
+
+.taskbarItemsContainer{
+  @apply w-full flex flex-row justify-start items-center gap-1 pl-2;
+}

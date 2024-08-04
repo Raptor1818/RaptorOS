@@ -1,19 +1,28 @@
 import React from 'react';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
-type Props = {};
+import css from '@/styles/Taskbar/Taskbar.module.css';
+import { defaultItems } from '@/defaultItems';
+import TaskbarItem from './TaskbarItem';
+
+interface Props {}
 
 const Taskbar = (props: Props) => {
-  const TaskbarTime = dynamic(() => import('./TaskbarTime'), { ssr: false })
+  const TaskbarTime = dynamic(() => import('./TaskbarTime'), { ssr: false });
 
   return (
-    <nav className='h-[48px] w-screen flex flex-row justify-between items-center bg-black bg-opacity-25 bottom-0 fixed p-1 select-none z-[999] backdrop-blur-xl'>
-      <div className='w-full flex flex-row justify-start items-center gap-1 pl-2'> {/* Icons */}
-        <div className='bg-red-500 w-[42px] h-[42px] rounded-md'></div>
-        <div className='bg-red-500 w-[42px] h-[42px] rounded-md'></div>
-        <div className='bg-red-500 w-[42px] h-[42px] rounded-md'></div>
+    <nav className={css.taskbar}>
+      <div className={css.taskbarItemsContainer}>
+        {defaultItems.map(item => (
+          <TaskbarItem
+            key={item.id}
+            id={item.id}
+            label={item.label}
+            image={item.icon}
+          />
+        ))}
       </div>
-      <TaskbarTime></TaskbarTime>
+      <TaskbarTime />
     </nav>
   );
 };
