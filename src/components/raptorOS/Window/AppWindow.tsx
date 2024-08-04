@@ -1,9 +1,8 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
-import Draggable from 'react-draggable';
+import { Rnd } from 'react-rnd';
 import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
-
-import css from '@/styles/Window/AppWindow.module.css'
+import css from '@/styles/Window/AppWindow.module.css';
 import useWindowDimensions from './useWindowDimensions';
 
 interface Props {
@@ -51,18 +50,22 @@ const AppWindow = (props: Props) => {
         }
       );
     }
-  }, [])
+  }, []);
 
   return (
-    <Draggable 
-      handle="#handler"
-      onMouseDown={onFocus}
-      defaultPosition={{x: width / 2.5, y: height / 3}}
-      bounds={{
-        top: 0,
-        bottom: height - 64
+    <Rnd
+      default={{
+        x: width / 3,
+        y: height / 4,
+        width: 500,
+        height: 400,
       }}
-
+      minWidth={400}
+      minHeight={300}
+      onMouseDown={onFocus}
+      dragHandleClassName="drag-handle"
+      resizeHandleWrapperClass={css.resizeHandleWrapper}
+      style={{ zIndex }}
     >
       <div
         id={id}
@@ -74,7 +77,7 @@ const AppWindow = (props: Props) => {
           {children}
         </div>
       </div>
-    </Draggable>
+    </Rnd>
   );
 };
 

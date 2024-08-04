@@ -10,7 +10,7 @@ const WindowTitleBar = (props: Props) => {
   const { title, onClose } = props;
 
   return (
-    <div id="handler" className={css.titleBarContainer}>
+    <div className={`${css.titleBarContainer} drag-handle`}>
       <div>
         <h2 className="w-fit">{title}</h2>
       </div>
