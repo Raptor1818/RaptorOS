@@ -16,6 +16,10 @@
   }
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

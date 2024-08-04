@@ -37,6 +37,22 @@ const AppWindow = (props: Props) => {
     }
   }, [zIndex]);
 
+  useEffect(() => {
+    if (containerRef.current){
+      gsap.fromTo(containerRef.current, 
+        {
+          opacity: 0,
+          scale: 0.9
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.2,
+        }
+      );
+    }
+  }, [])
+
   return (
     <Draggable 
       handle="#handler"
