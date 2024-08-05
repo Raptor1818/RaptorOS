@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import css from '@/styles/Taskbar/TaskbarItem.module.css';
+import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
 interface Props {
   id: string;
@@ -10,8 +11,14 @@ interface Props {
 }
 
 const TaskbarItem = (props: Props) => {
+  const { addWindow } = useWindowContext();
+
+  
+  
   return (
-    <div className={css.taskbarItemContainer}>
+    <div className={css.taskbarItemContainer}
+      onClick={() => {addWindow(props.id, props.label)}}
+    >
       <Image
         src={props.image}
         width={28}

@@ -1,8 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
-import DevContent from '@/components/raptorOS/dev/DevContent';
-import DevContent2 from '@/components/raptorOS/dev/DevContent2';
 
 import css from '@/styles/Desktop/DesktopItem.module.css';
 
@@ -16,28 +14,12 @@ interface Props {
 const DesktopItem = (props: Props) => {
   const { addWindow } = useWindowContext();
 
-  const handleDoubleClick = () => {
-    let content;
-    switch (props.label) {
-      case 'testerino':
-        content = <DevContent />;
-        break;
-      case 'New folder':
-        content = <DevContent2 />;
-        break;
-      default:
-        content = <div>Unknown Content</div>;
-        break;
-    }
-    addWindow(props.id, props.label, content);
-  };
-
   return (
     <div
       id={props.id}
       className={`${css.itemContainer} parent`}
       tabIndex={0}
-      onDoubleClick={handleDoubleClick}
+      onDoubleClick={() => {addWindow(props.id, props.label)}}
     >
       <div className={css.itemImageContainer}>
         {props.isShortcut ? 

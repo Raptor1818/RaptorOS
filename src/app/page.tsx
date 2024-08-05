@@ -11,8 +11,8 @@ export default function Home() {
       <WindowProvider>
         <WindowContainer />
         <DesktopContainer />
+        <Taskbar />
       </WindowProvider>
-      <Taskbar />
     </main>
   );
 }
