@@ -4,23 +4,19 @@ import Image from 'next/image';
 import css from '@/styles/Taskbar/TaskbarItem.module.css';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
-interface Props {
-  id: string;
-  label: string;
-  image: string;
-}
+import { Item } from '@/defaultItems'
 
-const TaskbarItem = (props: Props) => {
+const TaskbarItem = (props: Item) => {
   const { addWindow } = useWindowContext();
 
   
   
   return (
     <div className={css.taskbarItemContainer}
-      onClick={() => {addWindow(props.id, props.label)}}
+      onClick={() => {addWindow(props.id, props.label, props.content)}}
     >
       <Image
-        src={props.image}
+        src={props.icon}
         width={28}
         height={28}
         alt={props.label}

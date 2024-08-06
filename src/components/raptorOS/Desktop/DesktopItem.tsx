@@ -2,16 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
+import { Item } from '@/defaultItems'
+
 import css from '@/styles/Desktop/DesktopItem.module.css';
 
-interface Props {
-  id: string;
-  label: string;
-  image: any;
-  isShortcut: boolean;
-}
-
-const DesktopItem = (props: Props) => {
+const DesktopItem = (props: Item) => {
   const { addWindow } = useWindowContext();
 
   return (
@@ -19,7 +14,7 @@ const DesktopItem = (props: Props) => {
       id={props.id}
       className={`${css.itemContainer} parent`}
       tabIndex={0}
-      onDoubleClick={() => {addWindow(props.id, props.label)}}
+      onDoubleClick={() => {addWindow(props.id, props.label, props.content)}}
     >
       <div className={css.itemImageContainer}>
         {props.isShortcut ? 
@@ -32,7 +27,7 @@ const DesktopItem = (props: Props) => {
           />
           : <></>}
           <Image
-            src={props.image}
+            src={props.icon}
             width={48}
             height={48}
             alt=''

@@ -1,28 +1,37 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-
+import React, { useState, useEffect } from 'react';
 import css from '@/styles/Taskbar/Taskbar.module.css';
-import { defaultItems } from '@/defaultItems';
 import TaskbarItem from './TaskbarItem';
+import { Item } from '@/defaultItems';
 
 interface Props {}
 
-const Taskbar = (props: Props) => {
-  const TaskbarTime = dynamic(() => import('./TaskbarTime'), { ssr: false });
+const Taskbar: React.FC<Props> = (props: Props) => {
+  const [loadedDefaultitems, setLoadedDefaultItems] = useState<Item[]>([]);
+
+  useEffect(() => {
+    const loadItems = () => {
+      import('@/defaultItems').then((module) => {
+        setLoadedDefaultItems(module.defaultItems);
+      });
+    };
+
+    loadItems();
+  }, []);
 
   return (
     <nav className={css.taskbar}>
       <div className={css.taskbarItemsContainer}>
-        {defaultItems.map(item => (
+        {loadedDefaultitems.map(item => (
           <TaskbarItem
             key={item.id}
             id={item.id}
             label={item.label}
-            image={item.icon}
+            isShortcut={false}
+            icon={item.icon}
+            content={item.content}
           />
         ))}
       </div>
-      <TaskbarTime />
     </nav>
   );
 };
