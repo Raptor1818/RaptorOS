@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import css from '@/styles/Taskbar/TaskbarTime.module.css'
+
 type Props = {}
 
 const TaskbarTime = (props: Props) => {
@@ -21,9 +23,9 @@ const TaskbarTime = (props: Props) => {
   }, []);
 
   return (
-    <div className='w-fit flex flex-col items-center justify-center text-sm text-nowrap pr-2'>
-        <p suppressHydrationWarning>{dateTime.timeString}</p>
-        <p>{dateTime.dateString}</p>
+    <div className={css.taskbarTimeContainer}>
+      <p suppressHydrationWarning>{dateTime.timeString}</p>
+      <p>{dateTime.dateString}</p>
     </div>
   )
 }

@@ -17,5 +17,5 @@
 }
 
 .backgroundContainer{
-  @apply bg-green-300 w-screen h-screen -z-50 absolute top-0 left-0;
+  @apply object-cover -z-50 absolute top-0 left-0;
 }
