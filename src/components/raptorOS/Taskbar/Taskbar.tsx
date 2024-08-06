@@ -3,10 +3,14 @@ import css from '@/styles/Taskbar/Taskbar.module.css';
 import TaskbarItem from './TaskbarItem';
 import { Item } from '@/defaultItems';
 
+import dynamic from 'next/dynamic';
+
 interface Props {}
 
 const Taskbar: React.FC<Props> = (props: Props) => {
   const [loadedDefaultitems, setLoadedDefaultItems] = useState<Item[]>([]);
+
+  const TaskbarTime = dynamic(() => import('./TaskbarTime'), { ssr: false });
 
   useEffect(() => {
     const loadItems = () => {
@@ -32,6 +36,7 @@ const Taskbar: React.FC<Props> = (props: Props) => {
           />
         ))}
       </div>
+      <TaskbarTime />
     </nav>
   );
 };
