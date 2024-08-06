@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
 import css from '@/styles/Window/AppWindow.module.css';
 import useWindowDimensions from './useWindowDimensions';
+import { Righteous } from 'next/font/google';
 
 interface Props {
   id: string;
@@ -52,6 +53,7 @@ const AppWindow = (props: Props) => {
     }
   }, []);
 
+
   return (
     <Rnd
       default={{
@@ -64,7 +66,12 @@ const AppWindow = (props: Props) => {
       minHeight={300}
       onMouseDown={onFocus}
       dragHandleClassName="drag-handle"
-      resizeHandleWrapperClass={css.resizeHandleWrapper}
+      resizeHandleStyles={{
+        bottom: { cursor: 'ns-resize' },
+        left: { cursor: 'ew-resize' },
+        right: { cursor: 'ew-resize' },
+        top: { cursor: 'ns-resize' },
+      }}
       style={{ zIndex }}
     >
       <div
@@ -73,9 +80,7 @@ const AppWindow = (props: Props) => {
         className={css.appWindowContainer}
       >
         <WindowTitleBar title={title} onClose={closeWindow} />
-        <div className="h-full w-full bg-purple-500">
-          {children}
-        </div>
+        {children}
       </div>
     </Rnd>
   );

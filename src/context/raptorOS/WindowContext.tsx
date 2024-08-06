@@ -3,13 +3,13 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface Window {
   id: string;
   title: string;
-  // content: ReactNode;
+  content: ReactNode;
 }
 
 interface WindowContextType {
   windows: Window[];
   zIndexList: string[];
-  addWindow: (id: string, title: string) => void; //content: ReactNode
+  addWindow: (id: string, title: string, content: ReactNode) => void;
   closeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
 }
@@ -28,12 +28,12 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
   const [windows, setWindows] = useState<Window[]>([]);
   const [zIndexList, setZIndexList] = useState<string[]>([]);
 
-  const addWindow = (id: string, title: string) => { // content: ReactNode
+  const addWindow = (id: string, title: string, content: ReactNode) => {
     const existingWindow = windows.find(window => window.id === id);
     if (existingWindow) {
       bringToFront(id);
     } else {
-      setWindows([...windows, { id, title }]); // content
+      setWindows([...windows, { id, title, content }]);
       setZIndexList([...zIndexList, id]);
     }
   };

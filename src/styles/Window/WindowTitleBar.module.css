@@ -2,9 +2,15 @@
 @tailwind utilities;
 
 .titleBarContainer{
-  @apply w-full bg-green-500 p-1 flex flex-row justify-between items-center select-none ;
+  @apply w-full flex flex-row justify-between items-center select-none
+  bg-black backdrop-blur-2xl bg-opacity-80;
+}
+
+.windowTitleDiv{
+  @apply p-1 pl-2;
 }
 
 .closeButton{
-  @apply border cursor-pointer z-10 w-fit px-2 bg-red-500;
+  @apply w-fit h-full z-10 px-4 
+  bg-transparent hover:bg-red-500 transition;
 }

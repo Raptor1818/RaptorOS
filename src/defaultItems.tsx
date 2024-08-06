@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const homeImg = '/img/icons/Computer.ico';
@@ -12,7 +12,7 @@ export interface Item {
   label: string;
   isShortcut: boolean;
   icon: string;
-  content: ReactNode; //WIP
+  content: ReactNode;
 }
 
 function generateUUID(): string {
@@ -25,13 +25,13 @@ export const defaultItems: Item[] = [
     label: 'Home',
     isShortcut: true,
     icon: homeImg,
-    content: Home
+    content: <Home />
   },
   {
     id: generateUUID(),
     label: 'About',
     isShortcut: false,
     icon: aboutImg,
-    content: About
+    content: <About />
   },
 ];

@@ -1,0 +1,25 @@
+@tailwind components;
+@tailwind utilities;
+
+.applicationWrapper{
+  @apply w-full h-full 
+  flex flex-col gap-4 p-2 
+  bg-content-background
+  overflow-auto;
+}
+
+.applicationWrapper h1{
+  @apply text-2xl;
+}
+
+.applicationWrapper p{
+  @apply text-lg;
+}
+
+.applicationWrapper ul{
+  @apply max-w-md space-y-1 list-disc list-inside;
+}
+
+.applicationWrapper span{
+  @apply font-semibold;
+}

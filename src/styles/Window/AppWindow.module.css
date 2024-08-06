@@ -2,23 +2,8 @@
 @tailwind utilities;
 
 .appWindowContainer{
-  @apply h-full w-full border flex flex-col justify-between absolute;
+  @apply h-full w-full absolute focus:border-8
+  flex flex-col justify-between rounded-b;
   -webkit-box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.3); 
   box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.3);
-}
-
-.resizeHandleWrapper {
-  .react-resizable-handle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: transparent;
-    z-index: 1;
-  }
-
-  .react-resizable-handle-se {
-    bottom: 0;
-    right: 0;
-    cursor: se-resize;
-  }
 }
