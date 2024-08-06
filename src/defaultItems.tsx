@@ -1,8 +1,9 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-const homeImg = '/img/icons/Computer.ico';
-const aboutImg = '/img/icons/User.ico';
+const computerImg = '/img/icons/Computer.ico';
+const desktopImg = '/img/icons/Desktop.ico'
+const userImg = '/img/icons/User.ico';
 
 import Home from './components/raptorOS/Applications/Home/Home';
 import About from './components/raptorOS/Applications/About/About';
@@ -23,15 +24,15 @@ export const defaultItems: Item[] = [
   {
     id: generateUUID(),
     label: 'Home',
-    isShortcut: true,
-    icon: homeImg,
+    isShortcut: false,
+    icon: desktopImg,
     content: <Home />
   },
   {
     id: generateUUID(),
     label: 'About',
     isShortcut: false,
-    icon: aboutImg,
+    icon: computerImg,
     content: <About />
   },
 ];
