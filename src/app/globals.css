@@ -16,7 +16,12 @@
   }
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
+  @apply font-inter;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -26,8 +31,34 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+h1{
+  @apply text-3xl;
+}
+h2{
+  @apply text-2xl;
+}
+h3{
+  @apply text-xl;
+}
+p{
+  @apply text-lg;
+}
+
+ul{
+  @apply max-w-md space-y-1 list-disc list-inside;
+}
+
+span{
+  @apply font-semibold;
+}
+
+a{
+  @apply underline text-blue-400;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+

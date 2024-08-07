@@ -1,0 +1,11 @@
+@tailwind components;
+@tailwind utilities;
+
+.applicationWrapper{
+  @apply w-full h-full 
+  flex flex-col gap-4 p-2 
+  bg-content-background
+  overflow-auto
+  font-notoSans;
+}
+

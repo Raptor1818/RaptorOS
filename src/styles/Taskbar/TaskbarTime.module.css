@@ -1,0 +1,11 @@
+@tailwind components;
+@tailwind utilities;
+
+.taskbarTimeContainer{
+  @apply w-fit flex flex-col
+  mr-2;
+}
+
+.taskbarTimeContainer p{
+  @apply w-full text-xs text-nowrap text-end tabular-nums font-notoMono;
+}

@@ -8,10 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'content-background': 'rgb(28,28,28)'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        notoSans: ['var(--font-noto-sans)'],
+        notoMono: ['var(--font-noto-sans-mono)'],
       },
     },
   },

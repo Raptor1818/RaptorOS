@@ -1,4 +1,11 @@
-# WIP
+# https://www.raptorino.com
 
-### Working in the [dev branch](https://github.com/Raptor1818/raptorino-next/tree/dev)
-Remaking [my website](https://github.com/Raptor1818/raptorino-ts), the current https://raptorino.com
+## WIP
+
+Remaking [my website](https://github.com/Raptor1818/raptorino-ts) as a pesudo-desktop enviroment!
+
+Using:
+- Next.js
+- Typescript
+- TailwindCSS
+- GSAP
