@@ -9,4 +9,3 @@ Using:
 - Typescript
 - TailwindCSS
 - GSAP
-
