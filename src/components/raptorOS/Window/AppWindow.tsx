@@ -58,8 +58,8 @@ const AppWindow = (props: Props) => {
       default={{
         x: width / 3,
         y: height / 4,
-        width: 500,
-        height: 400,
+        width: width / 3,
+        height: height / 2,
       }}
       minWidth={400}
       minHeight={300}
