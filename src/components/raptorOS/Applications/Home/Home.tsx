@@ -9,9 +9,10 @@ const Home = (props: Props) => {
   return (
     <ApplicationWrapper>
       <h1>Welcome!</h1>
-      <p>Hello, this is my personal website where I host and showcase my projects (WIP) and I talk a bit about myself.</p>
-      <p><strong>This is still under heavy construction! Much will change</strong></p>
-      <span>RaptorOS v0.1</span>
+      <p>Hello, this is my personal website where I will host and showcase my projects, and I'll talk a bit about myself as well.</p>
+      <p><strong>This project is still under development! A lot is subject to change.</strong></p>
+      <p><strong><u>Viewing on desktop is suggested.</u></strong></p>
+      <p>More information in the About section.</p>
     </ApplicationWrapper>
   )
 }

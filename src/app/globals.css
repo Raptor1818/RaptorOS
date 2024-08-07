@@ -34,6 +34,9 @@ body {
 h1{
   @apply text-2xl;
 }
+h2{
+  @apply text-xl;
+}
 
 p{
   @apply text-lg;
@@ -45,6 +48,10 @@ ul{
 
 span{
   @apply font-semibold;
+}
+
+a{
+  @apply underline text-blue-400;
 }
 
 @layer utilities {
