@@ -3,9 +3,9 @@
 
 .taskbarTimeContainer{
   @apply w-fit flex flex-col
-  text-xs text-nowrap mr-2 tabular-nums;
+  mr-2;
 }
 
 .taskbarTimeContainer p{
-  @apply w-full text-end tabular-nums;
+  @apply w-full text-xs text-nowrap text-end tabular-nums;
 }

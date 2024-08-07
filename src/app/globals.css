@@ -30,6 +30,22 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+h1{
+  @apply text-2xl;
+}
+
+p{
+  @apply text-lg;
+}
+
+ul{
+  @apply max-w-md space-y-1 list-disc list-inside;
+}
+
+span{
+  @apply font-semibold;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

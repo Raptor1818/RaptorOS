@@ -8,18 +8,3 @@
   overflow-auto;
 }
 
-.applicationWrapper h1{
-  @apply text-2xl;
-}
-
-.applicationWrapper p{
-  @apply text-lg;
-}
-
-.applicationWrapper ul{
-  @apply max-w-md space-y-1 list-disc list-inside;
-}
-
-.applicationWrapper span{
-  @apply font-semibold;
-}
