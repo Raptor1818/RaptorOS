@@ -7,5 +7,5 @@
 }
 
 .taskbarTimeContainer p{
-  @apply w-full text-xs text-nowrap text-end tabular-nums;
+  @apply w-full text-xs text-nowrap text-end tabular-nums font-notoMono;
 }
