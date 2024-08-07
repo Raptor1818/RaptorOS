@@ -3,7 +3,7 @@
 
 .titleBarContainer{
   @apply w-full flex flex-row justify-between items-center select-none
-  bg-black backdrop-blur-2xl rounded-t-md overflow-hidden transition;
+  bg-black backdrop-blur-2xl overflow-hidden transition;
 }
 
 .windowTitleDiv{
