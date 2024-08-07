@@ -3,7 +3,7 @@
 
 .taskbarItemContainer {
   @apply p-[6px] rounded bg-transparent transition 
-  hover:bg-white hover:bg-opacity-30 
+  hover:bg-white hover:bg-opacity-10 
   active:bg-opacity-20;
 }
 

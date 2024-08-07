@@ -32,12 +32,12 @@ const DesktopContainer: React.FC<Props> = (props: Props) => {
         />
       ))}
       <Image 
-      src={'/img/wallpapers/sferrara_sicily.jpg'} 
-      alt='' 
-      fill={true}
-      priority={true}
-      draggable={false}
-      className={css.backgroundContainer} />
+        src={'/img/wallpapers/sferrara_sicily.jpg'} 
+        alt='' 
+        fill={true}
+        priority={true}
+        draggable={false}
+        className={css.backgroundContainer} />
     </div>
   );
 }

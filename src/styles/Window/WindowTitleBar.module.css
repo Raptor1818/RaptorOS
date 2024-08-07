@@ -3,14 +3,14 @@
 
 .titleBarContainer{
   @apply w-full flex flex-row justify-between items-center select-none
-  bg-black backdrop-blur-2xl bg-opacity-80;
+  bg-black backdrop-blur-2xl bg-opacity-80 rounded-t-md overflow-hidden;
 }
 
 .windowTitleDiv{
-  @apply p-1 pl-2;
+  @apply p-2 pl-2;
 }
 
 .closeButton{
-  @apply w-fit h-full z-10 px-4 
+  @apply w-fit h-full z-10 px-5
   bg-transparent hover:bg-red-500 transition;
 }

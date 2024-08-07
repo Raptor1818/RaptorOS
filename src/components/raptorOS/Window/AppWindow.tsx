@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
 import css from '@/styles/Window/AppWindow.module.css';
 import useWindowDimensions from './useWindowDimensions';
-import { Righteous } from 'next/font/google';
 
 interface Props {
   id: string;
