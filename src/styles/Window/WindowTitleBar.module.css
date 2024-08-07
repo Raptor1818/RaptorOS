@@ -7,7 +7,7 @@
 }
 
 .windowTitleDiv{
-  @apply p-2 pl-2;
+  @apply text-base p-2 pl-2;
 }
 
 .closeButton{

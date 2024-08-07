@@ -15,7 +15,7 @@ const WindowTitleBar = (props: Props) => {
   return (
     <div className={`${css.titleBarContainer} ${isFocused ? css.titleBarFocused : ''} drag-handle`}>
       <div className={css.windowTitleDiv}>
-        <h2>{title}</h2>
+        <p>{title}</p>
       </div>
       <button className={css.closeButton} onClick={onClose}>
         <RxCross1 />
