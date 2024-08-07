@@ -4,12 +4,12 @@
 .appWindowContainer{
   @apply h-full w-full absolute overflow-hidden
   flex flex-col justify-between;
-  -webkit-box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.3);
-  box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 10px 25px 5px rgba(0,0,0,0.4); 
+box-shadow: 0px 10px 25px 5px rgba(0,0,0,0.4);
   
 }
 
 .appWindowContainerFocused{
-  -webkit-box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.3) !important; 
-  box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.3) !important;
+  -webkit-box-shadow: 0px 10px 25px 10px rgba(0,0,0,0.6) !important; 
+  box-shadow: 0px 10px 25px 10px rgba(0,0,0,0.6) !important;
 }
