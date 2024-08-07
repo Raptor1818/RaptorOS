@@ -7,10 +7,10 @@ interface Props {
   className?: string;
 }
 
-const ApplicationWrapper: React.FC<Props> = ({ children, className }) => {
+const ApplicationWrapper: React.FC<Props> = (props: Props) => {
   return (
-    <div className={`${css.applicationWrapper} ${className}`}>
-      {children}
+    <div className={`${css.applicationWrapper} ${props.className}`}>
+      {props.children}
     </div>
   )
 }

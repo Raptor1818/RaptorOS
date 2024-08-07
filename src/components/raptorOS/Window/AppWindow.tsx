@@ -12,10 +12,11 @@ interface Props {
   zIndex: number;
   onClose: () => void;
   onFocus: () => void;
+  isFocused: boolean;
 }
 
 const AppWindow = (props: Props) => {
-  const { id, title, children, zIndex, onClose, onFocus } = props;
+  const { id, title, children, zIndex, onClose, onFocus, isFocused } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { height, width } = useWindowDimensions();
 
@@ -37,7 +38,7 @@ const AppWindow = (props: Props) => {
   }, [zIndex]);
 
   useEffect(() => {
-    if (containerRef.current){
+    if (containerRef.current) {
       gsap.fromTo(containerRef.current, 
         {
           opacity: 0,
@@ -52,7 +53,6 @@ const AppWindow = (props: Props) => {
     }
   }, []);
 
-
   return (
     <Rnd
       default={{
@@ -63,7 +63,7 @@ const AppWindow = (props: Props) => {
       }}
       minWidth={400}
       minHeight={300}
-      onMouseDown={onFocus}
+      onMouseDown={() => onFocus()}
       dragHandleClassName="drag-handle"
       resizeHandleStyles={{
         bottom: { cursor: 'ns-resize' },
@@ -76,9 +76,9 @@ const AppWindow = (props: Props) => {
       <div
         id={id}
         ref={containerRef}
-        className={css.appWindowContainer}
+        className={`${css.appWindowContainer} ${isFocused ? css.appWindowContainerFocused : ''}`}
       >
-        <WindowTitleBar title={title} onClose={closeWindow} />
+        <WindowTitleBar title={title} onClose={closeWindow} isFocused={isFocused} />
         {children}
       </div>
     </Rnd>

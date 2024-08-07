@@ -9,6 +9,7 @@ interface Window {
 interface WindowContextType {
   windows: Window[];
   zIndexList: string[];
+  focusedWindowId: string | null;
   addWindow: (id: string, title: string, content: ReactNode) => void;
   closeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
@@ -27,6 +28,7 @@ export const useWindowContext = () => {
 export const WindowProvider = ({ children }: { children: ReactNode }) => {
   const [windows, setWindows] = useState<Window[]>([]);
   const [zIndexList, setZIndexList] = useState<string[]>([]);
+  const [focusedWindowId, setFocusedWindowId] = useState<string | null>(null);
 
   const addWindow = (id: string, title: string, content: ReactNode) => {
     const existingWindow = windows.find(window => window.id === id);
@@ -41,14 +43,18 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
   const closeWindow = (id: string) => {
     setWindows(windows.filter(window => window.id !== id));
     setZIndexList(zIndexList.filter(zId => zId !== id));
+    if (focusedWindowId === id) {
+      setFocusedWindowId(null);
+    }
   };
 
   const bringToFront = (id: string) => {
     setZIndexList([...zIndexList.filter(zId => zId !== id), id]);
+    setFocusedWindowId(id);
   };
 
   return (
-    <WindowContext.Provider value={{ windows, addWindow, closeWindow, bringToFront, zIndexList }}>
+    <WindowContext.Provider value={{ windows, addWindow, closeWindow, bringToFront, zIndexList, focusedWindowId }}>
       {children}
     </WindowContext.Provider>
   );

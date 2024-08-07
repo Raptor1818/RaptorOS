@@ -3,7 +3,7 @@ import AppWindow from './AppWindow';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
 const WindowContainer = () => {
-  const { windows, closeWindow, bringToFront, zIndexList } = useWindowContext();
+  const { windows, closeWindow, bringToFront, zIndexList, focusedWindowId } = useWindowContext();
 
   return (
     <div className='z-10 absolute'>
@@ -15,6 +15,7 @@ const WindowContainer = () => {
           zIndex={zIndexList.indexOf(window.id) + 1}
           onClose={() => closeWindow(window.id)}
           onFocus={() => bringToFront(window.id)}
+          isFocused={window.id === focusedWindowId}
         >
           {window.content}
         </AppWindow>

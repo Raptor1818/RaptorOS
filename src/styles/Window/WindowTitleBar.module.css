@@ -3,7 +3,7 @@
 
 .titleBarContainer{
   @apply w-full flex flex-row justify-between items-center select-none
-  bg-black backdrop-blur-2xl bg-opacity-80 rounded-t-md overflow-hidden;
+  bg-black backdrop-blur-2xl rounded-t-md overflow-hidden transition;
 }
 
 .windowTitleDiv{
@@ -14,4 +14,8 @@
   @apply w-fit h-full z-10 px-5
   bg-transparent hover:bg-red-500 transition
   active:bg-red-600;
+}
+
+.titleBarFocused{
+  @apply bg-opacity-80;
 }
