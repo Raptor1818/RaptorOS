@@ -12,5 +12,6 @@
 
 .closeButton{
   @apply w-fit h-full z-10 px-5
-  bg-transparent hover:bg-red-500 transition;
+  bg-transparent hover:bg-red-500 transition
+  active:bg-red-600;
 }
