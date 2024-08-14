@@ -20,8 +20,8 @@
 }
 
 .closeButton{
-  @apply 
-  hover:bg-red-500 
+  @apply w-fit h-full z-10 px-5
+  bg-transparent hover:bg-red-500 transition cursor-default
   active:bg-red-600;
 }
 

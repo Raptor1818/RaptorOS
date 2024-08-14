@@ -14,7 +14,7 @@
 }
 
 .homeLink{
-  @apply underline pSize404;
+  @apply text-white pSize404;
 }
 
 .stopError{
