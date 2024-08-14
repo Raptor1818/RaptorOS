@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const computerImg = '/img/icons/Computer.ico';
