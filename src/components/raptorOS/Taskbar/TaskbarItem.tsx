@@ -37,14 +37,14 @@ const TaskbarItem = (props: TaskbarItemProps) => {
       console.log('curerntly focused: ' + focusedWindowId)
       if(props.id === focusedWindowId){
         gsap.to(gsapRef.current, {
-          opacity: 0.8,
+          opacity: 0.9,
           scaleX: 2,
           duration: 0.2,
           onStart: () => setFocused(true)
         })
       }else if(props.id !== focusedWindowId && isOpen){
         gsap.to(gsapRef.current, {
-          opacity: 0.3,
+          opacity: 0.5,
           scaleX: 1,
           duration: 0.2,
           onStart: () => setFocused(false)
