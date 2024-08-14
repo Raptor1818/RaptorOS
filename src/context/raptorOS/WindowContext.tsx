@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface Window {
   id: string;
   title: string;
+  icon: string;
   isMinimized: boolean;
   content: ReactNode;
 }
@@ -11,7 +12,7 @@ interface WindowContextType {
   windows: Window[];
   zIndexList: string[];
   focusedWindowId: string | null;
-  addWindow: (id: string, title: string, isMinimized: boolean, content: ReactNode) => void;
+  addWindow: (id: string, title: string, icon: string, isMinimized: boolean, content: ReactNode) => void;
   minimizeWindow: (id: string) => void;
   closeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
@@ -33,7 +34,7 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
   const [zIndexList, setZIndexList] = useState<string[]>([]);
   const [focusedWindowId, setFocusedWindowId] = useState<string | null>(null);
 
-  const addWindow = (id: string, title: string, isMinimized: boolean, content: ReactNode) => {
+  const addWindow = (id: string, title: string, icon: string, isMinimized: boolean, content: ReactNode) => {
     const existingWindow = windows.find(window => window.id === id);
     if (existingWindow) {
       if (existingWindow.isMinimized) {
@@ -45,7 +46,7 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
       }
       bringToFront(id);
     } else {
-      setWindows([...windows, { id, title, isMinimized, content }]);
+      setWindows([...windows, { id, title, icon, isMinimized, content }]);
       setZIndexList([...zIndexList, id]);
     }
   };

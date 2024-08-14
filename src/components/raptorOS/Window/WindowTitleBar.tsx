@@ -1,22 +1,26 @@
 import React from 'react';
 import css from '@/styles/Window/WindowTitleBar.module.css'
 
+import Image from 'next/image';
+
 import { RxCross1 } from "react-icons/rx";
 import { GoDash } from 'react-icons/go';
 
 interface Props {
   title: string;
+  icon: string;
   onClose: () => void;
   onMinimize: () => void;
   isFocused: boolean;
 }
 
 const WindowTitleBar = (props: Props) => {
-  const { title, onClose, onMinimize, isFocused } = props;
+  const { title, icon, onClose, onMinimize, isFocused } = props;
 
   return (
     <div className={`${css.titleBarContainer} ${isFocused ? css.titleBarFocused : ''} drag-handle`}>
       <div className={css.windowTitleDiv}>
+        <Image src={icon} width={20} height={20} alt=''/>
         <p>{title}</p>
       </div>
       <div className={css.buttonContainer}>

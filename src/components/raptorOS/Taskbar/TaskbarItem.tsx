@@ -21,7 +21,7 @@ const TaskbarItem = (props: TaskbarItemProps) => {
   const [isFocused, setFocused] = useState<boolean>(false)
 
   const handleClick = () => {
-    addWindow(props.id, props.label, false, props.content)
+    addWindow(props.id, props.label, props.icon, false, props.content)
     setIsOpen(true)
   }
   useEffect(() => {

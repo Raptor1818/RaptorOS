@@ -2,7 +2,7 @@
 @tailwind utilities;
 
 .desktopContainer{
-  @apply bg-transparent w-screen h-screen;
+  @apply bg-transparent w-screen h-screen select-none;
   contain: strict;
 
   display: grid;
