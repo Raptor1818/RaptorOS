@@ -12,6 +12,7 @@ const WindowContainer = () => {
           key={window.id}
           id={window.id}
           title={window.title}
+          icon={window.icon}
           zIndex={zIndexList.indexOf(window.id) + 1}
           onClose={() => closeWindow(window.id)}
           onMinimize={() => minimizeWindow(window.id)}

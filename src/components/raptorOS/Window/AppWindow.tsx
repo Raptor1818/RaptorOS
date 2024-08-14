@@ -8,6 +8,7 @@ import useWindowDimensions from './useWindowDimensions';
 interface Props {
   id: string;
   title: string;
+  icon: string;
   children: ReactNode;
   zIndex: number;
   onClose: () => void;
@@ -18,7 +19,7 @@ interface Props {
 }
 
 const AppWindow = (props: Props) => {
-  const { id, title, children, zIndex, onClose, onMinimize, onFocus, isFocused, isMinimized } = props;
+  const { id, title, icon, children, zIndex, onClose, onMinimize, onFocus, isFocused, isMinimized } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { height, width } = useWindowDimensions();
   
@@ -113,7 +114,7 @@ const AppWindow = (props: Props) => {
           ${stateMinimized ? 'select-none' : ''}
         `}
       >
-        <WindowTitleBar title={title} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
+        <WindowTitleBar title={title}  icon={icon} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
         {children}
       </div>
     </Rnd>

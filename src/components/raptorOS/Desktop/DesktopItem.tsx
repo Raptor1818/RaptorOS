@@ -19,7 +19,7 @@ const DesktopItem = (props: TaskbarItemProps) => {
       className={`${css.itemContainer} parent`}
       tabIndex={0}
       onDoubleClick={() => {
-        addWindow(props.id, props.label, false, props.content)
+        addWindow(props.id, props.label, props.icon, false, props.content)
       }}
     >
       <div className={css.itemImageContainer}>
