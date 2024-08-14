@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
 import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
@@ -11,15 +11,19 @@ interface Props {
   children: ReactNode;
   zIndex: number;
   onClose: () => void;
+  onMinimize: () => void;
   onFocus: () => void;
   isFocused: boolean;
+  isMinimized: boolean;
 }
 
 const AppWindow = (props: Props) => {
-  const { id, title, children, zIndex, onClose, onFocus, isFocused } = props;
+  const { id, title, children, zIndex, onClose, onMinimize, onFocus, isFocused, isMinimized } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { height, width } = useWindowDimensions();
-
+  
+  const [isStarted, setStarted] = useState<boolean>(false)
+  
   const closeWindow = () => {
     if (containerRef.current) {
       gsap.to(containerRef.current, {
@@ -31,11 +35,33 @@ const AppWindow = (props: Props) => {
     }
   };
 
+  const minimizeWindow = () => { window
+    if (containerRef.current) {
+      gsap.to(containerRef.current, {
+        opacity: 0,
+        translateY: 200,
+        duration: 0.3,
+        onComplete: onMinimize,
+      });
+    }
+  };
+
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.style.zIndex = `${zIndex}`;
     }
   }, [zIndex]);
+
+  useEffect(() => {
+    console.log(id + ' isminimiziemni updated to ' + isMinimized)
+    if (containerRef.current && isStarted && !isMinimized) {
+      gsap.to(containerRef.current, {
+        opacity: 1,
+        translateY: 0,
+        duration: 0.3,
+      });
+    }
+  }, [isMinimized])
 
   useEffect(() => {
     if (containerRef.current) {
@@ -48,6 +74,9 @@ const AppWindow = (props: Props) => {
           opacity: 1,
           scale: 1,
           duration: 0.2,
+          onComplete: () => {
+            setStarted(true)
+          }
         }
       );
     }
@@ -72,13 +101,14 @@ const AppWindow = (props: Props) => {
         top: { cursor: 'ns-resize' },
       }}
       style={{ zIndex }}
+      enableResizing={isMinimized}
     >
       <div
         id={id}
         ref={containerRef}
         className={`${css.appWindowContainer} ${isFocused ? css.appWindowContainerFocused : ''}`}
       >
-        <WindowTitleBar title={title} onClose={closeWindow} isFocused={isFocused} />
+        <WindowTitleBar title={title} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
         {children}
       </div>
     </Rnd>
