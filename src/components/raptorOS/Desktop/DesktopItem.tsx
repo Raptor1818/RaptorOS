@@ -4,9 +4,13 @@ import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
 import { Item } from '@/defaultItems'
 
+interface TaskbarItemProps extends Item {
+  isMinimized?: boolean;
+}
+
 import css from '@/styles/Desktop/DesktopItem.module.css';
 
-const DesktopItem = (props: Item) => {
+const DesktopItem = (props: TaskbarItemProps) => {
   const { addWindow } = useWindowContext();
 
   return (
@@ -14,7 +18,9 @@ const DesktopItem = (props: Item) => {
       id={props.id}
       className={`${css.itemContainer} parent`}
       tabIndex={0}
-      onDoubleClick={() => {addWindow(props.id, props.label, props.content)}}
+      onDoubleClick={() => {
+        addWindow(props.id, props.label, false, props.content)
+      }}
     >
       <div className={css.itemImageContainer}>
         {props.isShortcut ? 

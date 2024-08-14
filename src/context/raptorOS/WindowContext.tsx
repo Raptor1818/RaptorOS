@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface Window {
   id: string;
   title: string;
+  isMinimized: boolean;
   content: ReactNode;
 }
 
@@ -10,9 +11,11 @@ interface WindowContextType {
   windows: Window[];
   zIndexList: string[];
   focusedWindowId: string | null;
-  addWindow: (id: string, title: string, content: ReactNode) => void;
+  addWindow: (id: string, title: string, isMinimized: boolean, content: ReactNode) => void;
+  minimizeWindow: (id: string) => void;
   closeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
+  getWindowById: (id: string) => Window | undefined;
 }
 
 const WindowContext = createContext<WindowContextType | undefined>(undefined);
@@ -30,14 +33,30 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
   const [zIndexList, setZIndexList] = useState<string[]>([]);
   const [focusedWindowId, setFocusedWindowId] = useState<string | null>(null);
 
-  const addWindow = (id: string, title: string, content: ReactNode) => {
+  const addWindow = (id: string, title: string, isMinimized: boolean, content: ReactNode) => {
     const existingWindow = windows.find(window => window.id === id);
     if (existingWindow) {
+      if (existingWindow.isMinimized) {
+        setWindows(prevWindows =>
+          prevWindows.map(window =>
+            window.id === id ? { ...window, isMinimized: false } : window
+          )
+        );
+      }
       bringToFront(id);
     } else {
-      setWindows([...windows, { id, title, content }]);
+      setWindows([...windows, { id, title, isMinimized, content }]);
       setZIndexList([...zIndexList, id]);
     }
+  };
+
+  const minimizeWindow = (id: string) => {
+    setWindows(prevWindows =>
+      prevWindows.map(window =>
+        window.id === id ? { ...window, isMinimized: true } : window
+      )
+    );
+    setFocusedWindowId(null)
   };
 
   const closeWindow = (id: string) => {
@@ -53,8 +72,21 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
     setFocusedWindowId(id);
   };
 
+  const getWindowById = (id: string) => {
+    return windows.find(window => window.id === id);
+  };
+
   return (
-    <WindowContext.Provider value={{ windows, addWindow, closeWindow, bringToFront, zIndexList, focusedWindowId }}>
+    <WindowContext.Provider value={{ 
+      windows,
+      zIndexList, 
+      focusedWindowId,
+      addWindow, 
+      minimizeWindow,
+      closeWindow, 
+      bringToFront,
+      getWindowById,
+    }}>
       {children}
     </WindowContext.Provider>
   );
