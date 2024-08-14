@@ -53,7 +53,6 @@ const AppWindow = (props: Props) => {
   }, [zIndex]);
 
   useEffect(() => {
-    console.log(id + ' isminimiziemni updated to ' + isMinimized)
     if (containerRef.current && isStarted && !isMinimized) {
       gsap.to(containerRef.current, {
         opacity: 1,

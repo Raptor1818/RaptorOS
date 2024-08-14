@@ -56,6 +56,7 @@ export const WindowProvider = ({ children }: { children: ReactNode }) => {
         window.id === id ? { ...window, isMinimized: true } : window
       )
     );
+    setFocusedWindowId(null)
   };
 
   const closeWindow = (id: string) => {
