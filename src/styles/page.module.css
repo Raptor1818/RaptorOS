@@ -1,0 +1,7 @@
+@tailwind components;
+@tailwind utilities;
+
+.pagesContainer{
+  @apply min-h-screen w-screen overflow-hidden bg-center bg-cover;
+  background-image: url('/img/wallpapers/sferrara_sicily.jpg');
+}

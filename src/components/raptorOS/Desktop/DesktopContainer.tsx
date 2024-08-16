@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import css from '@/styles/Desktop/DesktopContainer.module.css';
 import DesktopItem from './DesktopItem';
 import { Item } from '@/defaultItems';
-import Image from 'next/image';
 
 interface Props {}
 
@@ -31,13 +30,6 @@ const DesktopContainer: React.FC<Props> = (props: Props) => {
           content={item.content}
         />
       ))}
-      <Image 
-        src={'/img/wallpapers/sferrara_sicily.jpg'} 
-        alt='' 
-        fill={true}
-        priority={true}
-        draggable={false}
-        className={css.backgroundContainer} />
     </div>
   );
 }
