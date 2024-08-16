@@ -34,7 +34,6 @@ const TaskbarItem = (props: TaskbarItemProps) => {
   
   useEffect(() => {
     if(gsapRef.current){
-      console.log('curerntly focused: ' + focusedWindowId)
       if(props.id === focusedWindowId){
         gsap.to(gsapRef.current, {
           opacity: 0.9,
