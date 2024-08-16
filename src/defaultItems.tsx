@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 const homeImg = '/img/icons/computer.svg';
 const aboutImg = '/img/icons/info.svg';
 
-import MarkdownApp from './components/raptorOS/MarkdownApp/MarkdownApp';
+import MarkdownApp from './components/raptorOS/MarkdownApp/mdx-layout';
 
-import homeMd from '@/components/raptorOS/MarkdownApp/Home/Home.md'
-import aboutMd from '@/components/raptorOS/MarkdownApp/About/About.md'
+import HomeMdx from '@/components/raptorOS/MarkdownApp/Home/Home.mdx'
+import AboutMdx from '@/components/raptorOS/MarkdownApp/About/About.mdx'
 
 export interface Item {
   id: string;
@@ -27,13 +27,13 @@ export const defaultItems: Item[] = [
     label: 'Home',
     isShortcut: false,
     icon: homeImg,
-    content: <MarkdownApp source={homeMd} />,
+    content: <HomeMdx />,
   },
   {
     id: generateUUID(),
     label: 'About',
     isShortcut: false,
     icon: aboutImg,
-    content: <MarkdownApp source={aboutMd} />,
+    content: <AboutMdx />,
   },
 ];

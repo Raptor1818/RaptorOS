@@ -1,16 +1,17 @@
-// Importing Next.js module using CommonJS syntax
-import next from 'next';
 
+import createMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm'
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config) {
-    // Add a rule for .md files using raw-loader
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'raw-loader',
-    });
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+}
 
-    return config;
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
   },
-};
-
-export default nextConfig;
+})
+  
+export default withMDX(nextConfig)
