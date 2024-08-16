@@ -9,7 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'content-background': 'rgb(28,28,28)'
+        'markdown-background': 'rgb(13, 17, 23)',
+        'markdown-border-color': '#30363db3',
+        'markdown-text-color': 'rgb(230, 237, 243)'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -23,6 +25,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 };
 export default config;

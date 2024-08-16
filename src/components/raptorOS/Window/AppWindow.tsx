@@ -87,10 +87,10 @@ const AppWindow = (props: Props) => {
   return (
     <Rnd
       default={{
-        x: Math.ceil(width / 3),
-        y: Math.ceil(height / 4),
-        width: Math.ceil(width / 3),
-        height: Math.ceil(height / 2),
+        x: Math.ceil(width / 4),
+        y: Math.ceil(height / 6),
+        width: Math.ceil(width / 2),
+        height: Math.ceil(height / 1.5),
       }}
       minWidth={300}
       minHeight={200}
