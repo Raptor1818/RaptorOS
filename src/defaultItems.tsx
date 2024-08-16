@@ -1,11 +1,13 @@
 import React, { ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-const homeImg = '/img/icons/computer.svg'
-const aboutImg = '/img/icons/info.svg'
+const homeImg = '/img/icons/computer.svg';
+const aboutImg = '/img/icons/info.svg';
 
-import Home from './components/raptorOS/Applications/Home/Home';
-import About from './components/raptorOS/Applications/About/About';
+import MarkdownApp from './components/raptorOS/MarkdownApp/MarkdownApp';
+
+import homeMd from '@/components/raptorOS/MarkdownApp/Home/Home.md'
+import aboutMd from '@/components/raptorOS/MarkdownApp/About/About.md'
 
 export interface Item {
   id: string;
@@ -25,13 +27,13 @@ export const defaultItems: Item[] = [
     label: 'Home',
     isShortcut: false,
     icon: homeImg,
-    content: <Home />
+    content: <MarkdownApp source={homeMd} />,
   },
   {
     id: generateUUID(),
     label: 'About',
     isShortcut: false,
     icon: aboutImg,
-    content: <About />
+    content: <MarkdownApp source={aboutMd} />,
   },
 ];

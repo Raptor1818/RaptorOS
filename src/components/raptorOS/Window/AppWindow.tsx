@@ -87,13 +87,13 @@ const AppWindow = (props: Props) => {
   return (
     <Rnd
       default={{
-        x: width / 3,
-        y: height / 4,
-        width: width / 3,
-        height: height / 2,
+        x: Math.ceil(width / 4),
+        y: Math.ceil(height / 6),
+        width: Math.ceil(width / 2),
+        height: Math.ceil(height / 1.5),
       }}
-      minWidth={400}
-      minHeight={300}
+      minWidth={300}
+      minHeight={200}
       onMouseDown={() => onFocus()}
       dragHandleClassName="drag-handle"
       resizeHandleStyles={{
@@ -104,6 +104,7 @@ const AppWindow = (props: Props) => {
       }}
       style={{ zIndex }}
       enableResizing={!stateMinimized}
+      bounds={'body'}
     >
       <div
         id={id}

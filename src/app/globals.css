@@ -16,8 +16,17 @@
   }
 }
 
+*{
+  box-sizing: border-box !important;
+}
+
 html {
   overflow: hidden;
+}
+
+
+a{
+  text-decoration: underline;
 }
 
 body {
@@ -31,34 +40,16 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-h1{
-  @apply text-3xl;
-}
-h2{
-  @apply text-2xl;
-}
-h3{
-  @apply text-xl;
-}
-p{
-  @apply text-lg;
-}
-
-ul{
-  @apply max-w-md space-y-1 list-disc list-inside;
-}
-
-span{
-  @apply font-semibold;
-}
-
-a{
-  @apply underline text-blue-400;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
+.revert-tailwind{
+  all: initial;
+}
+
+.revert-tailwind > * {
+  all: revert;
+}

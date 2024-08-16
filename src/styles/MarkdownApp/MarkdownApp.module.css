@@ -1,0 +1,1161 @@
+@tailwind components;
+@tailwind utilities;
+
+.markdownAppWrapper{
+  @apply w-full h-full overflow-auto
+  p-4 font-notoSans;
+}
+
+
+.markdownAppWrapper {
+  color-scheme: dark;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  color: #e6edf3;
+  background-color: #0d1117;
+  /* font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; */
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  scroll-behavior: auto;
+}
+
+.markdownAppWrapper .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdownAppWrapper h1:hover .anchor .octicon-link:before,
+.markdownAppWrapper h2:hover .anchor .octicon-link:before,
+.markdownAppWrapper h3:hover .anchor .octicon-link:before,
+.markdownAppWrapper h4:hover .anchor .octicon-link:before,
+.markdownAppWrapper h5:hover .anchor .octicon-link:before,
+.markdownAppWrapper h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+}
+
+.markdownAppWrapper details,
+.markdownAppWrapper figcaption,
+.markdownAppWrapper figure {
+  display: block;
+}
+
+.markdownAppWrapper summary {
+  display: list-item;
+}
+
+.markdownAppWrapper [hidden] {
+  display: none !important;
+}
+
+.markdownAppWrapper a {
+  background-color: transparent;
+  color: #4493f8;
+  text-decoration: none;
+}
+
+.markdownAppWrapper abbr[title] {
+  border-bottom: none;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+.markdownAppWrapper b,
+.markdownAppWrapper strong {
+  font-weight: 600;
+}
+
+.markdownAppWrapper dfn {
+  font-style: italic;
+}
+
+.markdownAppWrapper h1 {
+  margin: .67em 0;
+  font-weight: 600;
+  padding-bottom: .3em;
+  font-size: 2em;
+  border-bottom: 1px solid #30363db3;
+}
+
+.markdownAppWrapper mark {
+  background-color: #bb800926;
+  color: #e6edf3;
+}
+
+.markdownAppWrapper small {
+  font-size: 90%;
+}
+
+.markdownAppWrapper sub,
+.markdownAppWrapper sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.markdownAppWrapper sub {
+  bottom: -0.25em;
+}
+
+.markdownAppWrapper sup {
+  top: -0.5em;
+}
+
+.markdownAppWrapper img {
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #0d1117;
+}
+
+.markdownAppWrapper code,
+.markdownAppWrapper kbd,
+.markdownAppWrapper pre,
+.markdownAppWrapper samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.markdownAppWrapper figure {
+  margin: 1em 40px;
+}
+
+.markdownAppWrapper hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: transparent;
+  border-bottom: 1px solid #30363db3;
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #30363d;
+  border: 0;
+}
+
+.markdownAppWrapper input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdownAppWrapper [type=button],
+.markdownAppWrapper [type=reset],
+.markdownAppWrapper [type=submit] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+.markdownAppWrapper [type=checkbox],
+.markdownAppWrapper [type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdownAppWrapper [type=number]::-webkit-inner-spin-button,
+.markdownAppWrapper [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.markdownAppWrapper [type=search]::-webkit-search-cancel-button,
+.markdownAppWrapper [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdownAppWrapper ::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+
+.markdownAppWrapper ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  appearance: button;
+  font: inherit;
+}
+
+.markdownAppWrapper a:hover {
+  text-decoration: underline;
+}
+
+.markdownAppWrapper ::placeholder {
+  color: #8d96a0;
+  opacity: 1;
+}
+
+.markdownAppWrapper hr::before {
+  display: table;
+  content: "";
+}
+
+.markdownAppWrapper hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdownAppWrapper table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.markdownAppWrapper td,
+.markdownAppWrapper th {
+  padding: 0;
+}
+
+.markdownAppWrapper details summary {
+  cursor: pointer;
+}
+
+.markdownAppWrapper details:not([open])>*:not(summary) {
+  display: none;
+}
+
+.markdownAppWrapper a:focus,
+.markdownAppWrapper [role=button]:focus,
+.markdownAppWrapper input[type=radio]:focus,
+.markdownAppWrapper input[type=checkbox]:focus {
+  outline: 2px solid #1f6feb;
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdownAppWrapper a:focus:not(:focus-visible),
+.markdownAppWrapper [role=button]:focus:not(:focus-visible),
+.markdownAppWrapper input[type=radio]:focus:not(:focus-visible),
+.markdownAppWrapper input[type=checkbox]:focus:not(:focus-visible) {
+  outline: solid 1px transparent;
+}
+
+.markdownAppWrapper a:focus-visible,
+.markdownAppWrapper [role=button]:focus-visible,
+.markdownAppWrapper input[type=radio]:focus-visible,
+.markdownAppWrapper input[type=checkbox]:focus-visible {
+  outline: 2px solid #1f6feb;
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdownAppWrapper a:not([class]):focus,
+.markdownAppWrapper a:not([class]):focus-visible,
+.markdownAppWrapper input[type=radio]:focus,
+.markdownAppWrapper input[type=radio]:focus-visible,
+.markdownAppWrapper input[type=checkbox]:focus,
+.markdownAppWrapper input[type=checkbox]:focus-visible {
+  outline-offset: 0;
+}
+
+.markdownAppWrapper kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px;
+  @apply font-notoMono;
+  line-height: 10px;
+  color: #e6edf3;
+  vertical-align: middle;
+  background-color: #161b22;
+  border: solid 1px #6e768166;
+  border-bottom-color: #6e768166;
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 #6e768166;
+}
+
+.markdownAppWrapper h1,
+.markdownAppWrapper h2,
+.markdownAppWrapper h3,
+.markdownAppWrapper h4,
+.markdownAppWrapper h5,
+.markdownAppWrapper h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdownAppWrapper h2 {
+  font-weight: 600;
+  padding-bottom: .3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #30363db3;
+}
+
+.markdownAppWrapper h3 {
+  font-weight: 600;
+  font-size: 1.25em;
+}
+
+.markdownAppWrapper h4 {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.markdownAppWrapper h5 {
+  font-weight: 600;
+  font-size: .875em;
+}
+
+.markdownAppWrapper h6 {
+  font-weight: 600;
+  font-size: .85em;
+  color: #8d96a0;
+}
+
+.markdownAppWrapper p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdownAppWrapper blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #8d96a0;
+  border-left: .25em solid #30363d;
+}
+
+.markdownAppWrapper ul,
+.markdownAppWrapper ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em;
+}
+
+.markdownAppWrapper ol ol,
+.markdownAppWrapper ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdownAppWrapper ul ul ol,
+.markdownAppWrapper ul ol ol,
+.markdownAppWrapper ol ul ol,
+.markdownAppWrapper ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdownAppWrapper dd {
+  margin-left: 0;
+}
+
+.markdownAppWrapper tt,
+.markdownAppWrapper code,
+.markdownAppWrapper samp {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 12px;
+}
+
+.markdownAppWrapper pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 12px;
+  word-wrap: normal;
+}
+
+.markdownAppWrapper .octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdownAppWrapper input::-webkit-outer-spin-button,
+.markdownAppWrapper input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdownAppWrapper .mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+.markdownAppWrapper::before {
+  display: table;
+  content: "";
+}
+
+.markdownAppWrapper::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdownAppWrapper>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdownAppWrapper>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdownAppWrapper a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdownAppWrapper .absent {
+  color: #f85149;
+}
+
+.markdownAppWrapper .anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdownAppWrapper .anchor:focus {
+  outline: none;
+}
+
+.markdownAppWrapper p,
+.markdownAppWrapper blockquote,
+.markdownAppWrapper ul,
+.markdownAppWrapper ol,
+.markdownAppWrapper dl,
+.markdownAppWrapper table,
+.markdownAppWrapper pre,
+.markdownAppWrapper details {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdownAppWrapper blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdownAppWrapper blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdownAppWrapper h1 .octicon-link,
+.markdownAppWrapper h2 .octicon-link,
+.markdownAppWrapper h3 .octicon-link,
+.markdownAppWrapper h4 .octicon-link,
+.markdownAppWrapper h5 .octicon-link,
+.markdownAppWrapper h6 .octicon-link {
+  color: #e6edf3;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdownAppWrapper h1:hover .anchor,
+.markdownAppWrapper h2:hover .anchor,
+.markdownAppWrapper h3:hover .anchor,
+.markdownAppWrapper h4:hover .anchor,
+.markdownAppWrapper h5:hover .anchor,
+.markdownAppWrapper h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdownAppWrapper h1:hover .anchor .octicon-link,
+.markdownAppWrapper h2:hover .anchor .octicon-link,
+.markdownAppWrapper h3:hover .anchor .octicon-link,
+.markdownAppWrapper h4:hover .anchor .octicon-link,
+.markdownAppWrapper h5:hover .anchor .octicon-link,
+.markdownAppWrapper h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdownAppWrapper h1 tt,
+.markdownAppWrapper h1 code,
+.markdownAppWrapper h2 tt,
+.markdownAppWrapper h2 code,
+.markdownAppWrapper h3 tt,
+.markdownAppWrapper h3 code,
+.markdownAppWrapper h4 tt,
+.markdownAppWrapper h4 code,
+.markdownAppWrapper h5 tt,
+.markdownAppWrapper h5 code,
+.markdownAppWrapper h6 tt,
+.markdownAppWrapper h6 code {
+  padding: 0 .2em;
+  font-size: inherit;
+}
+
+.markdownAppWrapper summary h1,
+.markdownAppWrapper summary h2,
+.markdownAppWrapper summary h3,
+.markdownAppWrapper summary h4,
+.markdownAppWrapper summary h5,
+.markdownAppWrapper summary h6 {
+  display: inline-block;
+}
+
+.markdownAppWrapper summary h1 .anchor,
+.markdownAppWrapper summary h2 .anchor,
+.markdownAppWrapper summary h3 .anchor,
+.markdownAppWrapper summary h4 .anchor,
+.markdownAppWrapper summary h5 .anchor,
+.markdownAppWrapper summary h6 .anchor {
+  margin-left: -40px;
+}
+
+.markdownAppWrapper summary h1,
+.markdownAppWrapper summary h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.markdownAppWrapper ul.no-list,
+.markdownAppWrapper ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.markdownAppWrapper ol[type="a s"] {
+  list-style-type: lower-alpha;
+}
+
+.markdownAppWrapper ol[type="A s"] {
+  list-style-type: upper-alpha;
+}
+
+.markdownAppWrapper ol[type="i s"] {
+  list-style-type: lower-roman;
+}
+
+.markdownAppWrapper ol[type="I s"] {
+  list-style-type: upper-roman;
+}
+
+.markdownAppWrapper ol[type="1"] {
+  list-style-type: decimal;
+}
+
+.markdownAppWrapper div>ol:not([type]) {
+  list-style-type: decimal;
+}
+
+.markdownAppWrapper ul ul,
+.markdownAppWrapper ul ol,
+.markdownAppWrapper ol ol,
+.markdownAppWrapper ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdownAppWrapper li>p {
+  margin-top: 16px;
+}
+
+.markdownAppWrapper li+li {
+  margin-top: .25em;
+}
+
+.markdownAppWrapper dl {
+  padding: 0;
+}
+
+.markdownAppWrapper dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdownAppWrapper dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdownAppWrapper table th {
+  font-weight: 600;
+}
+
+.markdownAppWrapper table th,
+.markdownAppWrapper table td {
+  padding: 6px 13px;
+  border: 1px solid #30363d;
+}
+
+.markdownAppWrapper table td>:last-child {
+  margin-bottom: 0;
+}
+
+.markdownAppWrapper table tr {
+  background-color: #0d1117;
+  border-top: 1px solid #30363db3;
+}
+
+.markdownAppWrapper table tr:nth-child(2n) {
+  background-color: #161b22;
+}
+
+.markdownAppWrapper table img {
+  background-color: transparent;
+}
+
+.markdownAppWrapper img[align=right] {
+  padding-left: 20px;
+}
+
+.markdownAppWrapper img[align=left] {
+  padding-right: 20px;
+}
+
+.markdownAppWrapper .emoji {
+  max-width: none;
+  vertical-align: text-top;
+  background-color: transparent;
+}
+
+.markdownAppWrapper span.frame {
+  display: block;
+  overflow: hidden;
+}
+
+.markdownAppWrapper span.frame>span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid #30363d;
+}
+
+.markdownAppWrapper span.frame span img {
+  display: block;
+  float: left;
+}
+
+.markdownAppWrapper span.frame span span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: #e6edf3;
+}
+
+.markdownAppWrapper span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdownAppWrapper span.align-center>span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.markdownAppWrapper span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.markdownAppWrapper span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdownAppWrapper span.align-right>span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdownAppWrapper span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+
+.markdownAppWrapper span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+
+.markdownAppWrapper span.float-left span {
+  margin: 13px 0 0;
+}
+
+.markdownAppWrapper span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+
+.markdownAppWrapper span.float-right>span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdownAppWrapper code,
+.markdownAppWrapper tt {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: #6e768166;
+  border-radius: 6px;
+}
+
+.markdownAppWrapper code br,
+.markdownAppWrapper tt br {
+  display: none;
+}
+
+.markdownAppWrapper del code {
+  text-decoration: inherit;
+}
+
+.markdownAppWrapper samp {
+  font-size: 85%;
+}
+
+.markdownAppWrapper pre code {
+  font-size: 100%;
+}
+
+.markdownAppWrapper pre>code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdownAppWrapper .highlight {
+  margin-bottom: 16px;
+}
+
+.markdownAppWrapper .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdownAppWrapper .highlight pre,
+.markdownAppWrapper pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  color: #e6edf3;
+  background-color: #161b22;
+  border-radius: 6px;
+}
+
+.markdownAppWrapper pre code,
+.markdownAppWrapper pre tt {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdownAppWrapper .csv-data td,
+.markdownAppWrapper .csv-data th {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.markdownAppWrapper .csv-data .blob-num {
+  padding: 10px 8px 9px;
+  text-align: right;
+  background: #0d1117;
+  border: 0;
+}
+
+.markdownAppWrapper .csv-data tr {
+  border-top: 0;
+}
+
+.markdownAppWrapper .csv-data th {
+  font-weight: 600;
+  background: #161b22;
+  border-top: 0;
+}
+
+.markdownAppWrapper [data-footnote-ref]::before {
+  content: "[";
+}
+
+.markdownAppWrapper [data-footnote-ref]::after {
+  content: "]";
+}
+
+.markdownAppWrapper .footnotes {
+  font-size: 12px;
+  color: #8d96a0;
+  border-top: 1px solid #30363d;
+}
+
+.markdownAppWrapper .footnotes ol {
+  padding-left: 16px;
+}
+
+.markdownAppWrapper .footnotes ol ul {
+  display: inline-block;
+  padding-left: 16px;
+  margin-top: 16px;
+}
+
+.markdownAppWrapper .footnotes li {
+  position: relative;
+}
+
+.markdownAppWrapper .footnotes li:target::before {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -24px;
+  pointer-events: none;
+  content: "";
+  border: 2px solid #1f6feb;
+  border-radius: 6px;
+}
+
+.markdownAppWrapper .footnotes li:target {
+  color: #e6edf3;
+}
+
+.markdownAppWrapper .footnotes .data-footnote-backref g-emoji {
+  font-family: monospace;
+}
+
+.markdownAppWrapper .pl-c {
+  color: #8b949e;
+}
+
+.markdownAppWrapper .pl-c1,
+.markdownAppWrapper .pl-s .pl-v {
+  color: #79c0ff;
+}
+
+.markdownAppWrapper .pl-e,
+.markdownAppWrapper .pl-en {
+  color: #d2a8ff;
+}
+
+.markdownAppWrapper .pl-smi,
+.markdownAppWrapper .pl-s .pl-s1 {
+  color: #c9d1d9;
+}
+
+.markdownAppWrapper .pl-ent {
+  color: #7ee787;
+}
+
+.markdownAppWrapper .pl-k {
+  color: #ff7b72;
+}
+
+.markdownAppWrapper .pl-s,
+.markdownAppWrapper .pl-pds,
+.markdownAppWrapper .pl-s .pl-pse .pl-s1,
+.markdownAppWrapper .pl-sr,
+.markdownAppWrapper .pl-sr .pl-cce,
+.markdownAppWrapper .pl-sr .pl-sre,
+.markdownAppWrapper .pl-sr .pl-sra {
+  color: #a5d6ff;
+}
+
+.markdownAppWrapper .pl-v,
+.markdownAppWrapper .pl-smw {
+  color: #ffa657;
+}
+
+.markdownAppWrapper .pl-bu {
+  color: #f85149;
+}
+
+.markdownAppWrapper .pl-ii {
+  color: #f0f6fc;
+  background-color: #8e1519;
+}
+
+.markdownAppWrapper .pl-c2 {
+  color: #f0f6fc;
+  background-color: #b62324;
+}
+
+.markdownAppWrapper .pl-sr .pl-cce {
+  font-weight: bold;
+  color: #7ee787;
+}
+
+.markdownAppWrapper .pl-ml {
+  color: #f2cc60;
+}
+
+.markdownAppWrapper .pl-mh,
+.markdownAppWrapper .pl-mh .pl-en,
+.markdownAppWrapper .pl-ms {
+  font-weight: bold;
+  color: #1f6feb;
+}
+
+.markdownAppWrapper .pl-mi {
+  font-style: italic;
+  color: #c9d1d9;
+}
+
+.markdownAppWrapper .pl-mb {
+  font-weight: bold;
+  color: #c9d1d9;
+}
+
+.markdownAppWrapper .pl-md {
+  color: #ffdcd7;
+  background-color: #67060c;
+}
+
+.markdownAppWrapper .pl-mi1 {
+  color: #aff5b4;
+  background-color: #033a16;
+}
+
+.markdownAppWrapper .pl-mc {
+  color: #ffdfb6;
+  background-color: #5a1e02;
+}
+
+.markdownAppWrapper .pl-mi2 {
+  color: #c9d1d9;
+  background-color: #1158c7;
+}
+
+.markdownAppWrapper .pl-mdr {
+  font-weight: bold;
+  color: #d2a8ff;
+}
+
+.markdownAppWrapper .pl-ba {
+  color: #8b949e;
+}
+
+.markdownAppWrapper .pl-sg {
+  color: #484f58;
+}
+
+.markdownAppWrapper .pl-corl {
+  text-decoration: underline;
+  color: #a5d6ff;
+}
+
+.markdownAppWrapper [role=button]:focus:not(:focus-visible),
+.markdownAppWrapper [role=tabpanel][tabindex="0"]:focus:not(:focus-visible),
+.markdownAppWrapper button:focus:not(:focus-visible),
+.markdownAppWrapper summary:focus:not(:focus-visible),
+.markdownAppWrapper a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.markdownAppWrapper [tabindex="0"]:focus:not(:focus-visible),
+.markdownAppWrapper details-dialog:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.markdownAppWrapper g-emoji {
+  display: inline-block;
+  min-width: 1ch;
+  font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 1em;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: -0.075em;
+}
+
+.markdownAppWrapper g-emoji img {
+  width: 1em;
+  height: 1em;
+}
+
+.markdownAppWrapper .task-list-item {
+  list-style-type: none;
+}
+
+.markdownAppWrapper .task-list-item label {
+  font-weight: 400;
+}
+
+.markdownAppWrapper .task-list-item.enabled label {
+  cursor: pointer;
+}
+
+.markdownAppWrapper .task-list-item+.task-list-item {
+  margin-top: 0.25rem;
+}
+
+.markdownAppWrapper .task-list-item .handle {
+  display: none;
+}
+
+.markdownAppWrapper .task-list-item-checkbox {
+  margin: 0 .2em .25em -1.4em;
+  vertical-align: middle;
+}
+
+.markdownAppWrapper .contains-task-list:dir(rtl) .task-list-item-checkbox {
+  margin: 0 -1.6em .25em .2em;
+}
+
+.markdownAppWrapper .contains-task-list {
+  position: relative;
+}
+
+.markdownAppWrapper .contains-task-list:hover .task-list-item-convert-container,
+.markdownAppWrapper .contains-task-list:focus-within .task-list-item-convert-container {
+  display: block;
+  width: auto;
+  height: 24px;
+  overflow: visible;
+  clip: auto;
+}
+
+.markdownAppWrapper ::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+}
+
+.markdownAppWrapper .markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  color: inherit;
+  border-left: .25em solid #30363d;
+}
+
+.markdownAppWrapper .markdown-alert>:first-child {
+  margin-top: 0;
+}
+
+.markdownAppWrapper .markdown-alert>:last-child {
+  margin-bottom: 0;
+}
+
+.markdownAppWrapper .markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-note {
+  border-left-color: #1f6feb;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: #4493f8;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-important {
+  border-left-color: #8957e5;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: #ab7df8;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-warning {
+  border-left-color: #9e6a03;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: #d29922;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-tip {
+  border-left-color: #238636;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: #3fb950;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-caution {
+  border-left-color: #da3633;
+}
+
+.markdownAppWrapper .markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: #f85149;
+}
+
+.markdownAppWrapper>*:first-child>.heading-element:first-child {
+  margin-top: 0 !important;
+}
+
+/* .markdownAppWrapper *:not(.markdownAppWrapper li){
+  line-height: calc(1em + 1ex);
+  @apply mb-4;
+}
+
+.markdownAppWrapper:first-child{
+  @apply mt-0;
+}
+
+.markdownAppWrapper p,
+.markdownAppWrapper ul{
+  @apply text-base font-normal;
+}
+
+.markdownAppWrapper h1, 
+.markdownAppWrapper h2, 
+.markdownAppWrapper h3{
+  @apply mt-2;
+}
+
+.markdownAppWrapper h2, 
+.markdownAppWrapper h3{
+  @apply font-semibold;
+}
+
+.markdownAppWrapper h1, 
+.markdownAppWrapper h2{
+  @apply border-b border-markdown-border-color pb-2;
+}
+
+.markdownAppWrapper h3{
+  @apply text-xl;
+}
+
+.markdownAppWrapper h2{
+  @apply text-2xl;
+}
+
+.markdownAppWrapper h1{
+  @apply text-4xl font-bold;
+}
+
+.markdownAppWrapper a{
+  @apply underline text-blue-400;
+}
+
+.markdownAppWrapper ul{
+  @apply max-w-md space-y-1 mb-0 list-disc list-inside pl-2;
+} */

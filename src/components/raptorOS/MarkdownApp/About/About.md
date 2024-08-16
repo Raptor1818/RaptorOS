@@ -1,4 +1,8 @@
-# RaptorOS
+# RaptorOS <sub>v0.2</sub>
+
+### Heavily WIP
+
+[Github page](https://github.com/Raptor1818/raptorino-next)
 
 Made to emulate the feel of a desktop enviroment. 
 
