@@ -22,10 +22,10 @@ const AppWindow = (props: Props) => {
   const { id, title, icon, children, zIndex, onClose, onMinimize, onFocus, isFocused, isMinimized } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { height, width } = useWindowDimensions();
-  
-  const [isStarted, setStarted] = useState<boolean>(false)
-  const [stateMinimized, setStateMinimized] = useState<boolean>(true)
-  
+
+  const [isStarted, setStarted] = useState<boolean>(false);
+  const [wasMinimized, setWasMinimized] = useState<boolean>(false);
+
   const closeWindow = () => {
     if (containerRef.current) {
       gsap.to(containerRef.current, {
@@ -37,13 +37,16 @@ const AppWindow = (props: Props) => {
     }
   };
 
-  const minimizeWindow = () => { window
+  const minimizeWindow = () => {
     if (containerRef.current) {
       gsap.to(containerRef.current, {
         opacity: 0,
-        translateY: 200,
+        translateY: 300,
         duration: 0.3,
-        onComplete: onMinimize,
+        onComplete: () => {
+          onMinimize();
+          setWasMinimized(true);
+        },
       });
     }
   };
@@ -55,34 +58,48 @@ const AppWindow = (props: Props) => {
   }, [zIndex]);
 
   useEffect(() => {
-    setStateMinimized(isMinimized);
-    if (containerRef.current && isStarted && !isMinimized) {
-      gsap.to(containerRef.current, {
-        opacity: 1,
-        translateY: 0,
-        duration: 0.3,
-      });
+    if (wasMinimized && !isMinimized) {
+      if (containerRef.current) {
+        gsap.fromTo(
+          containerRef.current,
+          {
+            opacity: 0,
+            translateY: 300,
+          },
+          {
+            opacity: 1,
+            translateY: 0,
+            duration: 0.3,
+            onComplete: () => setWasMinimized(false),
+          }
+        );
+      }
     }
-  }, [isMinimized])
+  }, [isMinimized, wasMinimized]);
 
   useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(containerRef.current, 
+    if (containerRef.current && !wasMinimized) {
+      gsap.fromTo(
+        containerRef.current,
         {
           opacity: 0,
-          scale: 0.9
+          scale: 0.9,
         },
         {
           opacity: 1,
           scale: 1,
           duration: 0.2,
           onComplete: () => {
-            setStarted(true)
-          }
+            setStarted(true);
+          },
         }
       );
     }
   }, []);
+
+  if (isMinimized) {
+    return null;
+  }
 
   return (
     <Rnd
@@ -103,7 +120,6 @@ const AppWindow = (props: Props) => {
         top: { cursor: 'ns-resize' },
       }}
       style={{ zIndex }}
-      enableResizing={!stateMinimized}
       bounds={'body'}
     >
       <div
@@ -112,10 +128,9 @@ const AppWindow = (props: Props) => {
         className={`
           ${css.appWindowContainer} 
           ${isFocused ? css.appWindowContainerFocused : ''} 
-          ${stateMinimized ? 'select-none' : ''}
         `}
       >
-        <WindowTitleBar title={title}  icon={icon} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
+        <WindowTitleBar title={title} icon={icon} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
         {children}
       </div>
     </Rnd>

@@ -1,4 +1,6 @@
-# RaptorOS <sub>v0.2</sub>
+import MdxLayout from '../mdx-layout'
+
+# RaptorOS
 
 ### Heavily WIP
 
@@ -36,3 +38,7 @@ Made to emulate the feel of a desktop enviroment.
 ## Assets
 * [Kora Icon Theme](https://store.kde.org/p/1256209)
 * Desktop background from the backgrounds included in Linux Mint 21.3 Virginia
+
+export default function MDXPage({ children }) {
+  return <MdxLayout>{children}</MdxLayout>
+}
