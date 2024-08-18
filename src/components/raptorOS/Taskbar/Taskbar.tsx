@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import css from '@/styles/Taskbar/Taskbar.module.css';
 import TaskbarItem from './TaskbarItem';
-import { Item } from '@/defaultItems';
+import { Item } from '@/components/raptorOS/ItemLists/SharedItems';
 
 import dynamic from 'next/dynamic';
 
@@ -14,8 +14,8 @@ const Taskbar: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     const loadItems = () => {
-      import('@/defaultItems').then((module) => {
-        setLoadedDefaultItems(module.defaultItems);
+      import('@/components/raptorOS/ItemLists/TaskbarItems').then((module) => {
+        setLoadedDefaultItems(module.TaskbarItems);
       });
     };
 

@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import css from '@/styles/Desktop/DesktopContainer.module.css';
 import DesktopItem from './DesktopItem';
-import { Item } from '@/defaultItems';
+import { Item } from '@/components/raptorOS/ItemLists/SharedItems';
 
-interface Props {}
-
-const DesktopContainer: React.FC<Props> = (props: Props) => {
-  const [loadedDefaultitems, setLoadedDefaultItems] = useState<Item[]>([]);
+const DesktopContainer = () => {
+  const [loadedDefaultItems, setLoadedDefaultItems] = useState<Item[]>([]);
 
   useEffect(() => {
     const loadItems = () => {
-      import('@/defaultItems').then((module) => {
-        setLoadedDefaultItems(module.defaultItems);
+      import('@/components/raptorOS/ItemLists/DesktopItems').then((module) => {
+        setLoadedDefaultItems(module.DesktopItems);
       });
     };
 
@@ -20,7 +18,7 @@ const DesktopContainer: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={css.desktopContainer}>
-      {loadedDefaultitems.map(item => (
+      {loadedDefaultItems.map(item => (
         <DesktopItem
           key={item.id}
           id={item.id}
@@ -28,6 +26,7 @@ const DesktopContainer: React.FC<Props> = (props: Props) => {
           icon={item.icon}
           isShortcut={item.isShortcut}
           content={item.content}
+          url={item.url}
         />
       ))}
     </div>

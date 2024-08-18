@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
-import { Item } from '@/defaultItems'
+import { Item } from '@/components/raptorOS/ItemLists/SharedItems';
 
 interface TaskbarItemProps extends Item {
   isMinimized?: boolean;
@@ -10,20 +10,26 @@ interface TaskbarItemProps extends Item {
 
 import css from '@/styles/Desktop/DesktopItem.module.css';
 
-const DesktopItem = (props: TaskbarItemProps) => {
+const DesktopItem = ({ id, label, icon, isShortcut, content, url }: TaskbarItemProps) => {
   const { addWindow } = useWindowContext();
+
+  const handleDoubleClick = () => {
+    if (isShortcut && url) {
+      window.open(url, '_blank');
+    } else {
+      addWindow(id, label, icon, false, content);
+    }
+  };
 
   return (
     <div
-      id={props.id}
+      id={id}
       className={`${css.itemContainer} parent`}
       tabIndex={0}
-      onDoubleClick={() => {
-        addWindow(props.id, props.label, props.icon, false, props.content)
-      }}
+      onDoubleClick={handleDoubleClick}
     >
       <div className={css.itemImageContainer}>
-        {props.isShortcut ? 
+        {isShortcut && (
           <Image 
             src="/img/icons/shortcut_arrow.png"
             width={14}
@@ -31,20 +37,20 @@ const DesktopItem = (props: TaskbarItemProps) => {
             alt=""
             className={css.shortcutIcon}
           />
-          : <></>}
-          <Image
-            src={props.icon}
-            width={48}
-            height={48}
-            alt=''
-            draggable={false}
-          />
+        )}
+        <Image
+          src={icon}
+          width={48}
+          height={48}
+          alt={label}
+          draggable={false}
+        />
       </div>
       <p className={`${css.itemText} truncate-multiline`}>
-        {props.label}
+        {label}
       </p>
     </div>
-  )
-}
+  );
+};
 
 export default DesktopItem;
