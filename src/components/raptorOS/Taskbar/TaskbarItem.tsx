@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import css from '@/styles/Taskbar/TaskbarItem.module.css';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
-import { Item } from '@/defaultItems'
+import { Item } from '@/components/raptorOS/ItemLists/SharedItems'
 
 interface TaskbarItemProps extends Item {
   isMinimized?: boolean;
