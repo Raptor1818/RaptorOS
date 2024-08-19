@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
 import css from '@/styles/Window/AppWindow.module.css';
 import useWindowDimensions from './useWindowDimensions';
+import UAParser from 'ua-parser-js';
 
 interface Props {
   id: string;
@@ -25,6 +26,9 @@ const AppWindow = (props: Props) => {
 
   const [isStarted, setStarted] = useState<boolean>(false);
   const [wasMinimized, setWasMinimized] = useState<boolean>(false);
+
+  const parser = new UAParser();
+  const deviceType = parser.getDevice().type || 'desktop';
 
   const closeWindow = () => {
     if (containerRef.current) {
@@ -101,17 +105,25 @@ const AppWindow = (props: Props) => {
     return null;
   }
 
+  const defaultPosition = deviceType === 'mobile'
+    ? { 
+      x: 0, 
+      y: Math.ceil(height / 4), 
+      width, 
+      height: Math.ceil(height / 2) 
+    } : { 
+      x: Math.ceil(width / 4), 
+      y: Math.ceil(height / 6), 
+      width: Math.ceil(width / 2), 
+      height: Math.ceil(height / 1.5) 
+    };
+
   return (
     <Rnd
-      default={{
-        x: Math.ceil(width / 4),
-        y: Math.ceil(height / 6),
-        width: Math.ceil(width / 2),
-        height: Math.ceil(height / 1.5),
-      }}
+      default={defaultPosition}
       minWidth={300}
       minHeight={200}
-      onMouseDown={() => onFocus()}
+      onMouseDown={onFocus}
       dragHandleClassName="drag-handle"
       resizeHandleStyles={{
         bottom: { cursor: 'ns-resize' },
@@ -120,15 +132,11 @@ const AppWindow = (props: Props) => {
         top: { cursor: 'ns-resize' },
       }}
       style={{ zIndex }}
-      bounds={'body'}
     >
       <div
         id={id}
         ref={containerRef}
-        className={`
-          ${css.appWindowContainer} 
-          ${isFocused ? css.appWindowContainerFocused : ''} 
-        `}
+        className={`${css.appWindowContainer} ${isFocused ? css.appWindowContainerFocused : ''}`}
       >
         <WindowTitleBar title={title} icon={icon} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
         {children}
