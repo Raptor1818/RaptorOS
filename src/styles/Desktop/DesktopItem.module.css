@@ -1,11 +1,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tailwind utility classes */
 .itemContainer {
   @apply border border-transparent w-[74px] h-fit flex flex-col place-items-center p-[1px] relative rounded
-  hover:bg-white hover:bg-opacity-35
-  focus:bg-white focus:bg-opacity-50
+  hover:bg-white hover:bg-opacity-25
+  focus:bg-white focus:bg-opacity-40
   ;
 }
 
@@ -28,7 +27,6 @@
 }
 
 
-/* Custom styles */
 .truncate-multiline {
   display: -webkit-box;
   -webkit-line-clamp: 2;
