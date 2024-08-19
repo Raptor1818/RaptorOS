@@ -18,8 +18,8 @@ const WindowTitleBar = (props: Props) => {
   const { title, icon, onClose, onMinimize, isFocused } = props;
 
   return (
-    <div className={`${css.titleBarContainer} ${isFocused ? css.titleBarFocused : ''} drag-handle`}>
-      <div className={css.windowTitleDiv}>
+    <div className={`${css.titleBarContainer} ${isFocused ? css.titleBarFocused : ''}`}>
+      <div className={`${css.windowTitleDiv} drag-handle`}>
         <Image src={icon} width={20} height={20} alt=''/>
         <p>{title}</p>
       </div>

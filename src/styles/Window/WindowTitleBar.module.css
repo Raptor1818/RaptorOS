@@ -1,40 +1,38 @@
 @tailwind components;
 @tailwind utilities;
 
-.titleBarContainer{
+.titleBarContainer {
   @apply w-full flex flex-row justify-between items-center select-none
-  bg-black backdrop-blur-2xl overflow-hidden transition duration-100;
+    bg-black backdrop-blur-2xl overflow-hidden transition duration-100;
 }
 
-.windowTitleDiv{
-  @apply flex flex-row gap-2 p-2 pl-2;
+.windowTitleDiv {
+  @apply flex flex-row gap-2 p-2 pl-2 flex-grow; /* Added flex-grow */
 }
 
-.windowTitleDiv p{
+.windowTitleDiv p {
   @apply text-sm;
 }
 
-.buttonContainer{
-  @apply h-full;
+.buttonContainer {
+  @apply h-full min-w-fit flex-shrink-0;
 }
 
-.buttonContainer button{
-  @apply h-full px-5 cursor-default 
-  transition bg-transparent;
+.buttonContainer button {
+  @apply h-full px-5 cursor-default transition bg-transparent;
 }
 
-.closeButton{
-  @apply w-fit h-full z-10 px-5
-  bg-transparent hover:bg-red-500 transition cursor-default
-  active:bg-red-600;
-}
-
-.minimizeButton{
+.closeButton {
   @apply 
-  hover:bg-white hover:bg-opacity-10
-  active:bg-white active:bg-opacity-5;
+    hover:bg-red-500 active:bg-red-600;
 }
 
-.titleBarFocused{
+.minimizeButton {
+  @apply 
+    hover:bg-white hover:bg-opacity-10 
+    active:bg-white active:bg-opacity-5;
+}
+
+.titleBarFocused {
   @apply bg-opacity-80;
 }
