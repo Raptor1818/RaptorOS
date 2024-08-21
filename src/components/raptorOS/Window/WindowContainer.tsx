@@ -1,5 +1,5 @@
 import React from 'react';
-import AppWindow from './AppWindow';
+import AppWindow from '.';
 import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
 const WindowContainer = () => {

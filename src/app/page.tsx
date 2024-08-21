@@ -1,7 +1,7 @@
 'use client'
 
-import DesktopContainer from "@/components/raptorOS/Desktop/DesktopContainer";
-import Taskbar from "@/components/raptorOS/Taskbar/Taskbar";
+import DesktopContainer from "@/components/raptorOS/Desktop";
+import Taskbar from "@/components/raptorOS/Taskbar";
 import WindowContainer from "@/components/raptorOS/Window/WindowContainer";
 import { WindowProvider } from "@/context/raptorOS/WindowContext";
 
