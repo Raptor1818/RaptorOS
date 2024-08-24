@@ -7,7 +7,7 @@ import WindowContainer from "@/components/raptorOS/Window/WindowContainer";
 import { WindowProvider } from "@/context/raptorOS/WindowContext";
 import css from '@/styles/raptorOS/page.module.css';
 
-export default function Home() {
+export default function RaptorOS() {
   return (
     <BackgroundProvider>
       <MainContent />
