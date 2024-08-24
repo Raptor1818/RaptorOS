@@ -1,0 +1,32 @@
+@tailwind components;
+@tailwind utilities;
+
+.backgroundItemContainer{
+  @apply p-4 flex flex-col justify-between gap-2 
+  border border-transparent 
+  transition ease-in-out 
+  rounded-xl
+  cursor-pointer
+  hover:border-neutral-400 hover:bg-white hover:bg-opacity-5
+  active:border-white active:bg-opacity-10;
+}
+
+.backgroundItemContainer img{
+  @apply select-none rounded-md;
+}
+
+.backgroundItemText{
+  @apply flex flex-col justify-center items-center;
+}
+
+.itemName{
+  @apply text-lg text-center;
+}
+
+.backgroundItemText span, .backgroundItemText a{
+  @apply text-sm text-neutral-500;
+}
+
+.loadingContainer{
+  @apply w-[300px] h-[169px] flex flex-col justify-center items-center;
+}

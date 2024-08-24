@@ -1,15 +1,24 @@
-'use client'
+'use client';
 
-import DesktopContainer from "@/components/raptorOS/Desktop/DesktopContainer";
-import Taskbar from "@/components/raptorOS/Taskbar/Taskbar";
+import { BackgroundProvider, useBackground } from '@/context/raptorOS/BackgroundContext';
+import DesktopContainer from "@/components/raptorOS/Desktop";
+import Taskbar from "@/components/raptorOS/Taskbar";
 import WindowContainer from "@/components/raptorOS/Window/WindowContainer";
 import { WindowProvider } from "@/context/raptorOS/WindowContext";
+import css from '@/styles/raptorOS/page.module.css';
 
-import css from '@/styles/page.module.css'
-
-export default function Home() {
+export default function RaptorOS() {
   return (
-    <main className={css.pagesContainer}>
+    <BackgroundProvider>
+      <MainContent />
+    </BackgroundProvider>
+  );
+}
+
+function MainContent() {
+  const { backgroundImage } = useBackground();
+  return (
+    <main className={css.pagesContainer} style={{ backgroundImage: `url(${backgroundImage})` }}>
       <WindowProvider>
         <WindowContainer />
         <DesktopContainer />
@@ -18,3 +27,4 @@ export default function Home() {
     </main>
   );
 }
+

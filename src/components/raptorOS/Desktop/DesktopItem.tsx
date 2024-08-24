@@ -8,7 +8,7 @@ interface TaskbarItemProps extends Item {
   isMinimized?: boolean;
 }
 
-import css from '@/styles/Desktop/DesktopItem.module.css';
+import css from '@/styles/raptorOS/Desktop/DesktopItem.module.css';
 
 const DesktopItem = ({ id, label, icon, isShortcut, content, url }: TaskbarItemProps) => {
   const { addWindow } = useWindowContext();

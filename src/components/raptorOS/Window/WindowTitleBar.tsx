@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '@/styles/Window/WindowTitleBar.module.css'
+import css from '@/styles/raptorOS/Window/WindowTitleBar.module.css'
 
 import Image from 'next/image';
 

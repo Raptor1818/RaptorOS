@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import css from '@/styles/Taskbar/Taskbar.module.css';
 import TaskbarItem from './TaskbarItem';
 import { Item } from '@/components/raptorOS/ItemLists/SharedItems';
+
+import css from '@/styles/raptorOS/Taskbar/Taskbar.module.css';
 
 import dynamic from 'next/dynamic';
 

@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        'default-background': 'rgb(20, 20, 20)',
+        'default-text': 'rgb(229, 229, 229)',
         'markdown-background': 'rgb(13, 17, 23)',
         'markdown-border-color': '#30363db3',
         'markdown-text-color': 'rgb(230, 237, 243)'

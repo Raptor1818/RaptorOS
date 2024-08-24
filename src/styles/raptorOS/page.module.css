@@ -1,0 +1,6 @@
+@tailwind components;
+@tailwind utilities;
+
+.pagesContainer{
+  @apply min-h-screen w-screen overflow-hidden bg-center bg-cover bg-no-repeat bg-fixed;
+}
