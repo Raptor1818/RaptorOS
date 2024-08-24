@@ -2,9 +2,10 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
 import gsap from 'gsap';
 import WindowTitleBar from './WindowTitleBar';
-import css from '@/styles/Window/AppWindow.module.css';
 import useWindowDimensions from './useWindowDimensions';
 import UAParser from 'ua-parser-js';
+
+import css from '@/styles/raptorOS/Window/AppWindow.module.css';
 
 interface Props {
   id: string;

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import css from '@/styles/NotFoundPage.module.css'
+import css from '@/styles/raptorOS/NotFoundPage.module.css'
 
 function NotFoundPage() {
 	return <div className={css.notFoundContainer}>

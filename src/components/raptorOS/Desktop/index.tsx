@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import css from '@/styles/Desktop/DesktopContainer.module.css';
 import DesktopItem from './DesktopItem';
 import { Item } from '@/components/raptorOS/ItemLists/SharedItems';
+
+import css from '@/styles/raptorOS/Desktop/DesktopContainer.module.css';
 
 const DesktopContainer = () => {
   const [loadedDefaultItems, setLoadedDefaultItems] = useState<Item[]>([]);

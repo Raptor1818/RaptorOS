@@ -1,4 +1,4 @@
-import css from '@/styles/MarkdownApp/MarkdownApp.module.css'
+import css from '@/styles/raptorOS/Applications/MarkdownApp/MarkdownApp.module.css'
 
 interface Props {
   children: React.ReactNode;

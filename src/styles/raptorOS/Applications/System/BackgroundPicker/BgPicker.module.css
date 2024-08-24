@@ -1,0 +1,10 @@
+@tailwind components;
+@tailwind utilities;
+
+.pickerTitle{
+  @apply flex flex-col justify-center items-center py-4;
+}
+
+.pickerTitle h1{
+  @apply text-3xl;
+}

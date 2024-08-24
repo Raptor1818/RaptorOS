@@ -1,8 +1,9 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import HomeMdx from '@/components/raptorOS/MarkdownApp/Home/Home.mdx';
-import AboutMdx from '@/components/raptorOS/MarkdownApp/About/About.mdx';
+import HomeMdx            from '@/components/raptorOS/Applications/MarkdownApp/Home/Home.mdx';
+import AboutMdx           from '@/components/raptorOS/Applications/MarkdownApp/About/About.mdx';
+import BackgroundPicker   from '@/components/raptorOS/Applications/System/BackgroundPicker';
 
 export interface Item {
   id: string;
@@ -31,5 +32,12 @@ export const SharedItems: Item[] = [
     isShortcut: false,
     icon: '/img/icons/info.svg',
     content: <AboutMdx />,
+  },
+  {
+    id: generateUUID(),
+    label: 'Wallpaper Picker',
+    isShortcut: false,
+    icon: '/img/icons/wallpaper.svg',
+    content: <BackgroundPicker />,
   },
 ];

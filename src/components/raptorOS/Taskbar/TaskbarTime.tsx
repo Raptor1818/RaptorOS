@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import css from '@/styles/Taskbar/TaskbarTime.module.css'
+import css from '@/styles/raptorOS/Taskbar/TaskbarTime.module.css'
 
 type Props = {}
 
