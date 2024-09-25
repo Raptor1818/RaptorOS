@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'default-background': 'rgb(20, 20, 20)',
-        'default-text': 'rgb(229, 229, 229)',
-        'markdown-background': 'rgb(13, 17, 23)',
-        'markdown-border-color': '#30363db3',
-        'markdown-text-color': 'rgb(230, 237, 243)'
+        "default-background": "rgb(20, 20, 20)",
+        "default-text": "rgb(235, 235, 235)",
+        "markdown-background": "rgb(13, 17, 23)",
+        "markdown-border-color": "#30363db3",
+        "markdown-text-color": "rgb(230, 237, 243)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -21,13 +21,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        inter: ['var(--font-inter)'],
-        notoSans: ['var(--font-noto-sans)'],
-        notoMono: ['var(--font-noto-sans-mono)'],
+        inter: ["var(--font-inter)"],
+        notoSans: ["var(--font-noto-sans)"],
+        notoMono: ["var(--font-noto-sans-mono)"],
       },
     },
   },
-  plugins: [
-  ],
+  plugins: [],
 };
 export default config;

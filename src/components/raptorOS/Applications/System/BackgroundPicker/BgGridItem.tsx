@@ -17,18 +17,18 @@ const BgGridItem: React.FC<BackgroundGridItemProps> = ({ source, name, author, u
   return (
     <div className={css.backgroundItemContainer} onClick={handleOnClick}>
       {isLoading && 
-      <div className={css.loadingContainer}>
-        <p><i>Loading...</i></p>
-      </div>
-      
+        <div className={css.loadingContainer}>
+          <p><i>Loading...</i></p>
+        </div>
       }
+      
       <Image 
         src={source} 
         width={300} 
         height={169} 
         alt={name}
         draggable={false}
-        onLoadingComplete={() => setIsLoading(false)}
+        onLoad={() => setIsLoading(false)}
       />
       <div className={css.backgroundItemText}>
         <p className={css.itemName}>{name}</p>

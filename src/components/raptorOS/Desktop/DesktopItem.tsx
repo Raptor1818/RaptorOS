@@ -10,12 +10,18 @@ interface TaskbarItemProps extends Item {
 
 import css from '@/styles/raptorOS/Desktop/DesktopItem.module.css';
 
-const DesktopItem = ({ id, label, icon, isShortcut, content, url }: TaskbarItemProps) => {
+const DesktopItem = ({ id, label, icon, isShortcut, content, url, openInNewTab }: TaskbarItemProps) => {
   const { addWindow } = useWindowContext();
 
   const handleDoubleClick = () => {
     if (isShortcut && url) {
-      window.open(url, '_blank');
+      if (openInNewTab === false){
+        console.log(openInNewTab)
+        window.open(url, '_self');
+      }else{
+        console.log(openInNewTab)
+        window.open(url, '_blank');
+      }
     } else {
       addWindow(id, label, icon, false, content);
     }

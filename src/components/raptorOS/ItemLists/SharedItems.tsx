@@ -12,6 +12,7 @@ export interface Item {
   icon: string;
   content?: React.ReactNode;
   url?: string;
+  openInNewTab?: boolean;
 }
 
 export function generateUUID(): string {

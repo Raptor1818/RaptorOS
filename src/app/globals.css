@@ -3,20 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-*{
+* {
   box-sizing: border-box !important;
 }
 
@@ -24,30 +15,23 @@ html {
   overflow: hidden;
 }
 
-
-a{
+a {
   text-decoration: underline;
 }
 
-h1{
+h1 {
   @apply text-2xl md:text-4xl font-semibold;
 }
-h2{
+h2 {
   @apply text-xl md:text-3xl font-semibold;
 }
-h3{
+h3 {
   @apply text-lg md:text-2xl font-semibold;
 }
 
 body {
-  @apply font-inter;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply font-inter text-default-text;
+  background: rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -56,7 +40,7 @@ body {
   }
 }
 
-.revert-tailwind{
+.revert-tailwind {
   all: initial;
 }
 
