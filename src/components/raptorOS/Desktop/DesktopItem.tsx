@@ -15,11 +15,9 @@ const DesktopItem = ({ id, label, icon, isShortcut, content, url, openInNewTab }
 
   const handleDoubleClick = () => {
     if (isShortcut && url) {
-      if (openInNewTab === false){
-        console.log(openInNewTab)
+      if (openInNewTab === false) {
         window.open(url, '_self');
-      }else{
-        console.log(openInNewTab)
+      } else {
         window.open(url, '_blank');
       }
     } else {
@@ -36,7 +34,7 @@ const DesktopItem = ({ id, label, icon, isShortcut, content, url, openInNewTab }
     >
       <div className={css.itemImageContainer}>
         {isShortcut && (
-          <Image 
+          <Image
             src="/img/icons/shortcut_arrow.png"
             width={14}
             height={14}

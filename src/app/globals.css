@@ -7,12 +7,18 @@
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
 }
+
 * {
   box-sizing: border-box !important;
 }
 
 html {
   overflow: hidden;
+}
+
+body {
+  @apply font-inter text-default-text;
+  background: rgb(var(--background-start-rgb));
 }
 
 a {
@@ -22,17 +28,15 @@ a {
 h1 {
   @apply text-2xl md:text-4xl font-semibold;
 }
+
 h2 {
   @apply text-xl md:text-3xl font-semibold;
 }
+
 h3 {
   @apply text-lg md:text-2xl font-semibold;
 }
 
-body {
-  @apply font-inter text-default-text;
-  background: rgb(var(--background-start-rgb));
-}
 
 @layer utilities {
   .text-balance {
@@ -44,6 +48,6 @@ body {
   all: initial;
 }
 
-.revert-tailwind > * {
+.revert-tailwind>* {
   all: revert;
 }
