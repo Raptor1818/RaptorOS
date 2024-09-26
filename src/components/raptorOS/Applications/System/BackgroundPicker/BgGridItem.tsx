@@ -14,22 +14,29 @@ const BgGridItem: React.FC<BackgroundGridItemProps> = ({ source, name, author, u
     onBackgroundSelect(source);
   };
 
+  const defaultWidth = 300;
+  const defaultHeight = 169;
+
   return (
     <div className={css.backgroundItemContainer} onClick={handleOnClick}>
-      {isLoading && 
-        <div className={css.loadingContainer}>
-          <p><i>Loading...</i></p>
-        </div>
-      }
-      
-      <Image 
-        src={source} 
-        width={300} 
-        height={169} 
-        alt={name}
-        draggable={false}
-        onLoad={() => setIsLoading(false)}
-      />
+      <div className={css.imageContainer}
+        style={{ width: defaultWidth, height: defaultHeight }}
+      >
+        {isLoading && (
+          <div className={css.imageSkeleton}></div>
+        )}
+
+        <Image
+          src={source}
+          width={defaultWidth}
+          height={defaultHeight}
+          alt={name}
+          draggable={false}
+          onLoad={() => setIsLoading(false)}
+          className={css.image}
+        />
+      </div>
+
       <div className={css.backgroundItemText}>
         <p className={css.itemName}>{name}</p>
         {url ? (
