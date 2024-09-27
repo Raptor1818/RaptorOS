@@ -11,7 +11,7 @@ const BgGrid: React.FC<BackgroundGridProps> = ({ onBackgroundSelect }) => {
   return (
     <div className={css.backgroundGridContainer}>
       {backgrounds.map((option, index) => (
-        <BackgroundGridItem 
+        <BackgroundGridItem
           key={index}
           source={option.source}
           name={option.name}
