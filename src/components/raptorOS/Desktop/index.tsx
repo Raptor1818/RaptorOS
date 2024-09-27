@@ -28,6 +28,7 @@ const DesktopContainer = () => {
           isShortcut={item.isShortcut}
           content={item.content}
           url={item.url}
+          openInNewTab={item.openInNewTab}
         />
       ))}
     </div>

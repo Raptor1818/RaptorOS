@@ -1,11 +1,11 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { Rnd } from 'react-rnd';
-import gsap from 'gsap';
-import WindowTitleBar from './WindowTitleBar';
-import useWindowDimensions from './useWindowDimensions';
-import UAParser from 'ua-parser-js';
+import React, { ReactNode, useEffect, useRef, useState } from "react";
+import { Rnd } from "react-rnd";
+import gsap from "gsap";
+import WindowTitleBar from "./WindowTitleBar";
+import useWindowDimensions from "./useWindowDimensions";
+import UAParser from "ua-parser-js";
 
-import css from '@/styles/raptorOS/Window/AppWindow.module.css';
+import css from "@/styles/raptorOS/Window/AppWindow.module.css";
 
 interface Props {
   id: string;
@@ -21,7 +21,18 @@ interface Props {
 }
 
 const AppWindow = (props: Props) => {
-  const { id, title, icon, children, zIndex, onClose, onMinimize, onFocus, isFocused, isMinimized } = props;
+  const {
+    id,
+    title,
+    icon,
+    children,
+    zIndex,
+    onClose,
+    onMinimize,
+    onFocus,
+    isFocused,
+    isMinimized,
+  } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { height, width } = useWindowDimensions();
 
@@ -29,7 +40,7 @@ const AppWindow = (props: Props) => {
   const [wasMinimized, setWasMinimized] = useState<boolean>(false);
 
   const parser = new UAParser();
-  const deviceType = parser.getDevice().type || 'desktop';
+  const deviceType = parser.getDevice().type || "desktop";
 
   const closeWindow = () => {
     if (containerRef.current) {
@@ -106,18 +117,20 @@ const AppWindow = (props: Props) => {
     return null;
   }
 
-  const defaultPosition = deviceType === 'mobile'
-    ? { 
-      x: 0, 
-      y: Math.ceil(height / 4), 
-      width, 
-      height: Math.ceil(height / 2) 
-    } : { 
-      x: Math.ceil(width / 4), 
-      y: Math.ceil(height / 6), 
-      width: Math.ceil(width / 2), 
-      height: Math.ceil(height / 1.5) 
-    };
+  const defaultPosition =
+    deviceType === "mobile"
+      ? {
+          x: 0,
+          y: Math.ceil(height / 4),
+          width,
+          height: Math.ceil(height / 2),
+        }
+      : {
+          x: Math.ceil(width / 4),
+          y: Math.ceil(height / 6),
+          width: Math.ceil(width / 2),
+          height: Math.ceil(height / 1.5),
+        };
 
   return (
     <Rnd
@@ -127,19 +140,27 @@ const AppWindow = (props: Props) => {
       onMouseDown={onFocus}
       dragHandleClassName="drag-handle"
       resizeHandleStyles={{
-        bottom: { cursor: 'ns-resize' },
-        left: { cursor: 'ew-resize' },
-        right: { cursor: 'ew-resize' },
-        top: { cursor: 'ns-resize' },
+        bottom: { cursor: "ns-resize" },
+        left: { cursor: "ew-resize" },
+        right: { cursor: "ew-resize" },
+        top: { cursor: "ns-resize" },
       }}
       style={{ zIndex }}
     >
       <div
         id={id}
         ref={containerRef}
-        className={`${css.appWindowContainer} ${isFocused ? css.appWindowContainerFocused : ''}`}
+        className={`${css.appWindowContainer} ${
+          isFocused ? css.appWindowContainerFocused : ""
+        }`}
       >
-        <WindowTitleBar title={title} icon={icon} onClose={closeWindow} onMinimize={minimizeWindow} isFocused={isFocused} />
+        <WindowTitleBar
+          title={title}
+          icon={icon}
+          onClose={closeWindow}
+          onMinimize={minimizeWindow}
+          isFocused={isFocused}
+        />
         {children}
       </div>
     </Rnd>

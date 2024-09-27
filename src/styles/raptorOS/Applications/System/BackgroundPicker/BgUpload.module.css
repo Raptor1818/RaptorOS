@@ -1,0 +1,18 @@
+@tailwind components;
+@tailwind utilities;
+
+.pickerUpload {
+  @apply flex flex-col justify-center items-center gap-2 mb-8 text-neutral-300 select-none;
+}
+
+.pickerUploadInput {
+  @apply flex flex-col justify-center items-center w-3/4 h-fit gap-3 p-4 border-2 border-dashed border-neutral-400 rounded-lg transition text-center;
+}
+
+.pickerUploadInput input {
+  @apply hidden;
+}
+
+.pickerUploadInput.dragActive {
+  @apply border-green-500;
+}

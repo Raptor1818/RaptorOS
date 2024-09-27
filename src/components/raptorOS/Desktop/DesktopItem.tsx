@@ -10,12 +10,16 @@ interface TaskbarItemProps extends Item {
 
 import css from '@/styles/raptorOS/Desktop/DesktopItem.module.css';
 
-const DesktopItem = ({ id, label, icon, isShortcut, content, url }: TaskbarItemProps) => {
+const DesktopItem = ({ id, label, icon, isShortcut, content, url, openInNewTab }: TaskbarItemProps) => {
   const { addWindow } = useWindowContext();
 
   const handleDoubleClick = () => {
     if (isShortcut && url) {
-      window.open(url, '_blank');
+      if (openInNewTab === false) {
+        window.open(url, '_self');
+      } else {
+        window.open(url, '_blank');
+      }
     } else {
       addWindow(id, label, icon, false, content);
     }
@@ -30,7 +34,7 @@ const DesktopItem = ({ id, label, icon, isShortcut, content, url }: TaskbarItemP
     >
       <div className={css.itemImageContainer}>
         {isShortcut && (
-          <Image 
+          <Image
             src="/img/icons/shortcut_arrow.png"
             width={14}
             height={14}
