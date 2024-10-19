@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${notoSansMono.variable} ${notoSans.variable} ${inter.variable} dark`}>
+      <body className={`${notoSansMono.variable} ${notoSans.variable} ${inter.variable}`}>
         {children}
       </body>
     </html>
