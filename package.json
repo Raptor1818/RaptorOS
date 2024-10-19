@@ -10,14 +10,15 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.13",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^14.2.15",
     "@types/mdx": "^2.0.13",
     "@types/ua-parser-js": "^0.7.39",
     "classnames": "^2.5.1",
     "gsap": "^3.12.5",
     "next": "14.2.5",
+    "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
@@ -31,13 +32,13 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.16.9",
-    "@types/react": "^18.3.9",
-    "@types/react-dom": "^18.3.0",
+    "@types/node": "^20.16.13",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.5",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }
