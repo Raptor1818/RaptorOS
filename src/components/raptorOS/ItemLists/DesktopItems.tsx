@@ -11,6 +11,13 @@ export const DesktopItems: Item[] = [
   },
   {
     id: generateUUID(),
+    label: 'My Bluesky',
+    isShortcut: true,
+    icon: '/img/icons/bluesky.png',
+    url: 'https://bsky.app/profile/raptorino.com',
+  },
+  {
+    id: generateUUID(),
     label: 'My Github',
     isShortcut: true,
     icon: '/img/icons/github.svg',

@@ -8,6 +8,13 @@ import { useWindowContext } from '@/context/raptorOS/WindowContext';
 
 import { Item } from '@/components/raptorOS/ItemLists/SharedItems'
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 interface TaskbarItemProps extends Item {
   isMinimized?: boolean;
 }
@@ -32,17 +39,17 @@ const TaskbarItem = (props: TaskbarItemProps) => {
       setIsOpen(!existingWindow.isMinimized);
     }
   }, [getWindowById, props.id]);
-  
+
   useEffect(() => {
-    if(gsapRef.current){
-      if(props.id === focusedWindowId){
+    if (gsapRef.current) {
+      if (props.id === focusedWindowId) {
         gsap.to(gsapRef.current, {
           opacity: 0.9,
           scaleX: 2,
           duration: 0.2,
           onStart: () => setFocused(true)
         })
-      }else if(props.id !== focusedWindowId && isOpen){
+      } else if (props.id !== focusedWindowId && isOpen) {
         gsap.to(gsapRef.current, {
           opacity: 0.5,
           scaleX: 1,
@@ -54,7 +61,7 @@ const TaskbarItem = (props: TaskbarItemProps) => {
   }, [focusedWindowId, isOpen])
 
   useEffect(() => {
-    if (gsapRef.current && !getWindowById(props.id)){
+    if (gsapRef.current && !getWindowById(props.id)) {
       gsap.to(gsapRef.current, {
         opacity: 0,
         scaleX: 0,
@@ -65,23 +72,32 @@ const TaskbarItem = (props: TaskbarItemProps) => {
   }, [windows])
 
   return (
-    <div 
-      className={
-        `${css.taskbarItemContainer} ${isFocused ? css.taskbarItemFocused : ''}`
-      }
-      onClick={handleClick}
-    >
-      <Image
-        src={props.icon}
-        width={28}
-        height={28}
-        alt={props.label}
-        draggable={false}
-      />
-      <div 
-        ref={gsapRef}
-        className={css.taskbarItemMinimizedBar} />
-    </div>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div
+            className={
+              `${css.taskbarItemContainer} ${isFocused ? css.taskbarItemFocused : ''}`
+            }
+            onClick={handleClick}
+          >
+            <Image
+              src={props.icon}
+              width={28}
+              height={28}
+              alt={props.label}
+              draggable={false}
+            />
+            <div
+              ref={gsapRef}
+              className={css.taskbarItemMinimizedBar} />
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{props.label}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 

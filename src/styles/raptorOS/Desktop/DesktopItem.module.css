@@ -2,10 +2,7 @@
 @tailwind utilities;
 
 .itemContainer {
-  @apply border border-transparent w-[74px] h-fit flex flex-col place-items-center p-[1px] relative rounded
-  hover:bg-white hover:bg-opacity-25
-  focus:bg-white focus:bg-opacity-40
-  ;
+  @apply border border-transparent w-[74px] h-fit flex flex-col place-items-center p-[1px] relative rounded cursor-default hover:bg-white hover:bg-opacity-25 focus:bg-white focus:bg-opacity-40;
 }
 
 .itemImageContainer {
@@ -14,12 +11,12 @@
 
 .itemText {
   @apply text-white text-center py-[2px] select-none text-xs truncate-multiline focus:outline-none;
-  text-shadow:  rgba(0, 0, 0, 0.75) 0px 0px 1px, 
-                rgba(0, 0, 0, 0.5) 0px 0px 2px, 
-                rgba(0, 0, 0, 0.75) 0px 1px 1px, 
-                rgba(0, 0, 0, 0.5) 0px 1px 2px, 
-                rgba(0, 0, 0, 0.75) 0px 2px 1px, 
-                rgba(0, 0, 0, 0.5) 0px 2px 2px;
+  text-shadow: rgba(0, 0, 0, 0.75) 0px 0px 1px,
+    rgba(0, 0, 0, 0.5) 0px 0px 2px,
+    rgba(0, 0, 0, 0.75) 0px 1px 1px,
+    rgba(0, 0, 0, 0.5) 0px 1px 2px,
+    rgba(0, 0, 0, 0.75) 0px 2px 1px,
+    rgba(0, 0, 0, 0.5) 0px 2px 2px;
 }
 
 .shortcutIcon {

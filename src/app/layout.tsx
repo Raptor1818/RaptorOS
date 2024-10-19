@@ -2,14 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans, Noto_Sans_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter'
-  });
-const notoSans = Noto_Sans({ 
+});
+const notoSans = Noto_Sans({
   subsets: ["latin"],
   variable: '--font-noto-sans'
-  });
+});
 const notoSansMono = Noto_Sans_Mono({
   weight: ['400'],
   subsets: ['latin'],
@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${notoSansMono.variable} ${notoSans.variable} ${inter.variable} `}>
+      <body className={`${notoSansMono.variable} ${notoSans.variable} ${inter.variable}`}>
         {children}
       </body>
     </html>
