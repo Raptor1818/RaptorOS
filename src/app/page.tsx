@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Window from '@/components/raptor-os/Window'
+import Window from '@/components/raptor-os/system/Window'
 
 export default function HomePage() {
   return (
