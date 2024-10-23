@@ -1,6 +1,0 @@
-@tailwind components;
-@tailwind utilities;
-
-.backgroundGridContainer {
-  @apply flex flex-wrap gap-4 justify-center;
-}

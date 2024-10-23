@@ -1,6 +1,0 @@
-@tailwind components;
-@tailwind utilities;
-
-.AppWrapper {
-  @apply w-full h-full overflow-auto p-4 font-notoSans bg-default-background text-default-text;
-}
