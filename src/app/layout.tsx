@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+// Prevents the (mobile) browser to expand if a window overflows the <html> tag
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,

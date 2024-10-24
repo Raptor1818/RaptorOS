@@ -20,6 +20,7 @@ const WindowTitleBar = ({
   return (
     <div className={`w-full h-10 flex flex-row justify-between items-center bg-green-400 ${className && className}`}>
       {
+        // If there is an icon, display it
         icon && (
           <Image src={icon} alt={label} width={20} height={20} />
         )

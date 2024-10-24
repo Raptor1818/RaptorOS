@@ -6,6 +6,9 @@ export default function HomePage() {
   const context = useWindowContext();
   return (
     <main className="w-screen h-screen">
+      {/* Temporary buttons that will become desktop icons, taking the window object from a file.
+          TODO: make the desktop icon list and the app system 
+      */}
       <Button
         onClick={() => {
           context.openWindow({

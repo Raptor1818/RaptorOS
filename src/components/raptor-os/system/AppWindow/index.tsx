@@ -33,7 +33,7 @@ const index = (props: Props) => {
       dragHandleClassName='window-handle'
     >
       <WindowTitleBar
-        className={`window-handle ${props.titleBarClassName && props.titleBarClassName}`}
+        className={`window-handle ${props.titleBarClassName && props.titleBarClassName}`} // If an app needs a different title bar than the default
         label={props.label}
         icon={props.icon}
         id={props.id}
@@ -41,7 +41,7 @@ const index = (props: Props) => {
       />
       {
         props.appContent ??
-        <Skeleton className='w-full h-full rounded-none' />
+        <Skeleton className='w-full h-full rounded-none' /> // TODO: CHANGE | If an app is not loading properly
       }
     </Rnd>
   )

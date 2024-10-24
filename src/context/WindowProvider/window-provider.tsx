@@ -5,7 +5,7 @@ export interface AppWindowType {
   id: string;
   label: string;
   icon?: string;
-  notRounded?: boolean;
+  notRounded?: boolean; // If an app needs to not be rounded
   className?: string;
   titleBarClassName?: string;
   appContent: React.ReactNode;
@@ -22,10 +22,12 @@ const WindowContext = createContext<WindowProviderType | undefined>(undefined)
 const WindowProvider = ({ children }: { children: React.ReactNode }) => {
   const [windows, setWindows] = useState<AppWindowType[]>([])
 
+  // Add window object to array
   const openWindow = (appWindow: AppWindowType) => {
     setWindows([...windows, appWindow])
   }
 
+  // Removes window object from array
   const closeWindow = (id: string) => {
     setWindows(windows.filter(window => window.id !== id))
   }

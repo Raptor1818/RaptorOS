@@ -9,6 +9,9 @@ const index = (props: Props) => {
   const context = useWindowContext();
   return (
     <div className='z-10'>
+      {/* List all the apps present in the array.
+        TODO: implement minimizing
+    */}
       {context.windows.map((window: AppWindowType) => (
         <AppWindow
           key={window.id}
