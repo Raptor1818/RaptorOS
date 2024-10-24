@@ -1,3 +1,5 @@
+import WindowLayer from "@/components/raptor-os/system/WindowLayer";
+import WindowProvider from "@/context/WindowProvider/window-provider";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -21,7 +23,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} overflow-hidden`}>
-      <body>{children}</body>
+      <body>
+        <WindowProvider>
+          <WindowLayer></WindowLayer>
+          {children}
+        </WindowProvider>
+      </body>
     </html>
   );
 }
