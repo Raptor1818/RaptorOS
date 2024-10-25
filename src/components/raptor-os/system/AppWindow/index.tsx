@@ -4,18 +4,38 @@ import { Rnd } from 'react-rnd'
 import WindowTitleBar from './WindowTitleBar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AppWindowType } from '@/context/WindowProvider/window-provider';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
   onFocus: () => void;
   zIndex: number;
   isFocused: boolean;
+  isDeviceMobile: boolean;
 }
 
 
 const index = (props: Props) => {
   const containerRef = useRef<Rnd | null>(null);
   const [currentZIndex, setCurrentZIndex] = React.useState(props.zIndex);
+
+  const { browserWidth, browserHeight } = useWindowDimensions();
+
+  // Set default settings depending on device type
+  const defaultSettings =
+    props.isDeviceMobile
+      ? {
+        x: 0,
+        y: Math.ceil(browserHeight / 4),
+        width: browserWidth,
+        height: Math.ceil(browserHeight / 2),
+      }
+      : {
+        x: Math.ceil(browserWidth / 4),
+        y: Math.ceil(browserHeight / 6),
+        width: Math.ceil(browserWidth / 2),
+        height: Math.ceil(browserHeight / 1.5),
+      };
 
   useEffect(() => {
     if (containerRef.current) {
@@ -25,30 +45,25 @@ const index = (props: Props) => {
 
   return (
     <Rnd
-      default={{
-        x: 0,
-        y: 0,
-        width: 400,
-        height: 300,
-      }}
+      default={defaultSettings}
       minWidth={400}
       minHeight={300}
+
       resizeHandleStyles={{
         bottom: { cursor: "ns-resize" },
         left: { cursor: "ew-resize" },
         right: { cursor: "ew-resize" },
         top: { cursor: "ns-resize" },
       }}
+
       className={`${props.notRounded ? "" : "rounded-lg"} overflow-hidden border 
         flex flex-col bg-background
         ${props.className && props.className}
       `}
+
       dragHandleClassName='window-handle'
-
       ref={containerRef}
-
       onMouseDown={props.onFocus}
-
       style={{ zIndex: currentZIndex }}
     >
       <WindowTitleBar

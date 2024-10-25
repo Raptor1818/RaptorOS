@@ -3,7 +3,8 @@ import { AppWindowType, useWindowContext } from '@/context/WindowProvider/window
 import React from 'react'
 import AppWindow from '../AppWindow';
 
-interface Props { }
+interface Props {
+}
 
 const index = (props: Props) => {
   const context = useWindowContext();
@@ -20,7 +21,7 @@ const index = (props: Props) => {
           isFocused={context.focusedWindowId === window.id}
           onFocus={() => context.bringToFront(window.id)}
           closeWindow={context.closeWindow}
-
+          isDeviceMobile={context.isDeviceMobile}
         />
       ))}
     </div>
