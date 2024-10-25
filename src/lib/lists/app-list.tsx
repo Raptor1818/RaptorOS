@@ -1,20 +1,26 @@
 import Testing from "@/components/raptor-os/applications/Testing";
 import { type AppWindowType } from "@/context/WindowProvider/window-provider";
 
+import { v4 as uuidv4 } from 'uuid';
+
+export function generateRandomId(): string {
+  return uuidv4().replace(/-/g, '').slice(0, 8);
+}
+
 export const appList: AppWindowType[] = [
   {
-    id: "1",
-    label: "UAUAU",
+    id: generateRandomId(),
+    label: "Home",
     appContent: <Testing />
   },
   {
-    id: "2",
-    label: "HAHA!",
+    id: generateRandomId(),
+    label: "About",
     appContent: <Testing />
   },
   {
-    id: "24",
-    label: "Hasdasdadasasd!",
+    id: generateRandomId(),
+    label: "TETETEETSTTTTTTT AAAAAAAAAAA",
     appContent: <Testing />
   },
 ]
