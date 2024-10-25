@@ -1,6 +1,7 @@
 'use client'
 import { useWindowContext } from "@/context/WindowProvider/window-provider";
 import { Button } from "@/components/ui/button";
+import { appList } from "@/lib/lists/app-list";
 
 export default function HomePage() {
   const context = useWindowContext();
@@ -9,26 +10,16 @@ export default function HomePage() {
       {/* Temporary buttons that will become desktop icons, taking the window object from a file.
           TODO: make the desktop icon list and the app system 
       */}
-      <Button
-        onClick={() => {
-          context.openWindow({
-            id: "1",
-            label: "Window 1",
-            appContent: <h1>Window 1</h1>
-          })
-        }}>
-        Add window
-      </Button>
-      <Button
-        onClick={() => {
-          context.openWindow({
-            id: "2",
-            label: "nice",
-            appContent: <h1>ggggggggg</h1>
-          })
-        }}>
-        Adasdasd
-      </Button>
+      {appList.map((app) => (
+        <Button
+          key={app.id}
+          onClick={() => {
+            context.openWindow(app);
+          }}
+        >
+          {app.label}
+        </Button>
+      ))}
     </main>
   );
 }
