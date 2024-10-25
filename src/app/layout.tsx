@@ -3,7 +3,7 @@ import WindowProvider from "@/context/WindowProvider/window-provider";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import { Viewport, type Metadata } from "next";
+import { type Viewport, type Metadata } from "next";
 import { headers } from "next/headers";
 import UAParser from "ua-parser-js";
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
   // Get user agent and determine device type using UAParser
   const headersList = await headers()
   const userAgent = headersList.get('user-agent')
-  const device = new UAParser(userAgent || '').getDevice();
+  const device = new UAParser(userAgent ?? '').getDevice();
   const isMobile: boolean = device.type == 'mobile';
 
   return (

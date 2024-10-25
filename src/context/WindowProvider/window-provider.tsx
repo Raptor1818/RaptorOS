@@ -1,5 +1,5 @@
 'use client';
-import React, { createContext, use, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { appList } from '@/lib/lists/app-list';
 
@@ -32,7 +32,7 @@ interface Props {
 
 const WindowContext = createContext<WindowProviderType | undefined>(undefined);
 
-const QUERY_STRING_NAME: string = 'app';
+const QUERY_STRING_NAME = 'app';
 
 const WindowProvider = (props: Props) => {
   const [windows, setWindows] = useState<AppWindowType[]>([]) // List of all open windows
@@ -43,12 +43,11 @@ const WindowProvider = (props: Props) => {
   const searchParams = useSearchParams();
 
   // Opens a window and brings it to the front
-  const openWindow = (appWindow: AppWindowType) => {
-    if (!zIndexList.includes(appWindow.id)) {
-      setWindows(prevWindows => [...prevWindows, appWindow]);
-    }
-    bringToFront(appWindow.id);
-  };
+  const openWindow = useCallback((appWindow: AppWindowType) => {
+    setWindows(prevWindows => [...prevWindows, appWindow]);
+    setZIndexList(prevZIndexList => [...prevZIndexList, appWindow.id]);
+    setFocusedWindowId(appWindow.id);
+  }, []);
 
   // Closes the window by ID, removes it from both arrays
   const closeWindow = (id: string) => {
@@ -87,7 +86,7 @@ const WindowProvider = (props: Props) => {
         router.push('/');
       }
     }
-  }, [searchParams]);
+  }, [searchParams, openWindow, router]);
 
   // // Effect to update the URL query when the focused window changes
   // useEffect(() => {

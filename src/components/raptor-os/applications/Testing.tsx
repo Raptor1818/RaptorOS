@@ -1,8 +1,8 @@
 import React from 'react'
 
-type Props = {}
+interface Props { }
 
-const Testing = (props: Props) => {
+const Testing = (_props: Props) => {
   return (
     <div>Testing</div>
   )

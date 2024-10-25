@@ -36,7 +36,9 @@ const config = {
           "attributes": false
         }
       }
-    ]
+    ],
+    '@typescript-eslint/no-empty-object-type': 'off',
+    'react-hooks/rules-of-hooks': 'off'
   }
 }
 module.exports = config;

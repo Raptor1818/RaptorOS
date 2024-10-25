@@ -1,9 +1,9 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Rnd } from 'react-rnd'
 import WindowTitleBar from './WindowTitleBar';
 import { Skeleton } from '@/components/ui/skeleton';
-import { AppWindowType } from '@/context/WindowProvider/window-provider';
+import { type AppWindowType } from '@/context/WindowProvider/window-provider';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 interface Props extends AppWindowType {
@@ -17,7 +17,7 @@ interface Props extends AppWindowType {
 
 const index = (props: Props) => {
   const containerRef = useRef<Rnd | null>(null);
-  const [currentZIndex, setCurrentZIndex] = React.useState(props.zIndex);
+  const [currentZIndex, setCurrentZIndex] = useState(props.zIndex);
 
   const { browserWidth, browserHeight } = useWindowDimensions();
 

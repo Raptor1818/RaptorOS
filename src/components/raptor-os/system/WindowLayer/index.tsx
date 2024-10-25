@@ -1,12 +1,12 @@
 'use client';
-import { AppWindowType, useWindowContext } from '@/context/WindowProvider/window-provider'
+import { type AppWindowType, useWindowContext } from '@/context/WindowProvider/window-provider'
 import React from 'react'
 import AppWindow from '../AppWindow';
 
 interface Props {
 }
 
-const index = (props: Props) => {
+const index = (_props: Props) => {
   const context = useWindowContext();
   return (
     <div className='z-10'>

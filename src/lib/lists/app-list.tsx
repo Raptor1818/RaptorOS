@@ -1,5 +1,5 @@
 import Testing from "@/components/raptor-os/applications/Testing";
-import { AppWindowType } from "@/context/WindowProvider/window-provider";
+import { type AppWindowType } from "@/context/WindowProvider/window-provider";
 
 export const appList: AppWindowType[] = [
   {
