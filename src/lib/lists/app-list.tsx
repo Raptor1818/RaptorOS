@@ -12,4 +12,9 @@ export const appList: AppWindowType[] = [
     label: "HAHA!",
     appContent: <Testing />
   },
+  {
+    id: "24",
+    label: "Hasdasdadasasd!",
+    appContent: <Testing />
+  },
 ]

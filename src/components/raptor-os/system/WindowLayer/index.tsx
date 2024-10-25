@@ -16,7 +16,12 @@ const index = (props: Props) => {
         <AppWindow
           key={window.id}
           {...window}
-          closeWindow={context.closeWindow} />
+          zIndex={context.zIndexList.indexOf(window.id) + 1}
+          isFocused={context.focusedWindowId === window.id}
+          onFocus={() => context.bringToFront(window.id)}
+          closeWindow={context.closeWindow}
+
+        />
       ))}
     </div>
   )

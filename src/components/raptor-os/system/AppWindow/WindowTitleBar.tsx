@@ -8,17 +8,19 @@ interface Props {
   icon?: string;
   closeWindow: (id: string) => void;
   className?: string;
+  isFocused: boolean;
 }
 
 const WindowTitleBar = ({
   id,
   label,
   icon,
+  isFocused,
   closeWindow,
   className
 }: Props) => {
   return (
-    <div className={`w-full h-10 flex flex-row justify-between items-center bg-green-400 ${className && className}`}>
+    <div className={`w-full h-10 flex flex-row justify-between items-center select-none ${isFocused ? 'bg-green-500' : 'bg-yellow-500'} ${className && className}`}>
       {
         // If there is an icon, display it
         icon && (

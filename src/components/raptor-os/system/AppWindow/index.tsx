@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Rnd } from 'react-rnd'
 import WindowTitleBar from './WindowTitleBar';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -7,9 +7,22 @@ import { AppWindowType } from '@/context/WindowProvider/window-provider';
 
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
+  onFocus: () => void;
+  zIndex: number;
+  isFocused: boolean;
 }
 
+
 const index = (props: Props) => {
+  const containerRef = useRef<Rnd | null>(null);
+  const [currentZIndex, setCurrentZIndex] = React.useState(props.zIndex);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setCurrentZIndex(props.zIndex);
+    }
+  }, [props.zIndex]);
+
   return (
     <Rnd
       default={{
@@ -31,6 +44,12 @@ const index = (props: Props) => {
         ${props.className && props.className}
       `}
       dragHandleClassName='window-handle'
+
+      ref={containerRef}
+
+      onMouseDown={props.onFocus}
+
+      style={{ zIndex: currentZIndex }}
     >
       <WindowTitleBar
         className={`window-handle ${props.titleBarClassName && props.titleBarClassName}`} // If an app needs a different title bar than the default
@@ -38,6 +57,7 @@ const index = (props: Props) => {
         icon={props.icon}
         id={props.id}
         closeWindow={props.closeWindow}
+        isFocused={props.isFocused}
       />
       {
         props.appContent ??
