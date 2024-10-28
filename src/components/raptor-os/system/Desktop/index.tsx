@@ -8,11 +8,47 @@ type Props = {}
 const Desktop = (props: Props) => {
   const context = useWindowContext()
   return (
-    <div className='w-fit h-full max-h-screen flex flex-col flex-wrap place-items-start p-2 gap-2
-    '>
-      {appList.map((app) => (
-        <DesktopIcon key={app.id} app={app} openWindow={() => { context.openWindow(app) }} />
-      ))}
+    <div className='w-screen h-full 
+      grid grid-flow-col contain-strict place-items-start
+      grid-cols-[repeat(auto-fill,5rem)] 
+      grid-rows-[repeat(auto-fill,6rem)] 
+      gap-4'
+    >
+      {appList.map(app =>
+        <DesktopIcon
+          key={app.id}
+          app={app}
+          openWindow={context.openWindow}
+        />
+      )}
+      {appList.map(app =>
+        <DesktopIcon
+          key={app.id}
+          app={app}
+          openWindow={context.openWindow}
+        />
+      )}
+      {appList.map(app =>
+        <DesktopIcon
+          key={app.id}
+          app={app}
+          openWindow={context.openWindow}
+        />
+      )}
+      {appList.map(app =>
+        <DesktopIcon
+          key={app.id}
+          app={app}
+          openWindow={context.openWindow}
+        />
+      )}
+      {appList.map(app =>
+        <DesktopIcon
+          key={app.id}
+          app={app}
+          openWindow={context.openWindow}
+        />
+      )}
     </div>
   )
 }

@@ -15,9 +15,9 @@ const DesktopIcon = ({ app, openWindow }: Props) => {
       onDoubleClick={() => {
         openWindow(app);
       }}
-      className={`relative w-20 min-h-24 
+      className={`relative w-20 h-fit 
         flex flex-col items-center justify-start gap-1
-        p-1 rounded cursor-default hover:bg-white hover:bg-opacity-25 focus:bg-white focus:bg-opacity-25 select-none transition-all duration-100
+        px-1 py-2 rounded cursor-default hover:bg-white hover:bg-opacity-25 focus:bg-white focus:bg-opacity-25 select-none transition-all duration-100
         ${css.iconContainer}`}
     >
       {/* <Image
@@ -30,7 +30,7 @@ const DesktopIcon = ({ app, openWindow }: Props) => {
       <div className='w-12 h-12 bg-green-500'>
 
       </div>
-      <p className={`text-center py-[2px] select-none text-sm leading-4 truncate-multiline focus:outline-none 
+      <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none 
         ${css.itemText}`}>
         {app.label}
       </p>
