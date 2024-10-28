@@ -5,7 +5,7 @@ import DesktopIcon from './DesktopIcon'
 
 type Props = {}
 
-const Desktop = (props: Props) => {
+const Desktop = (_props: Props) => {
   const context = useWindowContext()
   return (
     <div className='w-screen h-full 
