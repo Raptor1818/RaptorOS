@@ -70,3 +70,10 @@
     @apply bg-background text-foreground dark;
   }
 }
+
+/* Disable drag preview styling*/
+/* .react-grid-item {
+  transition: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+} */

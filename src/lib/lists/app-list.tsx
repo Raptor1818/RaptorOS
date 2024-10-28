@@ -20,7 +20,7 @@ export const appList: AppWindowType[] = [
   },
   {
     id: generateRandomId(),
-    label: "TETETEETSTTTTTTT AAAAAAAAAAA",
+    label: "About aaaa aaaa ciaoc",
     appContent: <Testing />
   },
 ]
