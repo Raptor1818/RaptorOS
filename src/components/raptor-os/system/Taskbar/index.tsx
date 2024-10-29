@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 type Props = {}
 
-const Taskbar = (props: Props) => {
+const Taskbar = (_props: Props) => {
   const context = useWindowContext();
 
   // Aint no clock on the server bruh

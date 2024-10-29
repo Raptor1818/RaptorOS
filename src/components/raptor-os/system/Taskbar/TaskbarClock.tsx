@@ -5,7 +5,7 @@ type Props = {}
 
 // Based on https://github.com/ethanmick/lets-build-clock
 
-const TaskbarClock = (props: Props) => {
+const TaskbarClock = (_props: Props) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
