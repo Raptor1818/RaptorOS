@@ -7,9 +7,11 @@ import css from '@/styles/raptor-os/system/Desktop/DesktopItem.module.css';
 type Props = {
   app: AppWindowType;
   openWindow: (appWindow: AppWindowType) => void;
+  hideText?: boolean;
+  className?: string;
 }
 
-const DesktopIcon = ({ app, openWindow }: Props) => {
+const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
   return (
     <button
       onDoubleClick={() => {
@@ -17,8 +19,12 @@ const DesktopIcon = ({ app, openWindow }: Props) => {
       }}
       className={`relative w-20 h-fit 
         flex flex-col items-center justify-start gap-1
-        px-1 py-2 rounded cursor-default hover:bg-white hover:bg-opacity-25 focus:bg-white focus:bg-opacity-25 select-none transition-all duration-100
-        ${css.iconContainer}`}
+        px-1 py-2 rounded cursor-default 
+        bg-transparent 
+        hover:bg-white/20
+        focus:bg-white/35
+        select-none transition-all duration-200
+        ${css.iconContainer} ${className && className}`}
     >
       {/* <Image
         src={app.icon ?? '/favicon.ico'}
@@ -30,10 +36,12 @@ const DesktopIcon = ({ app, openWindow }: Props) => {
       <div className='w-12 h-12 bg-green-500'>
 
       </div>
-      <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none 
-        ${css.itemText}`}>
-        {app.label}
-      </p>
+      {!hideText && (
+        <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none 
+          ${css.itemText}`}>
+          {app.label}
+        </p>
+      )}
     </button>
   )
 }

@@ -9,10 +9,10 @@ const Desktop = (_props: Props) => {
   const context = useWindowContext()
   return (
     <div className='w-screen h-full 
-      grid grid-flow-col contain-strict place-items-start
+      grid grid-flow-row contain-strict place-items-start
       grid-cols-[repeat(auto-fill,5rem)] 
       grid-rows-[repeat(auto-fill,6rem)] 
-      gap-4'
+      gap-y-4 gap-x-2'
     >
       {appList.map(app =>
         <DesktopIcon
