@@ -12,7 +12,7 @@ const Desktop = (_props: Props) => {
       grid grid-flow-row contain-strict place-items-start
       grid-cols-[repeat(auto-fill,5rem)] 
       grid-rows-[repeat(auto-fill,6rem)] 
-      gap-y-4 gap-x-2'
+      gap-y-4 gap-x-2 p-2'
     >
       {appList.map(app =>
         <DesktopIcon
