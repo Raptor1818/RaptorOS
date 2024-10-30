@@ -1,7 +1,7 @@
 'use client';
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { appList } from '@/lib/lists/app-list';
+import { appList, type vAppType } from '@/lib/lists/app-list';
 
 export interface AppWindowType {
   id: string;
@@ -10,7 +10,7 @@ export interface AppWindowType {
   notRounded?: boolean; // If an app needs to not be rounded
   className?: string;
   titleBarClassName?: string;
-  appContent: React.ReactNode;
+  appContent?: React.ReactNode;
 }
 
 interface WindowProviderType {
@@ -43,11 +43,22 @@ const WindowProvider = (props: Props) => {
   const searchParams = useSearchParams();
 
   // Opens a window and brings it to the front
-  const openWindow = useCallback((appWindow: AppWindowType) => {
-    setWindows(prevWindows => [...prevWindows, appWindow]);
-    setZIndexList(prevZIndexList => [...prevZIndexList, appWindow.id]);
-    setFocusedWindowId(appWindow.id);
-  }, []);
+  const openWindow = useCallback((appWindow: vAppType) => {
+    // Check if it's a shortcut & open it in a new tab
+    if (appWindow.isShortcut && appWindow.shortcutUrl && !appWindow.appContent) {
+      window.open(appWindow.shortcutUrl, '_blank');
+    } else {
+      // Check if the window is already open
+      if (!isWindowOpenById(appWindow.id)) {
+        setWindows(prevWindows => [...prevWindows, appWindow]);
+        setZIndexList(prevZIndexList => [...prevZIndexList, appWindow.id]);
+        bringToFront(appWindow.id);
+      } else {
+        bringToFront(appWindow.id);
+      }
+    }
+  }, [windows, zIndexList]);
+
 
   // Closes the window by ID, removes it from both arrays
   const closeWindow = (id: string) => {
@@ -72,6 +83,10 @@ const WindowProvider = (props: Props) => {
 
   const getAppByLabel = (label: string) => {
     return appList.find(app => app.label === label);
+  };
+
+  const isWindowOpenById = (id: string) => {
+    return windows.find(window => window.id === id);
   };
 
   // Effect to open the app based on URL query when the component mounts

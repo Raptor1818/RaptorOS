@@ -7,7 +7,12 @@ export function generateRandomId(): string {
   return uuidv4().replace(/-/g, '').slice(0, 8);
 }
 
-export const appList: AppWindowType[] = [
+export interface vAppType extends AppWindowType {
+  isShortcut?: boolean;
+  shortcutUrl?: string;
+}
+
+export const appList: vAppType[] = [
   {
     id: generateRandomId(),
     label: "Home",
@@ -21,6 +26,7 @@ export const appList: AppWindowType[] = [
   {
     id: generateRandomId(),
     label: "About aaaa aaaa ciaoc",
-    appContent: <Testing />
+    isShortcut: true,
+    shortcutUrl: "https://google.com"
   },
 ]
