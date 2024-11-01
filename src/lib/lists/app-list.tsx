@@ -1,4 +1,5 @@
-import Testing from "@/components/raptor-os/applications/Testing";
+import AboutApp from "@/components/raptor-os/applications/AboutApp";
+import HomeApp from "@/components/raptor-os/applications/HomeApp";
 import { type AppWindowType } from "@/context/WindowProvider/window-provider";
 
 import { v4 as uuidv4 } from 'uuid';
@@ -16,12 +17,12 @@ export const appList: vAppType[] = [
   {
     id: generateRandomId(),
     label: "Home",
-    appContent: <Testing />
+    appContent: <HomeApp />
   },
   {
     id: generateRandomId(),
     label: "About",
-    appContent: <Testing />
+    appContent: <AboutApp />
   },
   {
     id: generateRandomId(),
