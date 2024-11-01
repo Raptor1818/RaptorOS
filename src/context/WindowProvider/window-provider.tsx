@@ -109,19 +109,13 @@ const WindowProvider = (props: Props) => {
     }
   }, [searchParams, openWindow, router]);
 
-  // // Effect to update the URL query when the focused window changes
-  // useEffect(() => {
-  //   if (focusedWindowId) {
-  //     const appInQuestion = getWindowById(focusedWindowId);
-  //     if (appInQuestion) {
-  //       // Updates the URL with the window ID as a query parameter
-  //       const routeString = appInQuestion.label.replace(/\s+/g, '-');
-  //       router.push(`?${QUERY_STRING_NAME}=${routeString}`);
-  //     }
-  //   } else {
-  //     router.push('/');
-  //   }
-  // }, [focusedWindowId])
+  // Startup window
+  useEffect(() => {
+    const homeApp = getAppByLabel('Home');
+    if (homeApp) {
+      openWindow(homeApp);
+    }
+  }, []);
 
   const [isDeviceMobile, setIsDeviceMobile] = useState(props.isDeviceMobileProp);
 
