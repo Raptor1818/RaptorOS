@@ -18,6 +18,7 @@ interface WindowProviderType {
   zIndexList: string[];
   focusedWindowId: string | null;
   openWindow: (appWindow: AppWindowType) => void;
+  openWindowByLabel: (label: string) => void;
   closeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
   getWindowById: (id: string) => AppWindowType | undefined;
@@ -58,6 +59,11 @@ const WindowProvider = (props: Props) => {
       }
     }
   }, [windows, zIndexList]);
+
+  const openWindowByLabel = (label: string) => {
+    const app = getAppByLabel(label);
+    if (app) openWindow(app);
+  }
 
 
   // Closes the window by ID, removes it from both arrays
@@ -130,6 +136,7 @@ const WindowProvider = (props: Props) => {
         zIndexList,
         focusedWindowId,
         openWindow,
+        openWindowByLabel,
         closeWindow,
         bringToFront,
         getWindowById,
