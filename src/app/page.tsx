@@ -6,7 +6,7 @@ const DynamicDesktop = dynamic(() => import('@/components/raptor-os/system/Deskt
   ssr: false,
 });
 
-export default function HomePage() {
+export default function RaptorOS() {
   return (
     <main className="w-screen h-screen flex flex-col md:flex-row" suppressHydrationWarning>
       <Taskbar />

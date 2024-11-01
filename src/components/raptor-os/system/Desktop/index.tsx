@@ -21,34 +21,6 @@ const Desktop = (_props: Props) => {
           openWindow={context.openWindow}
         />
       )}
-      {appList.map(app =>
-        <DesktopIcon
-          key={app.id}
-          app={app}
-          openWindow={context.openWindow}
-        />
-      )}
-      {appList.map(app =>
-        <DesktopIcon
-          key={app.id}
-          app={app}
-          openWindow={context.openWindow}
-        />
-      )}
-      {appList.map(app =>
-        <DesktopIcon
-          key={app.id}
-          app={app}
-          openWindow={context.openWindow}
-        />
-      )}
-      {appList.map(app =>
-        <DesktopIcon
-          key={app.id}
-          app={app}
-          openWindow={context.openWindow}
-        />
-      )}
     </div>
   )
 }
