@@ -1,3 +1,4 @@
+import AboutApp from "@/components/raptor-os/applications/AboutApp";
 import HomeApp from "@/components/raptor-os/applications/HomeApp";
 import { type AppWindowType } from "@/context/WindowProvider/window-provider";
 
@@ -21,7 +22,7 @@ export const appList: vAppType[] = [
   {
     id: generateRandomId(),
     label: "About",
-    appContent: <HomeApp />
+    appContent: <AboutApp />
   },
   {
     id: generateRandomId(),

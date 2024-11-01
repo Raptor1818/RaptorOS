@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const dividerVariants = cva(
-  'h-px', // base styles go here as the first argument
+  'h-px',
   {
     variants: {
       variant: {
@@ -17,17 +17,25 @@ const dividerVariants = cva(
         muted: 'bg-muted',
         accent: 'bg-accent',
         destructive: 'bg-destructive',
+        ghost: 'bg-transparent'
       },
       margin: {
         default: 'my-4',
         top: 'mt-4',
         bottom: 'mb-4',
+      },
+      size: {
+        default: 'h-px',
+        md: 'h-0.5',
+        lg: 'h-1',
+        xl: 'h-2',
       }
     },
     defaultVariants: {
       variant: 'default',
       color: 'default',
       margin: 'default',
+      size: 'default',
     },
   }
 )
@@ -42,11 +50,12 @@ export default function Divider({
   variant,
   color,
   margin,
+  size,
   ...props
 }: DividerProps) {
   return (
-    <hr
-      className={cn(dividerVariants({ variant, color, margin }), className)}
+    <div
+      className={cn(dividerVariants({ variant, color, margin, size }), className)}
       {...props}
     />
   )

@@ -32,3 +32,15 @@
 .desktop-app-wrapper span {
   @apply text-sm font-mono font-normal text-muted-foreground;
 }
+
+.desktop-app-wrapper code {
+  @apply text-sm font-mono font-normal text-muted-foreground;
+}
+
+.desktop-app-wrapper ul {
+  @apply list-disc list-inside;
+}
+
+.desktop-app-wrapper li {
+  @apply text-base mb-2;
+}
