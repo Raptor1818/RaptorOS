@@ -32,7 +32,14 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${GeistSans.variable} overflow-hidden`}>
-      <body>
+      <body style={
+        {
+          backgroundImage: 'url(https://images.unsplash.com/photo-1727976971228-ee2e309c90c1)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom',
+        }
+      }>
         <WindowProvider isDeviceMobileProp={isMobile}>
           <WindowLayer></WindowLayer>
           {children}
