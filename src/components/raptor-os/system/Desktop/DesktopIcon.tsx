@@ -37,7 +37,7 @@ const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
 
       </div>
       {!hideText && (
-        <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none 
+        <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none p-0.5
           ${css.itemText}`}>
           {app.label}
         </p>
