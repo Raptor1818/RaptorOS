@@ -9,7 +9,7 @@ interface Props {
 
 const AppWrapper = ({ className, children }: Props) => {
   return (
-    <div className={`desktop-app-wrapper w-full h-full overflow-scroll bg-background ${className && className}`}>
+    <div className={`desktop-app-wrapper w-full h-[calc(100%-2rem)] overflow-scroll bg-background ${className && className}`}>
       {children}
     </div>
   )

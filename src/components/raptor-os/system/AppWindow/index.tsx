@@ -69,7 +69,7 @@ const index = (props: Props) => {
 
 
       className={`rounded-lg
-        flex flex-col border border-window-border
+        border-window-border
         ${props.className ? props.className : ''}
         ${props.isFocused ? css.focusedShadow : ""}
       `}
@@ -79,18 +79,20 @@ const index = (props: Props) => {
       onMouseDown={props.onFocus}
       style={{ zIndex: currentZIndex }}
     >
-      <WindowTitleBar
-        className={`${props.titleBarClassName && props.titleBarClassName}`} // If an app needs a different title bar than the default
-        label={props.label}
-        icon={props.icon}
-        id={props.id}
-        closeWindow={props.closeWindow}
-        isFocused={props.isFocused}
-      />
-      {
-        props.appContent ??
-        <Skeleton className='w-full h-full rounded-none' /> // TODO: CHANGE | If an app is not loading properly
-      }
+      <div className='overflow-hidden rounded-lg flex flex-col border w-full h-full'>
+        <WindowTitleBar
+          className={`${props.titleBarClassName ? props.titleBarClassName : ''}`} // If an app needs a different title bar than the default
+          label={props.label}
+          icon={props.icon}
+          id={props.id}
+          closeWindow={props.closeWindow}
+          isFocused={props.isFocused}
+        />
+        {
+          props.appContent ??
+          <Skeleton className='w-full h-full rounded-none' /> // TODO: CHANGE | If an app is not loading properly
+        }
+      </div>
     </Rnd>
   )
 }

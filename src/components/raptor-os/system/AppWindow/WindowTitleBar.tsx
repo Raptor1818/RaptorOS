@@ -20,7 +20,7 @@ const WindowTitleBar = ({
   className
 }: Props) => {
   return (
-    <div className={`w-full h-8 flex flex-row justify-between items-center select-none backdrop-blur-md overflow-hidden rounded-t-[.42rem]
+    <div className={`w-full h-8 flex flex-row justify-between items-center select-none backdrop-blur-md overflow-hidden
     ${isFocused ?
         'bg-black/50 ' :
         'bg-black/95'
@@ -36,7 +36,7 @@ const WindowTitleBar = ({
         </span>
       </div>
       <div className='h-full flex flex-row items-start justify-end'>
-        <button className='h-full px-4 py-1 transition duration-200 hover:bg-red-500 active:bg-destructive'
+        <button className='h-full px-4 py-1 transition duration-200 cursor-default hover:bg-red-500 active:bg-destructive'
           onClick={() => { closeWindow(id) }}>
           <X size={20} />
         </button>
