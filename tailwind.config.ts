@@ -16,6 +16,7 @@ export default {
 			colors: {
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
+				'window-background': 'var(--window-background)',
 				card: {
 					DEFAULT: 'var(--card)',
 					foreground: 'var(--card-foreground)'
@@ -45,6 +46,7 @@ export default {
 					foreground: 'var(--destructive-foreground)'
 				},
 				border: 'var(--border)',
+				'window-border': 'var(--window-border)',
 				input: 'var(--input)',
 				ring: 'var(--ring)',
 				chart: {

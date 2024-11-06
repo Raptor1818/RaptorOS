@@ -20,18 +20,23 @@ const WindowTitleBar = ({
   className
 }: Props) => {
   return (
-    <div className={`w-full h-10 flex flex-row justify-between items-center select-none ${isFocused ? 'bg-green-500' : 'bg-yellow-500'} ${className && className}`}>
-      {
-        // If there is an icon, display it
-        icon && (
-          <Image src={icon} alt={label} width={20} height={20} />
-        )
-      }
-      <span className='pl-2'>
-        {label}
-      </span>
-      <div className='h-full flex flex-row items-start'>
-        <button className='h-fit px-4 py-1 bg-red-500'
+    <div className={`w-full h-8 flex flex-row justify-between items-center select-none backdrop-blur-md overflow-hidden rounded-t-[.42rem]
+    ${isFocused ?
+        'bg-black/50 ' :
+        'bg-black/95'
+      } ${className && className}`}>
+      <div className='window-handle w-full h-full flex flex-row gap-2 px-4 items-center justify-start pl-2'>
+        {
+          icon && (
+            <Image src={icon} alt={''} width={20} height={20} />
+          )
+        }
+        <span>
+          {label}
+        </span>
+      </div>
+      <div className='h-full flex flex-row items-start justify-end'>
+        <button className='h-full px-4 py-1 transition duration-200 hover:bg-red-500 active:bg-destructive'
           onClick={() => { closeWindow(id) }}>
           <X size={20} />
         </button>

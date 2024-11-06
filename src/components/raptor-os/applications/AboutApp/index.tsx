@@ -31,9 +31,9 @@ const AboutApp = (_props: Props) => {
       </ul>
       <h3>Packages:</h3>
       <ul>
-        {libraries.map((library) => (
-          <li key={library.name}>
-            <a href={library.url}>{library.name}</a>
+        {libraries.map((packages) => (
+          <li key={packages.name}>
+            <a href={packages.url}>{packages.name}</a>
           </li>
         ))}
       </ul>

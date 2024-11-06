@@ -7,7 +7,7 @@ export interface AppWindowType {
   id: string;
   label: string;
   icon?: string;
-  notRounded?: boolean; // If an app needs to not be rounded
+  glassStyle?: boolean;
   className?: string;
   titleBarClassName?: string;
   appContent?: React.ReactNode;

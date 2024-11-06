@@ -1,0 +1,8 @@
+@tailwind components;
+@tailwind utilities;
+
+.focusedShadow {
+  box-shadow: -1px 10px 25px 13px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: -1px 10px 25px 13px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -1px 10px 25px 13px rgba(0, 0, 0, 0.6);
+}

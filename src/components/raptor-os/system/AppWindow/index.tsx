@@ -6,6 +6,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { type AppWindowType } from '@/context/WindowProvider/window-provider';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
+import css from '@/styles/raptor-os/system/AppWindow/AppWindow.module.css';
+
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
   onFocus: () => void;
@@ -50,15 +52,26 @@ const index = (props: Props) => {
       minHeight={300}
 
       resizeHandleStyles={{
-        bottom: { cursor: "ns-resize" },
-        left: { cursor: "ew-resize" },
-        right: { cursor: "ew-resize" },
-        top: { cursor: "ns-resize" },
+        bottom: {
+          cursor: "ns-resize",
+          bottom: '0px'
+        },
+        left: {
+          cursor: "ew-resize",
+        },
+        right: {
+          cursor: "ew-resize",
+        },
+        top: {
+          cursor: "ns-resize",
+        },
       }}
 
-      className={`${props.notRounded ? "" : "rounded-lg"} overflow-hidden border 
-        flex flex-col bg-background
-        ${props.className && props.className}
+
+      className={`rounded-lg
+        flex flex-col border border-window-border
+        ${props.className ? props.className : ''}
+        ${props.isFocused ? css.focusedShadow : ""}
       `}
 
       dragHandleClassName='window-handle'
@@ -67,7 +80,7 @@ const index = (props: Props) => {
       style={{ zIndex: currentZIndex }}
     >
       <WindowTitleBar
-        className={`window-handle ${props.titleBarClassName && props.titleBarClassName}`} // If an app needs a different title bar than the default
+        className={`${props.titleBarClassName && props.titleBarClassName}`} // If an app needs a different title bar than the default
         label={props.label}
         icon={props.icon}
         id={props.id}

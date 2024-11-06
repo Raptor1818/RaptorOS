@@ -8,6 +8,7 @@
     :root {
       --background: hsl(0 0% 100%);
       --foreground: hsl(0 0% 3.9%);
+      --window-background: hsl(0, 0%, 6%);
       --card: hsl(0 0% 100%);
       --card-foreground: hsl(0 0% 3.9%);
       --popover: hsl(0 0% 100%);
@@ -23,6 +24,7 @@
       --destructive: hsl(0 84.2% 60.2%);
       --destructive-foreground: hsl(0 0% 98%);
       --border: hsl(0 0% 89.8%);
+      --window-border: hsl(0, 0%, 22%);
       --input: hsl(0 0% 89.8%);
       --ring: hsl(0 0% 3.9%);
       --radius: 0.5rem;

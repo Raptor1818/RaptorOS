@@ -3,7 +3,6 @@ import { appList } from '@/lib/lists/app-list';
 import React from 'react'
 import TaskbarIcon from './TaskbarIcon';
 import dynamic from 'next/dynamic';
-
 type Props = {}
 
 const Taskbar = (_props: Props) => {
@@ -23,7 +22,8 @@ const Taskbar = (_props: Props) => {
       px-2          md:px-0.5
       py-0.5        md:py-2
       justify-between items-center
-      bg-gray-500`}>
+      bg-black/15 backdrop-blur
+      shadow-sm md:shadow-xl`}>
       <div className='flex flex-row md:flex-col
       gap-2 items-center justify-start'>
         {appList.map(app =>
