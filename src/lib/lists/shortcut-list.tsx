@@ -1,4 +1,4 @@
-import { generateRandomId, vAppType, iconPath } from "./app-list";
+import { generateRandomId, type vAppType, iconPath } from "./app-list";
 
 export const shortcutList: vAppType[] = [
   {

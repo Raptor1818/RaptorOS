@@ -1,5 +1,5 @@
 import { type AppWindowType } from '@/context/WindowProvider/window-provider';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import css from '@/styles/raptor-os/system/Desktop/DesktopItem.module.css';
 
