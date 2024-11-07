@@ -1,4 +1,3 @@
-'use client'
 import { type AppWindowType } from '@/context/WindowProvider/window-provider';
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -12,8 +11,6 @@ type Props = {
 };
 
 const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   return (
     <button
       onDoubleClick={() => {
@@ -26,7 +23,6 @@ const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
         hover:bg-white/20
         focus:bg-white/35
         select-none transition-all duration-200
-        ${isLoaded ? 'animate-in' : ''}
         ${css.iconContainer} ${className && className}`}
     >
       <Image
@@ -36,12 +32,7 @@ const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
         alt={app.label}
         draggable={false}
         placeholder='empty'
-        onLoadingComplete={() => {
-          setIsLoaded(true)
-        }}
-        className={`rounded-lg
-        ${isLoaded ?? 'animate-pulse bg-muted'}
-        `}
+        className={`rounded-lg`}
       />
       {!hideText && (
         <p

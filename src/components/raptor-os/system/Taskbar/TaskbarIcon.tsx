@@ -29,7 +29,7 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
           }}
           className={`w-12 h-12 p-1
         flex place-items-center
-        rounded cursor-default 
+        rounded-md cursor-default 
         hover:bg-white/20 
         active:bg-white/35 
         select-none transition-all duration-200
@@ -41,6 +41,7 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
             height={48}
             alt={app.label}
             draggable={false}
+            placeholder='empty'
           />
         </TooltipTrigger>
       </Tooltip>
