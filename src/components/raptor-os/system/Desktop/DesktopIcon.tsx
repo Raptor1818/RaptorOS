@@ -1,7 +1,7 @@
+'use client'
 import { type AppWindowType } from '@/context/WindowProvider/window-provider';
-import React from 'react'
+import React, { useState } from 'react';
 import Image from 'next/image';
-
 import css from '@/styles/raptor-os/system/Desktop/DesktopItem.module.css';
 
 type Props = {
@@ -9,21 +9,24 @@ type Props = {
   openWindow: (appWindow: AppWindowType) => void;
   hideText?: boolean;
   className?: string;
-}
+};
 
 const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <button
       onDoubleClick={() => {
         openWindow(app);
       }}
-      className={`relative w-20 h-fit 
+      className={`relative w-20 h-fit
         flex flex-col items-center justify-start gap-1
-        px-1 py-2 rounded cursor-default 
-        bg-transparent 
+        px-1 py-2 rounded cursor-default
+        bg-transparent
         hover:bg-white/20
         focus:bg-white/35
         select-none transition-all duration-200
+        ${isLoaded ? 'animate-in' : ''}
         ${css.iconContainer} ${className && className}`}
     >
       <Image
@@ -32,15 +35,24 @@ const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
         height={48}
         alt={app.label}
         draggable={false}
+        placeholder='empty'
+        onLoadingComplete={() => {
+          setIsLoaded(true)
+        }}
+        className={`rounded-lg
+        ${isLoaded ?? 'animate-pulse bg-muted'}
+        `}
       />
       {!hideText && (
-        <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none p-0.5
-          ${css.itemText}`}>
+        <p
+          className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none p-0.5
+          ${css.itemText}`}
+        >
           {app.label}
         </p>
       )}
     </button>
-  )
-}
+  );
+};
 
-export default DesktopIcon
+export default DesktopIcon;
