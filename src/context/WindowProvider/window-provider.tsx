@@ -43,6 +43,22 @@ const WindowProvider = (props: Props) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const getWindowById = (id: string) => {
+    return windows.find(window => window.id === id);
+  };
+
+  const getAppById = (id: string) => {
+    return appList.find(app => app.id === id);
+  };
+
+  const getAppByLabel = (label: string) => {
+    return appList.find(app => app.label === label);
+  };
+
+  const isWindowOpenById = useCallback((id: string) => {
+    return windows.find(window => window.id === id);
+  }, [windows]);
+
   // Opens a window and brings it to the front
   const openWindow = useCallback((appWindow: vAppType) => {
     // Check if it's a shortcut & open it in a new tab
@@ -58,7 +74,7 @@ const WindowProvider = (props: Props) => {
         bringToFront(appWindow.id);
       }
     }
-  }, [windows, zIndexList]);
+  }, [isWindowOpenById]);
 
   const openWindowByLabel = (label: string) => {
     const app = getAppByLabel(label);
@@ -79,21 +95,6 @@ const WindowProvider = (props: Props) => {
     setFocusedWindowId(id);
   };
 
-  const getWindowById = (id: string) => {
-    return windows.find(window => window.id === id);
-  };
-
-  const getAppById = (id: string) => {
-    return appList.find(app => app.id === id);
-  };
-
-  const getAppByLabel = (label: string) => {
-    return appList.find(app => app.label === label);
-  };
-
-  const isWindowOpenById = (id: string) => {
-    return windows.find(window => window.id === id);
-  };
 
   // Effect to open the app based on URL query when the component mounts
   // Unfortunately only works on the first render, as it reloads the page editing it

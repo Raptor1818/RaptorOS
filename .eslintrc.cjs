@@ -5,6 +5,7 @@ const config = {
     "project": true
   },
   "plugins": [
+    // @ts-ignore
     "@typescript-eslint"
   ],
   "extends": [
@@ -38,7 +39,8 @@ const config = {
       }
     ],
     '@typescript-eslint/no-empty-object-type': 'off',
-    'react-hooks/rules-of-hooks': 'off'
+    'react-hooks/rules-of-hooks': 'off',
+    'react/display-name': 'off',
   }
 }
 module.exports = config;

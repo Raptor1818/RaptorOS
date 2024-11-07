@@ -29,22 +29,20 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
           }}
           className={`w-12 h-12 p-1
         flex place-items-center
-        rounded cursor-default 
+        rounded-md cursor-default 
         hover:bg-white/20 
         active:bg-white/35 
         select-none transition-all duration-200
         ${className && className}`}
         >
-          {/* <Image
-        src={app.icon ?? '/favicon.ico'}
-        width={48}
-        height={48}
-        alt={app.label}
-        draggable={false}
-        /> */}
-          <div className='w-10 h-10 bg-green-500 shadow'>
-
-          </div>
+          <Image
+            src={app.icon ?? '/img/missing.webp'}
+            width={48}
+            height={48}
+            alt={app.label}
+            draggable={false}
+            placeholder='empty'
+          />
         </TooltipTrigger>
       </Tooltip>
     </TooltipProvider>

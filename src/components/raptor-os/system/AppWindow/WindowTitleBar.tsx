@@ -28,7 +28,7 @@ const WindowTitleBar = ({
       <div className='window-handle w-full h-full flex flex-row gap-2 px-4 items-center justify-start pl-2'>
         {
           icon && (
-            <Image src={icon} alt={''} width={20} height={20} />
+            <Image src={icon} alt={''} width={20} height={20} draggable={false} />
           )
         }
         <span>

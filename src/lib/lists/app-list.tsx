@@ -13,21 +13,19 @@ export interface vAppType extends AppWindowType {
   shortcutUrl?: string;
 }
 
+export const iconPath = '/img/icons/';
+
 export const appList: vAppType[] = [
   {
     id: generateRandomId(),
     label: "Home",
+    icon: iconPath + 'computer.svg',
     appContent: <HomeApp />
   },
   {
     id: generateRandomId(),
     label: "About",
+    icon: iconPath + 'info.svg',
     appContent: <AboutApp />
-  },
-  {
-    id: generateRandomId(),
-    label: "About aaaa aaaa ciaoc",
-    isShortcut: true,
-    shortcutUrl: "https://google.com"
   },
 ]
