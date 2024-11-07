@@ -26,16 +26,13 @@ const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
         select-none transition-all duration-200
         ${css.iconContainer} ${className && className}`}
     >
-      {/* <Image
-        src={app.icon ?? '/favicon.ico'}
+      <Image
+        src={app.icon ?? '/img/missing.webp'}
         width={48}
         height={48}
         alt={app.label}
         draggable={false}
-      /> */}
-      <div className='w-12 h-12 bg-green-500 shadow'>
-
-      </div>
+      />
       {!hideText && (
         <p className={`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none p-0.5
           ${css.itemText}`}>

@@ -35,16 +35,13 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
         select-none transition-all duration-200
         ${className && className}`}
         >
-          {/* <Image
-        src={app.icon ?? '/favicon.ico'}
-        width={48}
-        height={48}
-        alt={app.label}
-        draggable={false}
-        /> */}
-          <div className='w-10 h-10 bg-green-500 shadow'>
-
-          </div>
+          <Image
+            src={app.icon ?? '/img/missing.webp'}
+            width={48}
+            height={48}
+            alt={app.label}
+            draggable={false}
+          />
         </TooltipTrigger>
       </Tooltip>
     </TooltipProvider>
