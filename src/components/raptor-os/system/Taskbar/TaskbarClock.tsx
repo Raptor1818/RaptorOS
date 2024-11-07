@@ -1,11 +1,11 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 
 type Props = {}
 
 // Based on https://github.com/ethanmick/lets-build-clock
 
-const TaskbarClock = (_props: Props) => {
+const TaskbarClock = memo((_props: Props) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -27,6 +27,6 @@ const TaskbarClock = (_props: Props) => {
       </p>
     </div>
   );
-}
+});
 
 export default TaskbarClock;

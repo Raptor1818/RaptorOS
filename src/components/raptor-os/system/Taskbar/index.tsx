@@ -1,6 +1,6 @@
 import { useWindowContext } from '@/context/WindowProvider/window-provider';
 import { appList } from '@/lib/lists/app-list';
-import React from 'react'
+import React, { useMemo } from 'react'
 import TaskbarIcon from './TaskbarIcon';
 import dynamic from 'next/dynamic';
 type Props = {}
@@ -9,9 +9,11 @@ const Taskbar = (_props: Props) => {
   const context = useWindowContext();
 
   // Aint no clock on the server bruh
-  const TaskbarClock = dynamic(() => import('./TaskbarClock'), {
-    ssr: false,
-  })
+  const TaskbarClock = useMemo(() => {
+    return dynamic(() => import('./TaskbarClock'), {
+      ssr: false,
+    });
+  }, []);
 
   return (
     <div className={` static 
