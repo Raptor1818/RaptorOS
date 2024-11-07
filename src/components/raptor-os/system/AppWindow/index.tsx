@@ -8,6 +8,9 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 import css from '@/styles/raptor-os/system/AppWindow/AppWindow.module.css';
 
+import { gsap } from "gsap";
+import { useGSAP } from '@gsap/react';
+
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
   onFocus: () => void;
@@ -16,9 +19,9 @@ interface Props extends AppWindowType {
   isDeviceMobile: boolean;
 }
 
-
-const index = (props: Props) => {
-  const containerRef = useRef<Rnd | null>(null);
+const Index = (props: Props) => {
+  const rndRef = useRef<Rnd | null>(null);
+  const animationRef = useRef<HTMLDivElement | null>(null); // Ref for inner div
   const [currentZIndex, setCurrentZIndex] = useState(props.zIndex);
 
   const { browserWidth, browserHeight } = useWindowDimensions();
@@ -40,52 +43,76 @@ const index = (props: Props) => {
       };
 
   useEffect(() => {
-    if (containerRef.current) {
+    if (rndRef.current) {
       setCurrentZIndex(props.zIndex);
     }
   }, [props.zIndex]);
 
+  // GSAP Window startup animation
+  useGSAP(() => {
+    gsap.fromTo(
+      animationRef.current,
+      {
+        opacity: 0,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        ease: "power1.out",
+        duration: 0.2,
+      }
+    );
+  }, []);
+
+  // GSAP Window close animation
+  const handleCloseWindow = () => {
+    if (animationRef.current) {
+      gsap.to(animationRef.current, {
+        opacity: 0,
+        scale: 0.9,
+        ease: "power1.out",
+        duration: 0.2,
+        onComplete: props.closeWindow,
+      });
+    }
+  };
+
   return (
     <Rnd
+      ref={rndRef}
+
       default={defaultSettings}
+
       minWidth={400}
       minHeight={300}
 
       resizeHandleStyles={{
-        bottom: {
-          cursor: "ns-resize",
-          bottom: '0px'
-        },
-        left: {
-          cursor: "ew-resize",
-        },
-        right: {
-          cursor: "ew-resize",
-        },
-        top: {
-          cursor: "ns-resize",
-        },
+        bottom: { cursor: "ns-resize", bottom: '0px' },
+        left: { cursor: "ew-resize" },
+        right: { cursor: "ew-resize" },
+        top: { cursor: "ns-resize" },
       }}
 
 
-      className={`rounded-lg
-        border-window-border
-        ${props.className ? props.className : ''}
-        ${props.isFocused ? css.focusedShadow : ""}
-      `}
-
+      className={`rounded-lg`}
       dragHandleClassName='window-handle'
-      ref={containerRef}
       onMouseDown={props.onFocus}
       style={{ zIndex: currentZIndex }}
     >
-      <div className='overflow-hidden rounded-lg flex flex-col border w-full h-full'>
+      <div
+        ref={animationRef} // Animation reference for gsap, Rnd does not work
+        className={`overflow-hidden rounded-lg border-window-border flex flex-col border w-full h-full
+          ${props.isFocused ? css.focusedShadow : ""}
+          ${props.className ? props.className : ''}
+          `}
+      >
         <WindowTitleBar
-          className={`${props.titleBarClassName ? props.titleBarClassName : ''}`} // If an app needs a different title bar than the default
+          className={`${props.titleBarClassName ? props.titleBarClassName : ''}`}
           label={props.label}
           icon={props.icon}
           id={props.id}
-          closeWindow={props.closeWindow}
+          closeWindow={handleCloseWindow}
           isFocused={props.isFocused}
         />
         {
@@ -94,7 +121,7 @@ const index = (props: Props) => {
         }
       </div>
     </Rnd>
-  )
+  );
 }
 
-export default index
+export default Index;
