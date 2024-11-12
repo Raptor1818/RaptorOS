@@ -10,12 +10,13 @@ import css from '@/styles/raptor-os/system/AppWindow/AppWindow.module.css';
 
 import { gsap } from "gsap";
 import { useGSAP } from '@gsap/react';
-import { set } from 'zod';
 
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
+  minimizeWindow: (id: string) => void;
   onFocus: () => void;
   zIndex: number;
+  isMinimized: boolean;
   isFocused: boolean;
   isDeviceMobile: boolean;
 }
@@ -26,6 +27,8 @@ const Index = (props: Props) => {
   const [currentZIndex, setCurrentZIndex] = useState(props.zIndex);
 
   const [isClosed, setIsClosed] = useState(false);
+
+  const [wasMinimized, setWasMinimized] = useState(false);
 
   const { browserWidth, browserHeight } = useWindowDimensions();
 
@@ -83,6 +86,44 @@ const Index = (props: Props) => {
     }
   }, [isClosed]);
 
+  // GSAP Window minimize animation
+  const handleMinimize = () => {
+    if (animationRef.current) {
+      gsap.to(animationRef.current, {
+        opacity: 0,
+        translateY: 300,
+        duration: 0.3,
+        ease: "power1.out",
+        onComplete: () => {
+          props.minimizeWindow(props.id);
+          setWasMinimized(true);
+        },
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (wasMinimized && !props.isMinimized) {
+      if (animationRef.current) {
+        gsap.fromTo(
+          animationRef.current,
+          {
+            opacity: 0,
+            translateY: 300,
+          },
+          {
+            opacity: 1,
+            translateY: 0,
+            duration: 0.3,
+            ease: "power1.out",
+            onComplete: () => setWasMinimized(false),
+          }
+        );
+      }
+    }
+  }, [props.isMinimized, wasMinimized]);
+
+  //if (props.isMinimized) return null; // Resets size and position
 
   return (
     <Rnd
@@ -101,10 +142,13 @@ const Index = (props: Props) => {
       }}
 
 
-      className={`rounded-lg`}
+      className={`rounded-lg ${props.isMinimized ? 'hidden' : ''}`}
       dragHandleClassName='window-handle'
       onMouseDown={props.onFocus}
-      style={{ zIndex: currentZIndex }}
+      style={{
+        zIndex: currentZIndex,
+        display: props.isMinimized ? "none" : "block",
+      }}
     >
       <div
         ref={animationRef} // Animation reference for gsap, Rnd does not work
@@ -119,6 +163,7 @@ const Index = (props: Props) => {
           icon={props.icon}
           id={props.id}
           closeWindow={() => { setIsClosed(true) }}
+          minimizeWindow={handleMinimize}
           isFocused={props.isFocused}
         />
         {

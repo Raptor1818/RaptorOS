@@ -10,9 +10,7 @@ const index = (_props: Props) => {
   const context = useWindowContext();
   return (
     <div className='z-10'>
-      {/* List all the apps present in the array.
-        TODO: implement minimizing
-    */}
+      {/* List all the apps present in the array.*/}
       {context.windows.map((window: AppWindowType) => (
         <AppWindow
           key={window.id}
@@ -21,6 +19,8 @@ const index = (_props: Props) => {
           isFocused={context.focusedWindowId === window.id}
           onFocus={() => context.bringToFront(window.id)}
           closeWindow={context.closeWindow}
+          minimizeWindow={context.minimizeWindow}
+          isMinimized={window.isMinimized}
           isDeviceMobile={context.isDeviceMobile}
         />
       ))}

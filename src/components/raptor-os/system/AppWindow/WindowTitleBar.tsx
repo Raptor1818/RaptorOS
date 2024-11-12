@@ -1,12 +1,13 @@
 import React from 'react'
-import { X } from 'lucide-react'
+import { Minus, X } from 'lucide-react'
 import Image from 'next/image';
 
 interface Props {
   id: string;
   label: string;
   icon?: string;
-  closeWindow: (id: string) => void;
+  closeWindow: () => void;
+  minimizeWindow: () => void;
   className?: string;
   isFocused: boolean;
 }
@@ -17,6 +18,7 @@ const WindowTitleBar = ({
   icon,
   isFocused,
   closeWindow,
+  minimizeWindow,
   className
 }: Props) => {
   return (
@@ -36,8 +38,12 @@ const WindowTitleBar = ({
         </span>
       </div>
       <div className='h-full flex flex-row items-start justify-end'>
+        <button className='h-full px-4 py-1 transition duration-200 cursor-default hover:bg-white/20 active:bg-white/25'
+          onClick={minimizeWindow}>
+          <Minus size={20} />
+        </button>
         <button className='h-full px-4 py-1 transition duration-200 cursor-default hover:bg-red-500 active:bg-destructive'
-          onClick={() => { closeWindow(id) }}>
+          onClick={closeWindow}>
           <X size={20} />
         </button>
       </div>
