@@ -24,10 +24,9 @@ interface Props extends AppWindowType {
 const Index = (props: Props) => {
   const rndRef = useRef<Rnd | null>(null);
   const animationRef = useRef<HTMLDivElement | null>(null); // Ref for inner div
+
   const [currentZIndex, setCurrentZIndex] = useState(props.zIndex);
-
   const [isClosed, setIsClosed] = useState(false);
-
   const [wasMinimized, setWasMinimized] = useState(false);
 
   const { browserWidth, browserHeight } = useWindowDimensions();
@@ -123,8 +122,6 @@ const Index = (props: Props) => {
     }
   }, [props.isMinimized, wasMinimized]);
 
-  //if (props.isMinimized) return null; // Resets size and position
-
   return (
     <Rnd
       ref={rndRef}
@@ -147,7 +144,7 @@ const Index = (props: Props) => {
       onMouseDown={props.onFocus}
       style={{
         zIndex: currentZIndex,
-        display: props.isMinimized ? "none" : "block",
+        display: props.isMinimized ? "none" : "block", // Disable the window when minimized
       }}
     >
       <div
