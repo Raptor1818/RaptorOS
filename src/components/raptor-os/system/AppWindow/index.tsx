@@ -10,6 +10,7 @@ import css from '@/styles/raptor-os/system/AppWindow/AppWindow.module.css';
 
 import { gsap } from "gsap";
 import { useGSAP } from '@gsap/react';
+import { set } from 'zod';
 
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
@@ -23,6 +24,8 @@ const Index = (props: Props) => {
   const rndRef = useRef<Rnd | null>(null);
   const animationRef = useRef<HTMLDivElement | null>(null); // Ref for inner div
   const [currentZIndex, setCurrentZIndex] = useState(props.zIndex);
+
+  const [isClosed, setIsClosed] = useState(false);
 
   const { browserWidth, browserHeight } = useWindowDimensions();
 
@@ -66,17 +69,20 @@ const Index = (props: Props) => {
   }, []);
 
   // GSAP Window close animation
-  const handleCloseWindow = () => {
-    if (animationRef.current) {
+  useGSAP(() => {
+    if (isClosed) {
       gsap.to(animationRef.current, {
         opacity: 0,
         scale: 0.9,
         ease: "power1.out",
         duration: 0.2,
-        onComplete: props.closeWindow,
+        onComplete: () => {
+          props.closeWindow(props.id);
+        },
       });
     }
-  };
+  }, [isClosed]);
+
 
   return (
     <Rnd
@@ -112,7 +118,7 @@ const Index = (props: Props) => {
           label={props.label}
           icon={props.icon}
           id={props.id}
-          closeWindow={handleCloseWindow}
+          closeWindow={() => { setIsClosed(true) }}
           isFocused={props.isFocused}
         />
         {
