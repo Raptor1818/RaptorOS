@@ -52,7 +52,7 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
     } else {
       setIsFocused(false);
     }
-  }, [context.focusedWindowId]);
+  }, [context.focusedWindowId, app.id]);
 
   // If app window is open, set border color
   useEffect(() => {
@@ -61,7 +61,7 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
     } else {
       setAppOpen(false);
     }
-  }, [context.windows]);
+  }, [context.windows, app.id]);
 
   return (
     <TooltipProvider>
