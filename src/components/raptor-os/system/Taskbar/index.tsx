@@ -18,14 +18,14 @@ const Taskbar = (_props: Props) => {
   return (
     <div className={` static 
       bottom-0      md:left-0 
-      w-screen      md:max-w-20
+      w-screen      md:max-w-[72px]
       h-14          md:h-screen
       flex flex-row md:flex-col 
-      px-2          md:px-0.5
-      py-0.5        md:py-2
+      px-2          md:px-0
+      py-0        md:py-2
       justify-between items-center
       bg-black/15 backdrop-blur
-      shadow-sm md:shadow-xl`}>
+      shadow-sm     md:shadow-xl`}>
       <div className='flex flex-row md:flex-col
       gap-2 items-center justify-start'>
         {appList.map(app =>

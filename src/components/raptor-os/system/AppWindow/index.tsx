@@ -8,18 +8,26 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 import css from '@/styles/raptor-os/system/AppWindow/AppWindow.module.css';
 
+import { gsap } from "gsap";
+import { useGSAP } from '@gsap/react';
+
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
+  minimizeWindow: (id: string) => void;
   onFocus: () => void;
   zIndex: number;
+  isMinimized: boolean;
   isFocused: boolean;
   isDeviceMobile: boolean;
 }
 
+const Index = (props: Props) => {
+  const rndRef = useRef<Rnd | null>(null);
+  const animationRef = useRef<HTMLDivElement | null>(null); // Ref for inner div
 
-const index = (props: Props) => {
-  const containerRef = useRef<Rnd | null>(null);
   const [currentZIndex, setCurrentZIndex] = useState(props.zIndex);
+  const [isClosed, setIsClosed] = useState(false);
+  const [wasMinimized, setWasMinimized] = useState(false);
 
   const { browserWidth, browserHeight } = useWindowDimensions();
 
@@ -40,52 +48,119 @@ const index = (props: Props) => {
       };
 
   useEffect(() => {
-    if (containerRef.current) {
+    if (rndRef.current) {
       setCurrentZIndex(props.zIndex);
     }
   }, [props.zIndex]);
 
+  // GSAP Window startup animation
+  useGSAP(() => {
+    gsap.fromTo(
+      animationRef.current,
+      {
+        opacity: 0,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        ease: "power1.out",
+        duration: 0.2,
+      }
+    );
+  }, []);
+
+  // GSAP Window close animation
+  useGSAP(() => {
+    if (isClosed) {
+      gsap.to(animationRef.current, {
+        opacity: 0,
+        scale: 0.9,
+        ease: "power1.out",
+        duration: 0.2,
+        onComplete: () => {
+          props.closeWindow(props.id);
+        },
+      });
+    }
+  }, [isClosed]);
+
+  // GSAP Window minimize animation
+  const handleMinimize = () => {
+    if (animationRef.current) {
+      gsap.to(animationRef.current, {
+        opacity: 0,
+        translateY: 300,
+        duration: 0.3,
+        ease: "power1.out",
+        onComplete: () => {
+          props.minimizeWindow(props.id);
+          setWasMinimized(true);
+        },
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (wasMinimized && !props.isMinimized) {
+      if (animationRef.current) {
+        gsap.fromTo(
+          animationRef.current,
+          {
+            opacity: 0,
+            translateY: 300,
+          },
+          {
+            opacity: 1,
+            translateY: 0,
+            duration: 0.3,
+            ease: "power1.out",
+            onComplete: () => setWasMinimized(false),
+          }
+        );
+      }
+    }
+  }, [props.isMinimized, wasMinimized]);
+
   return (
     <Rnd
+      ref={rndRef}
+
       default={defaultSettings}
+
       minWidth={400}
       minHeight={300}
 
       resizeHandleStyles={{
-        bottom: {
-          cursor: "ns-resize",
-          bottom: '0px'
-        },
-        left: {
-          cursor: "ew-resize",
-        },
-        right: {
-          cursor: "ew-resize",
-        },
-        top: {
-          cursor: "ns-resize",
-        },
+        bottom: { cursor: "ns-resize", bottom: '0px' },
+        left: { cursor: "ew-resize" },
+        right: { cursor: "ew-resize" },
+        top: { cursor: "ns-resize" },
       }}
 
 
-      className={`rounded-lg
-        border-window-border
-        ${props.className ? props.className : ''}
-        ${props.isFocused ? css.focusedShadow : ""}
-      `}
-
+      className={`rounded-lg ${props.isMinimized ? 'hidden' : ''}`}
       dragHandleClassName='window-handle'
-      ref={containerRef}
       onMouseDown={props.onFocus}
-      style={{ zIndex: currentZIndex }}
+      style={{
+        zIndex: currentZIndex,
+        display: props.isMinimized ? "none" : "block", // Disable the window when minimized
+      }}
     >
-      <div className='overflow-hidden rounded-lg flex flex-col border w-full h-full'>
+      <div
+        ref={animationRef} // Animation reference for gsap, Rnd does not work
+        className={`overflow-hidden rounded-lg border-window-border flex flex-col border w-full h-full
+          ${props.isFocused ? css.focusedShadow : ""}
+          ${props.className ? props.className : ''}
+          `}
+      >
         <WindowTitleBar
-          className={`${props.titleBarClassName ? props.titleBarClassName : ''}`} // If an app needs a different title bar than the default
+          className={`${props.titleBarClassName ? props.titleBarClassName : ''}`}
           label={props.label}
           icon={props.icon}
           id={props.id}
-          closeWindow={props.closeWindow}
+          closeWindow={() => { setIsClosed(true) }}
+          minimizeWindow={handleMinimize}
           isFocused={props.isFocused}
         />
         {
@@ -94,7 +169,7 @@ const index = (props: Props) => {
         }
       </div>
     </Rnd>
-  )
+  );
 }
 
-export default index
+export default Index;

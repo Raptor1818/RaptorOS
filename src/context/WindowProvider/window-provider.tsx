@@ -7,6 +7,7 @@ export interface AppWindowType {
   id: string;
   label: string;
   icon?: string;
+  isMinimized: boolean;
   glassStyle?: boolean;
   className?: string;
   titleBarClassName?: string;
@@ -20,6 +21,7 @@ interface WindowProviderType {
   openWindow: (appWindow: AppWindowType) => void;
   openWindowByLabel: (label: string) => void;
   closeWindow: (id: string) => void;
+  minimizeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
   getWindowById: (id: string) => AppWindowType | undefined;
   getAppById: (id: string) => AppWindowType | undefined;
@@ -61,20 +63,29 @@ const WindowProvider = (props: Props) => {
 
   // Opens a window and brings it to the front
   const openWindow = useCallback((appWindow: vAppType) => {
-    // Check if it's a shortcut & open it in a new tab
     if (appWindow.isShortcut && appWindow.shortcutUrl && !appWindow.appContent) {
       window.open(appWindow.shortcutUrl, '_blank');
     } else {
-      // Check if the window is already open
-      if (!isWindowOpenById(appWindow.id)) {
-        setWindows(prevWindows => [...prevWindows, appWindow]);
-        setZIndexList(prevZIndexList => [...prevZIndexList, appWindow.id]);
-        bringToFront(appWindow.id);
-      } else {
-        bringToFront(appWindow.id);
-      }
+      setWindows((prevWindows) => {
+        // Check if the window is already open
+        if (getWindowById(appWindow.id)) {
+          // Window is open but might be minimized, so restore it
+          return prevWindows.map((w) =>
+            w.id === appWindow.id ? { ...w, isMinimized: false } : w
+          );
+        } else {
+          // Add the new window to the list, ensuring isMinimized is initialized as false
+          return [...prevWindows, { ...appWindow, isMinimized: false }];
+        }
+      });
+      setZIndexList((prevZIndexList) => [...prevZIndexList, appWindow.id]);
+      bringToFront(appWindow.id);
     }
   }, [isWindowOpenById]);
+
+  useEffect(() => {
+    console.log(windows)
+  }, [windows])
 
   const openWindowByLabel = (label: string) => {
     const app = getAppByLabel(label);
@@ -88,6 +99,19 @@ const WindowProvider = (props: Props) => {
     setZIndexList(prevZIndexList => prevZIndexList.filter(zId => zId !== id));
     if (focusedWindowId === id) setFocusedWindowId(null); // Once closed, sets focused window to null
   };
+
+  const minimizeWindow = (id: string) => {
+    setWindows((prevWindows) =>
+      prevWindows.map((appWindow) => {
+        if (appWindow.id === id) {
+          return { ...appWindow, isMinimized: true }; // Set isMinimized to true
+        }
+        return appWindow;
+      })
+    );
+    setFocusedWindowId(null)
+  };
+
 
   // Bring window to the front of the zIndex array
   const bringToFront = (id: string) => {
@@ -133,6 +157,7 @@ const WindowProvider = (props: Props) => {
         openWindow,
         openWindowByLabel,
         closeWindow,
+        minimizeWindow,
         bringToFront,
         getWindowById,
         getAppById,
