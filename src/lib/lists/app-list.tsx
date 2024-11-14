@@ -33,6 +33,14 @@ export const appList: vAppType[] = [
     id: generateRandomId(),
     label: "Settings",
     icon: iconPath + 'settings.svg',
+    startupDimensions: {
+      width: 400,
+      height: 600
+    },
+    maxDimensions: {
+      width: 400,
+      height: 600
+    },
     appContent: <SettingsApp />
   },
 ]

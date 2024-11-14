@@ -43,8 +43,8 @@ const Index = (props: Props) => {
       : {
         x: Math.ceil(browserWidth / 4),
         y: Math.ceil(browserHeight / 6),
-        width: Math.ceil(browserWidth / 2),
-        height: Math.ceil(browserHeight / 1.5),
+        width: props.startupDimensions?.width ?? Math.ceil(browserWidth / 2),
+        height: props.startupDimensions?.height ?? Math.ceil(browserHeight / 1.5),
       };
 
   useEffect(() => {
@@ -130,6 +130,9 @@ const Index = (props: Props) => {
 
       minWidth={400}
       minHeight={300}
+
+      maxWidth={props.maxDimensions?.width ?? browserWidth}
+      maxHeight={props.maxDimensions?.height ?? browserHeight}
 
       resizeHandleStyles={{
         bottom: { cursor: "ns-resize", bottom: '0px' },

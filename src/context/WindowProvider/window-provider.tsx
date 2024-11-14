@@ -7,10 +7,12 @@ export interface AppWindowType {
   id: string;
   label: string;
   icon?: string;
-  isMinimized: boolean;
+  isMinimized?: boolean;
   glassStyle?: boolean;
   className?: string;
   titleBarClassName?: string;
+  maxDimensions?: { width: number; height: number };
+  startupDimensions?: { width: number; height: number };
   appContent?: React.ReactNode;
 }
 
