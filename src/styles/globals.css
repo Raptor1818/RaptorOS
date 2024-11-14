@@ -33,6 +33,7 @@
       --chart-3: hsl(197 37% 24%);
       --chart-4: hsl(43 74% 66%);
       --chart-5: hsl(27 87% 67%);
+      --taskbar-icon-window-focused: hsl(2 87% 67%);
     }
 
     .dark {

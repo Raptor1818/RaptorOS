@@ -55,7 +55,8 @@ export default {
 					'3': 'var(--chart-3)',
 					'4': 'var(--chart-4)',
 					'5': 'var(--chart-5)'
-				}
+				},
+				'taskbar-icon-window-focused': 'var(--taskbar-icon-window-focused)',
 			}
 		}
 	},
