@@ -20,7 +20,7 @@ const index = (_props: Props) => {
           onFocus={() => context.bringToFront(window.id)}
           closeWindow={context.closeWindow}
           minimizeWindow={context.minimizeWindow}
-          isMinimized={window.isMinimized}
+          isMinimized={window.isMinimized ?? false}
           isDeviceMobile={context.isDeviceMobile}
         />
       ))}

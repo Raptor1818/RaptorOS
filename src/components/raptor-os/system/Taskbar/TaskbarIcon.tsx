@@ -18,6 +18,8 @@ import {
 
 import { gsap } from "gsap";
 import { useGSAP } from '@gsap/react';
+import { useSettingsContext } from '@/context/SettingsProvider/settings-provider';
+import clsx from 'clsx';
 
 
 const TaskbarIcon = ({ app, openWindow, className }: Props) => {
@@ -75,23 +77,34 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
           }}
           onMouseDown={() => { setActive(true) }}
           onMouseUp={() => { setActive(false) }}
-          className={`w-14 h-14
+          className={clsx(`w-14 h-14
             flex items-center justify-center
-            rounded-md cursor-default border border-transparent
+            cursor-default
             
-            ${isFocused && 'bg-white/20'}
             hover:bg-white/30
             active:bg-white/45 
             
-            select-none transition-all duration-200
-            ${className && className}`}
+            select-none transition-all duration-200`,
+            {
+              'bg-white/20': isFocused
+            },
+            {
+              'rounded-md': !useSettingsContext().settings.disableRoundedCorners,
+            },
+            className
+          )}
         >
-          <div className={`
-          absolute top-0 md:top-auto md:-left-0  rounded-lg
-          ${appOpen ? 'opacity-100' : 'opacity-0'}
-          ${isFocused ? 'bg-taskbar-icon-window-focused w-8 h-1 md:w-1 md:h-8' : 'w-1.5 h-1.5 bg-white/50'}
-          transition-all duration-200
-            `} />
+          <div className={clsx(`
+          absolute top-0 md:top-auto md:-left-0 rounded-lg
+          transition-all duration-200`,
+            {
+              'opacity-0': !appOpen
+            },
+            {
+              'bg-taskbar-icon-window-focused w-8 h-1 md:w-1 md:h-8': isFocused,
+              'w-1.5 h-1.5 bg-white/50': !isFocused
+            },
+          )} />
           <Image
             ref={iconRef}
             src={app.icon ?? '/img/missing.webp'}
