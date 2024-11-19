@@ -8,7 +8,6 @@ export interface AppWindowType {
   label: string;
   icon?: string;
   isMinimized?: boolean;
-  glassStyle?: boolean;
   className?: string;
   titleBarClassName?: string;
   maxDimensions?: { width: number; height: number };
@@ -84,10 +83,6 @@ const WindowProvider = (props: Props) => {
       bringToFront(appWindow.id);
     }
   }, [isWindowOpenById]);
-
-  useEffect(() => {
-    console.log(windows)
-  }, [windows])
 
   const openWindowByLabel = (label: string) => {
     const app = getAppByLabel(label);
