@@ -9,7 +9,7 @@ interface Props {
 }
 
 const AppWrapper = ({ className, children }: Props) => {
-  const settingsContext = useSettingsContext();
+  const settingsContext = useSettingsContext().settings;
 
   return (
     <div className={`desktop-app-wrapper w-full h-[calc(100%-2rem)] overflow-scroll ${className ?? ''}

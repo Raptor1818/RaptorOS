@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import { Minus, X } from 'lucide-react'
 import Image from 'next/image';
@@ -22,7 +23,7 @@ const WindowTitleBar = ({
   minimizeWindow,
   className
 }: Props) => {
-  const settingsContext = useSettingsContext();
+  const settingsContext = useSettingsContext().settings;
 
   return (
     <div className={`w-full h-8 flex flex-row justify-between items-center select-none backdrop-blur-md overflow-hidden
