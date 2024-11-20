@@ -63,7 +63,7 @@ const TaskbarIcon = ({ app, openWindow, className }: Props) => {
     } else {
       setAppOpen(false);
     }
-  }, [context.windows, app.id]);
+  }, [context, context.windows, app.id]);
 
   return (
     <TooltipProvider>

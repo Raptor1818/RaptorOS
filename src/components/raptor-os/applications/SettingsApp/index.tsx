@@ -8,7 +8,7 @@ import Settings from './Settings'
 type Props = {}
 
 
-const SettingsApp = (props: Props) => {
+const SettingsApp = (_props: Props) => {
   return (
     <AppWrapper className='p-4'>
       <h1 className='text-center'>Settings</h1>

@@ -15,7 +15,6 @@ interface Props {
 }
 
 const WindowTitleBar = ({
-  id,
   label,
   icon,
   isFocused,
