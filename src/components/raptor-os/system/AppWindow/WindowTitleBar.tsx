@@ -3,6 +3,7 @@ import React from 'react'
 import { Minus, X } from 'lucide-react'
 import Image from 'next/image';
 import { useSettingsContext } from '@/context/SettingsProvider/settings-provider';
+import clsx from 'clsx';
 
 interface Props {
   id: string;
@@ -25,13 +26,17 @@ const WindowTitleBar = ({
   const settingsContext = useSettingsContext().settings;
 
   return (
-    <div className={`w-full h-8 flex flex-row justify-between items-center select-none backdrop-blur-md overflow-hidden
-      ${isFocused ?
-        `${settingsContext.glassStyle ? 'bg-black/35' : 'bg-black/50'}`
-        :
-        `${settingsContext.glassStyle ? 'bg-black/70' : 'bg-black/90'}`
-      } 
-      ${className && className}`}
+    <div className={clsx(`w-full h-8 flex flex-row justify-between items-center select-none md:backdrop-blur-md overflow-hidden transition-all duration-200`,
+      {
+        'bg-black/35': settingsContext.glassStyle && isFocused,
+        'bg-neutral-950 md:bg-black/50': !settingsContext.glassStyle && isFocused,
+        'md:bg-black/70': settingsContext.glassStyle && !isFocused,
+        'bg-neutral-800 md:bg-black/90': !settingsContext.glassStyle && !isFocused,
+      },
+      {
+        'backdrop-blur-md': settingsContext.glassStyle
+      },
+      className)}
     >
       <div className='window-handle w-full h-full flex flex-row gap-2 px-4 items-center justify-start pl-2'>
         {

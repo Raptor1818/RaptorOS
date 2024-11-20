@@ -29,7 +29,7 @@ const Taskbar = (_props: Props) => {
       px-2          md:px-0
       py-0        md:py-2
       justify-between items-center
-      bg-black/15 backdrop-blur
+      bg-black/15 md:backdrop-blur
       shadow-sm     md:shadow-xl`}>
       <div className='flex flex-row md:flex-col
       gap-2 items-center justify-start'>
