@@ -1,4 +1,5 @@
 import WindowLayer from "@/components/raptor-os/system/WindowLayer";
+import SettingsProvider from "@/context/SettingsProvider/settings-provider";
 import WindowProvider from "@/context/WindowProvider/window-provider";
 import "@/styles/globals.css";
 
@@ -40,10 +41,12 @@ export default async function RootLayout({
           backgroundPosition: 'bottom',
         }
       }>
-        <WindowProvider isDeviceMobileProp={isMobile}>
-          <WindowLayer></WindowLayer>
-          {children}
-        </WindowProvider>
+        <SettingsProvider>
+          <WindowProvider isDeviceMobileProp={isMobile}>
+            <WindowLayer></WindowLayer>
+            {children}
+          </WindowProvider>
+        </SettingsProvider>
       </body>
     </html>
   );

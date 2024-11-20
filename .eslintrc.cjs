@@ -41,6 +41,8 @@ const config = {
     '@typescript-eslint/no-empty-object-type': 'off',
     'react-hooks/rules-of-hooks': 'off',
     'react/display-name': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
   }
 }
 module.exports = config;

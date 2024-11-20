@@ -1,6 +1,8 @@
+'use client';
 import React from 'react'
 import { Minus, X } from 'lucide-react'
 import Image from 'next/image';
+import { useSettingsContext } from '@/context/SettingsProvider/settings-provider';
 
 interface Props {
   id: string;
@@ -13,7 +15,6 @@ interface Props {
 }
 
 const WindowTitleBar = ({
-  id,
   label,
   icon,
   isFocused,
@@ -21,12 +22,17 @@ const WindowTitleBar = ({
   minimizeWindow,
   className
 }: Props) => {
+  const settingsContext = useSettingsContext().settings;
+
   return (
     <div className={`w-full h-8 flex flex-row justify-between items-center select-none backdrop-blur-md overflow-hidden
-    ${isFocused ?
-        'bg-black/50 ' :
-        'bg-black/95'
-      } ${className && className}`}>
+      ${isFocused ?
+        `${settingsContext.glassStyle ? 'bg-black/35' : 'bg-black/50'}`
+        :
+        `${settingsContext.glassStyle ? 'bg-black/70' : 'bg-black/90'}`
+      } 
+      ${className && className}`}
+    >
       <div className='window-handle w-full h-full flex flex-row gap-2 px-4 items-center justify-start pl-2'>
         {
           icon && (

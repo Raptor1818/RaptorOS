@@ -10,6 +10,8 @@ import css from '@/styles/raptor-os/system/AppWindow/AppWindow.module.css';
 
 import { gsap } from "gsap";
 import { useGSAP } from '@gsap/react';
+import clsx from 'clsx';
+import { useSettingsContext } from '@/context/SettingsProvider/settings-provider';
 
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
@@ -43,8 +45,8 @@ const Index = (props: Props) => {
       : {
         x: Math.ceil(browserWidth / 4),
         y: Math.ceil(browserHeight / 6),
-        width: Math.ceil(browserWidth / 2),
-        height: Math.ceil(browserHeight / 1.5),
+        width: props.startupDimensions?.width ?? Math.ceil(browserWidth / 2),
+        height: props.startupDimensions?.height ?? Math.ceil(browserHeight / 1.5),
       };
 
   useEffect(() => {
@@ -131,6 +133,9 @@ const Index = (props: Props) => {
       minWidth={400}
       minHeight={300}
 
+      maxWidth={props.maxDimensions?.width ?? browserWidth}
+      maxHeight={props.maxDimensions?.height ?? browserHeight}
+
       resizeHandleStyles={{
         bottom: { cursor: "ns-resize", bottom: '0px' },
         left: { cursor: "ew-resize" },
@@ -139,7 +144,14 @@ const Index = (props: Props) => {
       }}
 
 
-      className={`rounded-lg ${props.isMinimized ? 'hidden' : ''}`}
+      className={clsx(
+        {
+          'hidden': props.isMinimized,
+        },
+        {
+          'rounded-lg': !useSettingsContext().settings.disableRoundedCorners,
+        }
+      )}
       dragHandleClassName='window-handle'
       onMouseDown={props.onFocus}
       style={{
@@ -149,10 +161,15 @@ const Index = (props: Props) => {
     >
       <div
         ref={animationRef} // Animation reference for gsap, Rnd does not work
-        className={`overflow-hidden rounded-lg border-window-border flex flex-col border w-full h-full
+        className={clsx(
+          `overflow-hidden border-window-border flex flex-col border w-full h-full
           ${props.isFocused ? css.focusedShadow : ""}
-          ${props.className ? props.className : ''}
-          `}
+          `,
+          {
+            'rounded-lg': !useSettingsContext().settings.disableRoundedCorners,
+          },
+          props.className
+        )}
       >
         <WindowTitleBar
           className={`${props.titleBarClassName ? props.titleBarClassName : ''}`}
