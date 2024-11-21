@@ -139,13 +139,17 @@ const WindowProvider = (props: Props) => {
         router.push('/');
       }
     }
-  }, [searchParams, openWindow, router]);
+  }, [searchParams, router]);
 
   // Startup window
   useEffect(() => {
-    const homeApp = getAppByLabel('Home');
-    if (homeApp) {
-      openWindow(homeApp);
+    // Check if the URL has an app parameter before starting the Home app
+    const appParameter = searchParams.get(QUERY_STRING_NAME);
+    if (!appParameter) {
+      const homeApp = getAppByLabel('Home');
+      if (homeApp) {
+        openWindow(homeApp);
+      }
     }
   }, []);
 
