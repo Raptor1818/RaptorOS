@@ -2,6 +2,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { appList, type vAppType } from '@/lib/lists/app-list';
+import { shortcutList } from '@/lib/lists/shortcut-list';
 
 export interface AppWindowType {
   id: string;
@@ -21,6 +22,7 @@ interface WindowProviderType {
   focusedWindowId: string | null;
   openWindow: (appWindow: AppWindowType) => void;
   openWindowByLabel: (label: string) => void;
+  openShortcutByLabel: (label: string) => void;
   closeWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;
   bringToFront: (id: string) => void;
@@ -58,6 +60,10 @@ const WindowProvider = (props: Props) => {
     return appList.find(app => app.label === label);
   };
 
+  const getShortcutByLabel = (label: string) => {
+    return shortcutList.find(app => app.label === label);
+  };
+
   const isWindowOpenById = useCallback((id: string) => {
     return windows.find(window => window.id === id);
   }, [windows]);
@@ -86,6 +92,10 @@ const WindowProvider = (props: Props) => {
 
   const openWindowByLabel = (label: string) => {
     const app = getAppByLabel(label);
+    if (app) openWindow(app);
+  }
+  const openShortcutByLabel = (label: string) => {
+    const app = getShortcutByLabel(label);
     if (app) openWindow(app);
   }
 
@@ -153,6 +163,7 @@ const WindowProvider = (props: Props) => {
         focusedWindowId,
         openWindow,
         openWindowByLabel,
+        openShortcutByLabel,
         closeWindow,
         minimizeWindow,
         bringToFront,

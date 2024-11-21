@@ -27,6 +27,14 @@ export const libraries: ListItem[] = [
     name: 'Shadcn UI',
     url: 'https://ui.shadcn.com/'
   },
+  {
+    name: 'Aceternity UI',
+    url: 'https://ui.aceternity.com/'
+  },
+  {
+    name: 'Indie UI',
+    url: 'https://ui.indie-starter.dev/'
+  }
 ]
 
 export const packages: ListItem[] = [

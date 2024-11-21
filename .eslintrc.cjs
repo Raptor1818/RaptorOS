@@ -43,6 +43,7 @@ const config = {
     'react/display-name': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
   }
 }
 module.exports = config;
