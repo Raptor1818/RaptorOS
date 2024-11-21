@@ -25,7 +25,7 @@ const HomeApp = (_props: Props) => {
 
   const context = useWindowContext()
   return (
-    <AppWrapper className='relative p-4 md:px-8 flex flex-col justify-between' dotBackground>
+    <AppWrapper className='p-4 md:px-8 flex flex-col justify-between' dotBackground>
       <div>
         <TextFade direction='up'>
           <div className="flex items-center justify-center text-center h-32">

@@ -25,14 +25,6 @@
 
 /* Text */
 
-.desktop-app-wrapper .construction-text {
-  @apply text-yellow-500;
-}
-
-.desktop-app-wrapper .construction-text a {
-  @apply text-yellow-700;
-}
-
 .desktop-app-wrapper *:not(.custom-text) {
   @apply text-foreground cursor-default;
 }

@@ -35,7 +35,7 @@ const AppWrapper = ({ className, dotBackground, gridBackground, children }: Prop
           },
         )} />
       }
-      <div className={clsx('h-full desktop-app-wrapper overflow-auto', className)}>
+      <div className={clsx('relative h-full desktop-app-wrapper overflow-auto', className)}>
         {children}
       </div>
     </div >
