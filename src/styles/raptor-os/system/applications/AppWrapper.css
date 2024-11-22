@@ -50,7 +50,7 @@
 }
 
 .desktop-app-wrapper a:not(.custom-text) {
-  @apply text-blue-600 underline cursor-pointer;
+  @apply text-blue-500 underline cursor-pointer;
 }
 
 .desktop-app-wrapper span:not(.custom-text) {
