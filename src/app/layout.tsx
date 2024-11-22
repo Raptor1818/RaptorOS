@@ -1,5 +1,6 @@
 import WindowLayer from "@/components/raptor-os/system/WindowLayer";
 import SettingsProvider from "@/context/SettingsProvider/settings-provider";
+import WallpaperProvider from "@/context/WallpaperProvider/wallpaper-provider";
 import WindowProvider from "@/context/WindowProvider/window-provider";
 import "@/styles/globals.css";
 
@@ -33,19 +34,14 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${GeistSans.variable} overflow-hidden`}>
-      <body style={
-        {
-          backgroundImage: 'url(https://images.unsplash.com/photo-1727976971228-ee2e309c90c1)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'bottom',
-        }
-      }>
+      <body>
         <SettingsProvider>
-          <WindowProvider isDeviceMobileProp={isMobile}>
-            <WindowLayer></WindowLayer>
-            {children}
-          </WindowProvider>
+          <WallpaperProvider>
+            <WindowProvider isDeviceMobileProp={isMobile}>
+              <WindowLayer></WindowLayer>
+              {children}
+            </WindowProvider>
+          </WallpaperProvider>
         </SettingsProvider>
       </body>
     </html>

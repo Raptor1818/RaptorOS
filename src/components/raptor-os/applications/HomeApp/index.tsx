@@ -23,6 +23,10 @@ const HomeApp = (_props: Props) => {
     context.openWindowByLabel('Settings')
   }
 
+  function handleOpenWallpaperApp() {
+    context.openWindowByLabel('Wallpaper')
+  }
+
   const context = useWindowContext()
   return (
     <AppWrapper className='p-4 md:px-8 flex flex-col justify-between' dotBackground>
@@ -48,7 +52,7 @@ const HomeApp = (_props: Props) => {
         <h4 className='!font-normal !text-lg'>You can drag, resize, minimize and close windows. More apps will come as they are added.</h4>
         <div className='flex flex-row gap-2'>
           <Settings />
-          <h4 className='!font-normal !text-lg'>Check out the <a onClick={handleOpenSettingsApp}>settings</a> app to tweak some styles.</h4>
+          <h4 className='!font-normal !text-lg'>Check out the <a onClick={handleOpenSettingsApp}>settings</a> app to tweak some styles, and the <a onClick={handleOpenWallpaperApp}>wallpaper</a> app to change the background.</h4>
         </div>
         <h3>Enjoy!!</h3>
       </div>

@@ -31,7 +31,7 @@ const AppWrapper = ({ className, dotBackground, gridBackground, children }: Prop
             'bg-dot-white/[0.4]': dotBackground
           },
           {
-            'bg-grid-white/[0.2]': gridBackground
+            'bg-grid-white/[0.15]': gridBackground
           },
         )} />
       }

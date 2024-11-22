@@ -1,6 +1,7 @@
 import AboutApp from "@/components/raptor-os/applications/AboutApp";
 import HomeApp from "@/components/raptor-os/applications/HomeApp";
 import SettingsApp from "@/components/raptor-os/applications/SettingsApp";
+import WallpaperApp from "@/components/raptor-os/applications/WallpaperApp";
 import { type AppWindowType } from "@/context/WindowProvider/window-provider";
 
 import { v4 as uuidv4 } from 'uuid';
@@ -28,6 +29,12 @@ export const appList: vAppType[] = [
     label: "About",
     icon: iconPath + 'info.svg',
     appContent: <AboutApp />
+  },
+  {
+    id: generateRandomId(),
+    label: "Wallpaper",
+    icon: iconPath + 'wallpaper.svg',
+    appContent: <WallpaperApp />
   },
   {
     id: generateRandomId(),

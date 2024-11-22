@@ -26,7 +26,7 @@
 /* Text */
 
 .desktop-app-wrapper *:not(.custom-text) {
-  @apply text-foreground cursor-default;
+  @apply text-foreground;
 }
 
 .desktop-app-wrapper h1:not(.custom-text) {
