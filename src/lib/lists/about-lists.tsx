@@ -16,7 +16,7 @@ export const frameworks: ListItem[] = [
     name: 'Typescript',
     url: 'https://www.typescriptlang.org/',
   },
-]
+];
 
 export const libraries: ListItem[] = [
   {
@@ -35,7 +35,7 @@ export const libraries: ListItem[] = [
     name: 'Indie UI',
     url: 'https://ui.indie-starter.dev/'
   }
-]
+];
 
 export const packages: ListItem[] = [
   {
@@ -50,4 +50,11 @@ export const packages: ListItem[] = [
     name: 'UAParser',
     url: 'https://uaparser.dev/'
   },
-]
+];
+
+export const other: ListItem[] = [
+  {
+    name: 'Kora Icon Theme',
+    url: 'https://github.com/bikass/kora',
+  }
+];

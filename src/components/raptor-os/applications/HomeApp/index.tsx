@@ -32,8 +32,8 @@ const HomeApp = (_props: Props) => {
     <AppWrapper className='p-4 md:px-8 flex flex-col justify-between' dotBackground>
       <div>
         <TextFade direction='up'>
-          <div className="flex items-center justify-center text-center h-32">
-            <h1 className="custom-text flex flex-wrap text-5xl md:text-6xl font-bold">
+          <div className="flex items-center justify-center text-center h-24">
+            <h1 className="custom-text flex flex-wrap text-4xl md:text-5xl font-bold">
               <span className="custom-text block bg-gradient-to-b from-foreground to-neutral-400 bg-clip-text text-transparent pr-4">
                 Welcome to
               </span>
@@ -48,13 +48,14 @@ const HomeApp = (_props: Props) => {
         <h4 className='!font-normal !text-lg'>I&apos;ll make the project app to show off some of my work as soon&#8482; as I can.</h4>
       </div>
       <div className='mt-8'>
-        <h4 className='!font-normal'>This website is made to resemble a desktop environment.</h4>
-        <h4 className='!font-normal !text-lg'>You can drag, resize, minimize and close windows. More apps will come as they are added.</h4>
+        <h4 className='!font-normal !mb-4'>This website is made to resemble a <b>desktop environment</b>.</h4>
+        <p>You can drag, resize, minimize and close windows. More apps will come as they are added.</p>
+        <p>Some things like the wallpaper and the settings are stored in the cache, so they will persist after reloading the page.</p>
         <div className='flex flex-row gap-2'>
-          <Settings />
-          <h4 className='!font-normal !text-lg'>Check out the <a onClick={handleOpenSettingsApp}>settings</a> app to tweak some styles, and the <a onClick={handleOpenWallpaperApp}>wallpaper</a> app to change the background.</h4>
+          <Settings size={22} />
+          <p>Check out the <a onClick={handleOpenSettingsApp}>settings</a> app to tweak some styles, and the <a onClick={handleOpenWallpaperApp}>wallpaper</a> app to change the background.</p>
         </div>
-        <h3>Enjoy!!</h3>
+        <h3 className='mt-4'>Enjoy!!</h3>
       </div>
       <footer className='mt-8'>
         <div className='flex flex-row gap-2'>
