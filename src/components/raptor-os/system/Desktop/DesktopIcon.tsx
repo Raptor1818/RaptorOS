@@ -4,6 +4,7 @@ import Image from 'next/image';
 import css from '@/styles/raptor-os/system/Desktop/DesktopItem.module.css';
 import clsx from 'clsx';
 import { useSettingsContext } from '@/context/SettingsProvider/settings-provider';
+import BlueskyIcon from '@/components/ui/BlueskyIcon';
 
 type Props = {
   app: AppWindowType;
@@ -32,17 +33,21 @@ const DesktopIcon = ({ app, openWindow, hideText, className }: Props) => {
         className
       )}
     >
-      <Image
-        src={app.icon ?? '/img/missing.webp'}
-        width={48}
-        height={48}
-        alt={app.label}
-        draggable={false}
-        placeholder='empty'
-        className={clsx(
-          { 'rounded-lg': !useSettingsContext().settings.disableRoundedCorners }
-        )}
-      />
+      {app.label === 'My Bluesky' ? ( // TODO: remove hardcoded-ness
+        <BlueskyIcon className='w-12 h-12' />
+      ) : (
+        <Image
+          src={app.icon ?? '/img/missing.webp'}
+          width={48}
+          height={48}
+          alt={app.label}
+          draggable={false}
+          placeholder='empty'
+          className={clsx(
+            { 'rounded-lg': !useSettingsContext().settings.disableRoundedCorners }
+          )}
+        />
+      )}
       {!hideText && (
         <p
           className={clsx(`text-center select-none text-sm leading-4 truncate-multiline focus:outline-none p-0.5
