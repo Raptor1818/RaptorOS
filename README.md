@@ -1,34 +1,13 @@
 # RaptorOS
 
-Made to emulate the feel of a desktop enviroment. 
+## Welcome to my personal website, made to resemble a desktop enviroment.
 
-## Features
+### Using the T3 Stack with:
+- Next.js 15, 
+- React 19, 
+- Typescript, 
+- TailwindCSS 
 
-### Window Functionalities
-- Drag and resize
-- Dynamic zIndex levels
-- Close and minimize, with animations
-### Taskbar
-- Icon states change based on their windows' states
-- Clock
-### Much more to come!
+More information and used libraries and packages at https://raptorino.com/?app=About.
 
-***
-
-## Frameworks
-* [Next.js](https://nextjs.org/)
-* [React](https://react.dev/)
-* [Typescript](https://www.typescriptlang.org/)
-
-## Libraries
-* [TailwindCSS](https://tailwindcss.com/)
-* [GSAP](https://gsap.com/)
-
-## Packages
-* [React-rnd](https://github.com/bokuweb/react-rnd)
-* [React-markdown](https://github.com/remarkjs/react-markdown)
-* [uuid](https://github.com/uuidjs/uuid)
-
-## Assets
-* [Kora Icon Theme](https://store.kde.org/p/1256209)
-* Desktop background from the backgrounds included in Linux Mint 21.3 Virginia
+## Thank you for checking this out!

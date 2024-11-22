@@ -1,27 +1,21 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans, Noto_Sans_Mono } from "next/font/google";
-import "./globals.css";
+import WindowLayer from "@/components/raptor-os/system/WindowLayer";
+import SettingsProvider from "@/context/SettingsProvider/settings-provider";
+import WallpaperProvider from "@/context/WallpaperProvider/wallpaper-provider";
+import WindowProvider from "@/context/WindowProvider/window-provider";
+import "@/styles/globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: '--font-inter'
-});
-const notoSans = Noto_Sans({
-  subsets: ["latin"],
-  variable: '--font-noto-sans'
-});
-const notoSansMono = Noto_Sans_Mono({
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-noto-sans-mono'
-});
+import { GeistSans } from "geist/font/sans";
+import { type Viewport, type Metadata } from "next";
+import { headers } from "next/headers";
+import UAParser from "ua-parser-js";
 
 export const metadata: Metadata = {
   title: "RaptorOS",
-  description: "Raptor's personal website, now in Next.js",
+  description: "My personal website as a desktop enviroment.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+// Prevents the (mobile) browser to expand if a window overflows the <html> tag
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -29,15 +23,26 @@ export const viewport: Viewport = {
   userScalable: false,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
+  // Get user agent and determine device type using UAParser
+  const headersList = await headers()
+  const userAgent = headersList.get('user-agent')
+  const device = new UAParser(userAgent ?? '').getDevice();
+  const isMobile: boolean = device.type == 'mobile';
+
   return (
-    <html lang="en">
-      <body className={`${notoSansMono.variable} ${notoSans.variable} ${inter.variable}`}>
-        {children}
+    <html lang="en" className={`${GeistSans.variable} overflow-hidden`}>
+      <body>
+        <SettingsProvider>
+          <WallpaperProvider>
+            <WindowProvider isDeviceMobileProp={isMobile}>
+              <WindowLayer></WindowLayer>
+              {children}
+            </WindowProvider>
+          </WallpaperProvider>
+        </SettingsProvider>
       </body>
     </html>
   );
