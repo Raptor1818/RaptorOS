@@ -8,7 +8,7 @@ import { useWallpaperContext } from '@/context/WallpaperProvider/wallpaper-provi
 
 type Props = {}
 
-const index = (props: Props) => {
+const index = (_props: Props) => {
   const context = useWallpaperContext()
 
   return (

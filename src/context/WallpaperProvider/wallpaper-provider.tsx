@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { defaultWallpaper, wallpaperList, WallpaperType } from '@/lib/lists/wallpaper-list';
+import { defaultWallpaper, type WallpaperType } from '@/lib/lists/wallpaper-list';
 
 interface Props {
   children: React.ReactNode;

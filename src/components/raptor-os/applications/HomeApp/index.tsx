@@ -1,6 +1,5 @@
 import React from 'react'
 import AppWrapper from '../AppWrapper'
-import Divider from '@/components/ui/divider'
 import { useWindowContext } from '@/context/WindowProvider/window-provider'
 import { TextFade } from '@/components/ui/TextFade'
 import { Construction, Info, Settings } from 'lucide-react'

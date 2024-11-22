@@ -22,7 +22,7 @@ function RaptorOS() {
         backgroundImage: `url(${wallpaper.src})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundPosition: `${wallpaper.position || 'center'}`,
+        backgroundPosition: `${wallpaper.position ?? 'center'}`,
       }}
       suppressHydrationWarning>
       <Taskbar />
