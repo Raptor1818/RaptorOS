@@ -8,6 +8,7 @@ interface Props {
 
 const index = (_props: Props) => {
   const context = useWindowContext();
+
   return (
     <div className='z-10'>
       {/* List all the apps present in the array.*/}
@@ -21,7 +22,6 @@ const index = (_props: Props) => {
           closeWindow={context.closeWindow}
           minimizeWindow={context.minimizeWindow}
           isMinimized={window.isMinimized ?? false}
-          isDeviceMobile={context.isDeviceMobile}
         />
       ))}
     </div>

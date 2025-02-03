@@ -4,7 +4,7 @@ import { useDeviceContext } from '@/context/DeviceProvider/device-provider';
 
 interface Props { }
 
-const Bloswordy = (props: Props) => {
+const Bloswordy = (_props: Props) => {
   const { isMobile } = useDeviceContext();
   return (
     <AppWrapper>

@@ -154,12 +154,6 @@ const WindowProvider = (props: Props) => {
     }
   }, []);
 
-  const [isDeviceMobile, setIsDeviceMobile] = useState(isMobile);
-
-  useEffect(() => {
-    setIsDeviceMobile(isMobile);
-  }, [isMobile]);
-
   return (
     <WindowContext.Provider
       value={{

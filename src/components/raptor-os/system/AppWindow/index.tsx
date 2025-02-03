@@ -12,6 +12,7 @@ import { gsap } from "gsap";
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import { useSettingsContext } from '@/context/SettingsProvider/settings-provider';
+import { useDeviceContext } from '@/context/DeviceProvider/device-provider';
 
 interface Props extends AppWindowType {
   closeWindow: (id: string) => void;
@@ -20,7 +21,6 @@ interface Props extends AppWindowType {
   zIndex: number;
   isMinimized: boolean;
   isFocused: boolean;
-  isDeviceMobile: boolean;
 }
 
 const Index = (props: Props) => {
@@ -33,9 +33,11 @@ const Index = (props: Props) => {
 
   const { browserWidth, browserHeight } = useWindowDimensions();
 
+  const { isMobile } = useDeviceContext();
+
   // Set default settings depending on device type
   const defaultSettings =
-    props.isDeviceMobile
+    isMobile
       ? {
         x: 0,
         y: Math.ceil(browserHeight / 4),
@@ -172,7 +174,7 @@ const Index = (props: Props) => {
         )}
       >
         <WindowTitleBar
-          className={`${props.titleBarClassName ? props.titleBarClassName : ''}`}
+          className={`${props.titleBarClassName ?? ''}`}
           label={props.label}
           icon={props.icon}
           id={props.id}
