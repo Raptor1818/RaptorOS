@@ -4,10 +4,10 @@
 
 ### Using the T3 Stack with:
 - Next.js 15, 
-- React 19, 
+- React 18, 
 - Typescript, 
 - TailwindCSS 
 
 More information and used libraries and packages at https://raptorino.com/?app=About.
 
-## Thank you for checking this out!
+## Thank you for checking my project out!
