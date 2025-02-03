@@ -3,6 +3,7 @@ import React, { createContext, useCallback, useContext, useEffect, useState } fr
 import { useRouter, useSearchParams } from 'next/navigation';
 import { appList, type vAppType } from '@/lib/lists/app-list';
 import { shortcutList } from '@/lib/lists/shortcut-list';
+import { useDeviceContext } from '../DeviceProvider/device-provider';
 
 export interface AppWindowType {
   id: string;
@@ -28,12 +29,10 @@ interface WindowProviderType {
   bringToFront: (id: string) => void;
   getWindowById: (id: string) => AppWindowType | undefined;
   getAppById: (id: string) => AppWindowType | undefined;
-  isDeviceMobile: boolean;
 }
 
 interface Props {
   children: React.ReactNode;
-  isDeviceMobileProp: boolean;
 }
 
 const WindowContext = createContext<WindowProviderType | undefined>(undefined);
@@ -44,6 +43,8 @@ const WindowProvider = (props: Props) => {
   const [windows, setWindows] = useState<AppWindowType[]>([]) // List of all open windows
   const [zIndexList, setZIndexList] = useState<string[]>([]); // zIndex list for correct window layer ordering
   const [focusedWindowId, setFocusedWindowId] = useState<string | null>(null); // What window is in focus right now
+
+  const { isMobile } = useDeviceContext();
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -153,12 +154,6 @@ const WindowProvider = (props: Props) => {
     }
   }, []);
 
-  const [isDeviceMobile, setIsDeviceMobile] = useState(props.isDeviceMobileProp);
-
-  useEffect(() => {
-    setIsDeviceMobile(props.isDeviceMobileProp);
-  }, [props.isDeviceMobileProp]);
-
   return (
     <WindowContext.Provider
       value={{
@@ -173,7 +168,6 @@ const WindowProvider = (props: Props) => {
         bringToFront,
         getWindowById,
         getAppById,
-        isDeviceMobile,
       }}
     >
       {props.children}

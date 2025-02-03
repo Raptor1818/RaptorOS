@@ -9,8 +9,8 @@ export const frameworks: ListItem[] = [
     url: 'https://nextjs.org',
   },
   {
-    name: 'React 19',
-    url: 'https://19.react.dev/',
+    name: 'React 18',
+    url: 'https://react.dev/',
   },
   {
     name: 'Typescript',

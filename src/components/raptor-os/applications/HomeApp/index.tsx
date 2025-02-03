@@ -42,11 +42,11 @@ const HomeApp = (_props: Props) => {
             </h1>
           </div>
         </TextFade>
-        <h2>Hi! I&apos;m Francesco, this is my main project.</h2>
+        <h2>Hi! I&apos;m Francesco, this is my personal website.</h2>
         <h4 className='!font-normal !text-lg'>I am a web and game developer, passionate gamer and metalhead.</h4>
-        <h4 className='!font-normal !text-lg'>I&apos;ll make the project app to show off some of my work as soon&#8482; as I can.</h4>
+        {/* <h4 className='!font-normal !text-lg'>I&apos;ll make the project app to show off some of my work as soon&#8482; as I can.</h4> */}
       </div>
-      <div className='mt-8'>
+      <div className='mt-2'>
         <h4 className='!font-normal !mb-4'>This website is made to resemble a <b>desktop environment</b>.</h4>
         <p>You can drag, resize, minimize and close windows. More apps will come as they are added.</p>
         <p>Some things like the wallpaper and the settings are stored in the cache, so they will persist after reloading the page.</p>
@@ -54,7 +54,7 @@ const HomeApp = (_props: Props) => {
           <Settings size={22} />
           <p>Check out the <a onClick={handleOpenSettingsApp}>settings</a> app to tweak some styles, and the <a onClick={handleOpenWallpaperApp}>wallpaper</a> app to change the background.</p>
         </div>
-        <h3 className='mt-4'>Enjoy!!</h3>
+        <h3 className='mt-4'>Enjoy and thank you for visiting!!</h3>
       </div>
       <footer className='mt-8'>
         <div className='flex flex-row gap-2'>
