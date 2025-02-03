@@ -1,4 +1,5 @@
 import AboutApp from "@/components/raptor-os/applications/AboutApp";
+import Bloswordy from "@/components/raptor-os/applications/Bloswordy";
 import HomeApp from "@/components/raptor-os/applications/HomeApp";
 import SettingsApp from "@/components/raptor-os/applications/SettingsApp";
 import WallpaperApp from "@/components/raptor-os/applications/WallpaperApp";
@@ -50,4 +51,18 @@ export const appList: vAppType[] = [
     },
     appContent: <SettingsApp />
   },
+  {
+    id: generateRandomId(),
+    label: "Bloswordy",
+    icon: iconPath + 'bloswordy.ico',
+    startupDimensions: {
+      width: 1282,
+      height: 774
+    },
+    maxDimensions: {
+      width: 1282,
+      height: 774
+    },
+    appContent: <Bloswordy />
+  }
 ]
