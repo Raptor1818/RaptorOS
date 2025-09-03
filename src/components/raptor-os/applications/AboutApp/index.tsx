@@ -1,7 +1,7 @@
 import React from 'react'
 import AppWrapper from '../AppWrapper'
 import Divider from '@/components/ui/divider'
-import { frameworks, libraries, other } from '@/lib/lists/about-lists'
+import { frameworks, libraries, other, packages } from '@/lib/lists/about-lists'
 import { TextFade } from '@/components/ui/TextFade'
 import { Construction, Github, Heart, Info } from 'lucide-react'
 
@@ -23,11 +23,11 @@ const AboutApp = (_props: Props) => {
           </h1>
         </div>
       </TextFade>
-      <div className='flex flex-row items-start gap-2'>
+      {/* <div className='flex flex-row items-start gap-2'>
         <Construction color='#eab308' size={32} />
         <h3 className='!text-yellow-500'>This website is still WIP.</h3>
-      </div>
-      <a className='flex flex-row gap-2' href="https://github.com/Raptor1818/RaptorOS"><Github color='#3b82f6' />The source code is available on Github</a>
+      </div> */}
+      <a className='flex flex-row justify-center gap-2 text-xl' href="https://github.com/Raptor1818/RaptorOS"><Github color='#3b82f6' />Source code available on Github</a>
       <div className='flex flex-col justify-center w-full mt-8'>
         <h3 className='text-center'>Technologies:</h3>
         <div className='flex flex-col md:flex-row gap-4 md:gap-0 md:justify-evenly w-full'>
@@ -56,7 +56,7 @@ const AboutApp = (_props: Props) => {
           <div className='flex flex-col'>
             <h4>Packages:</h4>
             <ul>
-              {libraries.map((packages) => (
+              {packages.map((packages) => (
                 <li key={packages.name}>
                   <a href={packages.url}>{packages.name}</a>
                 </li>
